@@ -1,0 +1,38 @@
+
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
+    TNPG: Ratolotls 
+    
+//=============================================================================//
+5/22/2022
+TIME SPENT: 1hr 
+
+* Got basic classes and their instance vars down (Pomenon, Player, etc.)
+* Set up inheritance stuff
+* Established working TODO List 
+
+TODO LIST:
+
+* Create class called Moves
+* Pomenons needs an ArrayList<Moves> 
+* Player needs an ArrayList<Items> 
+*  Within Pomenon class: 
+  public boolean attack(Pomenon me, Pomenon enemy )
+  public boolean checkDead() - returns true if dead because 0 health 
+* A Game class and a Woo file that runs the actual game 
+* Set up battle method within 
+
+IDEAS: 
+
+* Display class which will display the map and control refreshing the display with each character move 
+* Perhaps a display map (2D array) and a display battle class for better separation of displays
+* Find a way to generate the map using text input within txt file like with the mazes
+
+* Player can have a team of up to 6 Pomenons. 
+
+//=============================================================================//
