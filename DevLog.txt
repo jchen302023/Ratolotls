@@ -6,39 +6,53 @@
   \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
-    TNPG: Ratolotls 
-    
+    TNPG: Ratolotls
+
 //=============================================================================//
 5/22/2022
-TIME SPENT: 1hr 
+TIME SPENT: 1hr
 
 * Got basic classes and their instance vars down (Pomenon, Player, etc.)
 * Set up inheritance stuff
-* Established working TODO List 
+* Established working TODO List
 
 TODO LIST:
 
 * Create class called Moves
-* Pomenons needs an ArrayList<Moves> 
-* Player needs an ArrayList<Items> 
-*  Within Pomenon class: 
+* Pomenons needs an ArrayList<Moves>
+* Player needs an ArrayList<Items>
+*  Within Pomenon class:
   public boolean attack(Pomenon me, Pomenon enemy )
-  public boolean checkDead() - returns true if dead because 0 health 
-* A Game class and a Woo file that runs the actual game 
-* Set up battle method within 
+  public boolean checkDead() - returns true if dead because 0 health
+* A Game class and a Woo file that runs the actual game
+* Set up battle method within
 
-IDEAS: 
+IDEAS:
 
-* Display class which will display the map and control refreshing the display with each character move 
+* Display class which will display the map and control refreshing the display with each character move
 * Perhaps a display map (2D array) and a display battle class for better separation of displays
 * Find a way to generate the map using text input within txt file like with the mazes
 
-* Player can have a team of up to 6 Pomenons. 
+* Player can have a team of up to 6 Pomenons.
 
 //=============================================================================//
 5/23/2022
-TIME SPENT: 1hr 
+TIME SPENT: 1hr
 
 * Got PomType and Moves up and running :)
-* Implemented a simple attack (maybe we can extend it more in future) 
-* dammit we had homework. 
+* Implemented a simple attack (maybe we can extend it more in future)
+* dammit we had homework.
+
+TODO:
+
+* Create Game file with Battle method in it
+* Battle method uses Pokemon attack and check is checkDead
+* Change the attack so that it takes into the account of the type of the move and not the
+type of the pokemon. So isWeakness uses the type of the move instead of the type of the attacking Pokemon
+    * Small side chore is to change the Moves.java to include TYpe as a variable
+* Create methods that call the Team for the pomenons int the form of a LList
+* Try to figure our how thread.sleep works so that we can use it in our final project
+
+//=============================================================================//
+5/24/2022
+TIME SPENT:
