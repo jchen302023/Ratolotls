@@ -56,3 +56,5 @@ type of the pokemon. So isWeakness uses the type of the move instead of the type
 //=============================================================================//
 5/24/2022
 TIME SPENT:
+
+* Change the moves to have a type and for isWeakness to take into account the type of the move 

@@ -9,7 +9,7 @@ private PomType moveType;
 public Moves(String mName, int mDamage, PomType mType){
   moveName = mName;
   moveDamage = mDamage;
-  moveType = myType; 
+  moveType = mType; 
 }
 // ACCESSORS
 

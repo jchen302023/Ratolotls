@@ -8,8 +8,8 @@ public class Pomenon {
   private int health;
   private int level;
   private int experience;
-  private ArrayList<Moves> moves; 
-  
+  private ArrayList<Moves> moves;
+
   //wat else
 
 //overload
@@ -32,7 +32,7 @@ public class Pomenon {
   public PomType getType(){
     return type;
   }
-  
+
   public ArrayList<String> getWeaknesses(){
     return type.getWeaknesses();
   }
@@ -48,9 +48,9 @@ public class Pomenon {
   public int getXP() {
     return experience;
   }
-  
+
   public ArrayList<Moves> getMoves() {
-    return moves; 
+    return moves;
   }
 
   public String setName(String newName){
@@ -62,7 +62,7 @@ public class Pomenon {
 //no need for set type because type should not be changed
 
   public Moves addMove(Moves newMove){
-    this.moves.add(newMove); 
+    this.moves.add(newMove);
     return newMove;
   }
 
@@ -89,17 +89,17 @@ public class Pomenon {
       PomType myType = this.type;
       PomType enemyType = enemy.getType();
         int damage = myMove.getMoveDamage();
-        
-      if(isWeakness(myType, enemyType)){
-        damage = (int) (damage * 1.5);  
+
+      if(isWeakness(myMove.getMoveType(), enemyType)){
+        damage = (int) (damage * 1.5);
       }
-      
+
       enemy.setHealth(enemy.getHealth() - damage);
       return true;
   }
-  
+
   public boolean isWeakness(PomType myType, PomType enemyType) { //myType is a weakness of enemyType
-    //my move does extra damage to enemy 
+    //my move does extra damage to enemy
       for(String t : enemyType.getWeaknesses()) {
         if (t.equals(myType.getTypeName())){
           return true;
@@ -109,7 +109,7 @@ public class Pomenon {
   }
 
   public boolean checkDead() {
-    return health <= 0; 
+    return health <= 0;
   }
 
 
