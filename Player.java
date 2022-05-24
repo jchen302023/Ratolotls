@@ -50,10 +50,10 @@ public class Player {
 
   // TESTCASE
   public static void main(String[] args){
-    Player me = new Player("Duke", 0); 
-    AxoMonPom axo = new AxoMonPom("Axomon", "Water", 25, 1, 0);
-    me.addPomenon(axo);
-    System.out.println(me);
+    // Player me = new Player("Duke", 0); 
+    // AxoMonPom axo = new AxoMonPom("Axomon", "Water", 25, 1, 0);
+    // me.addPomenon(axo);
+    // System.out.println(me);
   }
   
   

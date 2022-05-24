@@ -4,22 +4,23 @@ public class Pomenon {
 
   // Instance vars
   private String name;
-  private String type;
+  private PomType type;
   private int health;
   private int level;
   private int experience;
-
-  // private ArrayList<Moves> moves; ** TODO!!
+  private ArrayList<Moves> moves; 
+  
   //wat else
 
 //overload
 //don't forget to add moves to constructor
-  public Pomenon(String pname, String ptype, int phealth, int plevel, int pexperience) {
+  public Pomenon(String pname, PomType ptype, int phealth, int plevel, int pexperience) {
     this.name = pname;
     this.type = ptype;
     this.health = phealth;
     this.level = plevel;
     this.experience = pexperience;
+    moves = new ArrayList<Moves>();
   }
 
   // accessors
@@ -28,8 +29,12 @@ public class Pomenon {
     return name;
   }
 
-  public String getType(){
+  public PomType getType(){
     return type;
+  }
+  
+  public ArrayList<String> getWeaknesses(){
+    return type.getWeaknesses();
   }
 
   public int getHealth(){
@@ -43,6 +48,10 @@ public class Pomenon {
   public int getXP() {
     return experience;
   }
+  
+  public ArrayList<Moves> getMoves() {
+    return moves; 
+  }
 
   public String setName(String newName){
     String ret = this.name;
@@ -51,6 +60,11 @@ public class Pomenon {
   }
 
 //no need for set type because type should not be changed
+
+  public Moves addMove(Moves newMove){
+    this.moves.add(newMove); 
+    return newMove;
+  }
 
   public int setHealth(int newHealth){
     int ret = this.health;
@@ -71,15 +85,33 @@ public class Pomenon {
   }
 
 
-  public boolean attack(Pomenon me, Pomenon enemy ) {
-
+  public boolean attack(Moves myMove, Pomenon enemy) {
+      PomType myType = this.type;
+      PomType enemyType = enemy.getType();
+        int damage = myMove.getMoveDamage();
+        
+      if(isWeakness(myType, enemyType)){
+        damage = (int) (damage * 1.5);  
+      }
+      
+      enemy.setHealth(enemy.getHealth() - damage);
+      return true;
+  }
+  
+  public boolean isWeakness(PomType myType, PomType enemyType) { //myType is a weakness of enemyType
+    //my move does extra damage to enemy 
+      for(String t : enemyType.getWeaknesses()) {
+        if (t.equals(myType.getTypeName())){
+          return true;
+        }
+      }
+      return false;
   }
 
-  /*
-  public boolean checkDead() - returns true if dead because 0 health
-  public
+  public boolean checkDead() {
+    return health <= 0; 
+  }
 
-*/
 
 
 

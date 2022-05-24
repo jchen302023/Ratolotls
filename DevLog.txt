@@ -36,3 +36,9 @@ IDEAS:
 * Player can have a team of up to 6 Pomenons. 
 
 //=============================================================================//
+5/23/2022
+TIME SPENT: 1hr 
+
+* Got PomType and Moves up and running :)
+* Implemented a simple attack (maybe we can extend it more in future) 
+* dammit we had homework. 
