@@ -58,7 +58,7 @@ public class AxoMonPom extends Pomenon {
 
     while (!(Pom.checkDead())){
       Raticate.attack(FireBlast, Pom);
-      System.out.println("dying axo: "+ Pom.getHealth());
+      System.out.println("dying " + Pom.getName() + ": "+ Pom.getHealth());
 
     }
 
