@@ -58,3 +58,8 @@ type of the pokemon. So isWeakness uses the type of the move instead of the type
 TIME SPENT:
 
 * Change the moves to have a type and for isWeakness to take into account the type of the move 
+* Start working in the Game file... 
+
+TODO:
+* Continue working on Battle() and the Pomenon Team in Player.java 
+* Possible idea: add stats to our Pomenons like speed, attack, defense 

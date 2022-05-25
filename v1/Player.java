@@ -1,13 +1,11 @@
 import java.util.ArrayList; // import the ArrayList class
-import java.util.*;
 
 public class Player {
   
   // INSTANCEVARS
   
   private String playerName;
-  private ArrayList<Pomenon> playerPomenons; // all the pomenons that you have caught
-  private ArrayList<Pomenon> playerTeam; // the pomenons you selected to put on your team
+  private ArrayList<Pomenon> playerPomenons;
   // TODO private ArrayList<Items> bag;
   private int balance; //moneymoney chaching 
 
@@ -17,35 +15,12 @@ public class Player {
     this.playerName = pplayerName;
     this.balance = pbalance; 
     playerPomenons = new ArrayList<Pomenon>(); 
-    playerTeam = new ArrayList<Pomenon>(); //max 3 poms
   }
-  
-  //TEAM SHENNANIGANS 
 
-  public Pomenon addPomenon(Pomenon newPom) {
-    this.playerPomenons.add(newPom);
-    return newPom; 
+  public Pomenon addPomenon(Pomenon newMember) {
+    this.playerPomenons.add(newMember);
+    return newMember; 
   }
-  
-  public boolean addTeam(Pomenon newPom) {
-    int teamCap = 3; 
-    if (playerTeam.size() == teamCap) {
-      System.out.println("Don't got no space for this one");
-      return false;
-    }
-    else {
-      playerTeam.add(newPom);
-    }
-    return true;
-  }
-  
-  public boolean swapTeam(int position, Pomenon newPom) {
-    addPomenon(playerTeam.remove(position));
-    playerTeam.add(position, newPom);  
-    return true; 
-  }
-  
-  
   
   // ACCESSORS
   
@@ -57,10 +32,6 @@ public class Player {
   }
   public ArrayList<Pomenon> getPlayerPomenons() {
     return playerPomenons; 
-  }
-  
-  public ArrayList<Pomenon> getPlayerTeam(){
-    return playerTeam;
   }
   
 // STRING PRINT PLAYER 
