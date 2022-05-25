@@ -1,4 +1,34 @@
 
+Team BrainForked: Gloria Lee, Jack Chen, Kevin Cheng
+APCS pd08
+FP: Show Us What You Got
+2022-06-??
+time spent: 3h
+
+
+
+OBSTACLES OVERCOME:
+- How to use input file to generate map (haha assuming we figure this out...)
+- Figuring out how to use the type system in an effishient/logical way
+
+UNRESOLVED ISSUES:
+- WHERE MAIN METHOD? WHEN CAN I PLAY? - frustrated player
+
+COOL STUFF LEARNED:
+- clown nose in processing
+- more to come...
+
+MID DEVELOPMENT GAME DESIGN CHANGES:
+- Changed the Type to belong to Moves instead of Pomenons themselves.
+
+LESSONS LEARNED:
+- Always a good idea to have consistent variable names! For ease of understanding!
+- How to use scanner to create map.
+- Clown nose go brrrr
+
+
+
+
  ______   ______   __   __   __       ______   _______
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
 \:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
@@ -8,6 +38,26 @@
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
     TNPG: Ratolotls
 
+    TODO LIST:
+
+    
+
+    * Display class which will display the map and control refreshing the display with each character move
+    * Perhaps a display map (2D array) and a display battle class for better separation of displays
+    * Find a way to generate the map using text input within txt file like with the mazes
+
+
+
+
+    * Create class called Moves
+    * Pomenons needs an ArrayList<Moves>
+    * Player needs an ArrayList<Items>
+    *  Within Pomenon class:
+      public boolean attack(Pomenon me, Pomenon enemy )
+      public boolean checkDead() - returns true if dead because 0 health
+    * A Game class and a Woo file that runs the actual game
+    * Set up battle method within
+
 //=============================================================================//
 5/22/2022
 TIME SPENT: 1hr
@@ -16,24 +66,8 @@ TIME SPENT: 1hr
 * Set up inheritance stuff
 * Established working TODO List
 
-TODO LIST:
 
-* Create class called Moves
-* Pomenons needs an ArrayList<Moves>
-* Player needs an ArrayList<Items>
-*  Within Pomenon class:
-  public boolean attack(Pomenon me, Pomenon enemy )
-  public boolean checkDead() - returns true if dead because 0 health
-* A Game class and a Woo file that runs the actual game
-* Set up battle method within
 
-IDEAS:
-
-* Display class which will display the map and control refreshing the display with each character move
-* Perhaps a display map (2D array) and a display battle class for better separation of displays
-* Find a way to generate the map using text input within txt file like with the mazes
-
-* Player can have a team of up to 6 Pomenons.
 
 //=============================================================================//
 5/23/2022
@@ -57,9 +91,9 @@ type of the pokemon. So isWeakness uses the type of the move instead of the type
 5/24/2022
 TIME SPENT:
 
-* Change the moves to have a type and for isWeakness to take into account the type of the move 
-* Start working in the Game file... 
+* Change the moves to have a type and for isWeakness to take into account the type of the move
+* Start working in the Game file...
 
 TODO:
-* Continue working on Battle() and the Pomenon Team in Player.java 
-* Possible idea: add stats to our Pomenons like speed, attack, defense 
+* Continue working on Battle() and the Pomenon Team in Player.java
+* Possible idea: add stats to our Pomenons like speed, attack, defense
