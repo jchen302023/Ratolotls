@@ -63,19 +63,42 @@ public class Player {
     return playerTeam;
   }
   
+  //MUTATORS
+
+	public void addPomenon( Pomenon pokemon ) {
+	       this.playerPomeonons.add( pokemon );
+	}
+	
 // STRING PRINT PLAYER 
 
   public String toString(){
     String s = "";
-    s+= "Name: "+ this.playerName;
-    s+= "\nBalance: "+ this.balance;
-    for(Pomenon p:playerPomenons){
-      s+= "\nPomenons: "; 
-      s+= "\n" + p.getName();
-      //add more stuff later
-    }
+    s += "Name: "+ this.playerName + "\n";
+    s += "Balance: "+ this.balance + "\n";
+    s += "Team:\n"
+    for( int i = 1; i < this.playerPomenons.size() || i < 7; i++ ) {
+      s += "Member" + i + ": " + this.playerPomenons.get(i).getName() + "\n";
+    } //add more stuff later
     return s;
   }
+
+	public String listPomenons() {
+		if ( this.playerPomenons.isEmpty() )
+			return "Your team is empty.";
+		String list = "TEAM:\n";
+		for ( i = 0; i < this.playerPomenons.size(); i++ ) {
+			if ( i = 6 )
+				list += "\nINVENORY:\n";
+			list += this.playerPomenons.get(i).getName();
+		}
+		return list;
+	}
+
+	public Pomenon releasePomenon( int pokemon ) {
+		if ( this.playerPomenons.isEmpty() )
+			return null;
+		return this.playerPomenons.remove( pokemon );
+	}
 
   // TESTCASE
   public static void main(String[] args){
