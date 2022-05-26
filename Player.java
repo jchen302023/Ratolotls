@@ -2,33 +2,33 @@ import java.util.ArrayList; // import the ArrayList class
 import java.util.*;
 
 public class Player {
-  
+
   // INSTANCEVARS
-  
+
   private String playerName;
   private ArrayList<Pomenon> playerPomenons; // all the pomenons that you have caught
   private ArrayList<Pomenon> playerTeam; // the pomenons you selected to put on your team
   // TODO private ArrayList<Items> bag;
-  private int balance; //moneymoney chaching 
+  private int balance; //moneymoney chaching
 
   // CONSTRUCTORS
-  
+
   public Player(String pplayerName, int pbalance) {
     this.playerName = pplayerName;
-    this.balance = pbalance; 
-    playerPomenons = new ArrayList<Pomenon>(); 
+    this.balance = pbalance;
+    playerPomenons = new ArrayList<Pomenon>();
     playerTeam = new ArrayList<Pomenon>(); //max 3 poms
   }
-  
-  //TEAM SHENNANIGANS 
+
+  //TEAM SHENNANIGANS
 
   public Pomenon addPomenon(Pomenon newPom) {
     this.playerPomenons.add(newPom);
-    return newPom; 
+    return newPom;
   }
-  
+
   public boolean addTeam(Pomenon newPom) {
-    int teamCap = 3; 
+    int teamCap = 3;
     if (playerTeam.size() == teamCap) {
       System.out.println("Don't got no space for this one");
       return false;
@@ -38,44 +38,44 @@ public class Player {
     }
     return true;
   }
-  
+
   public boolean swapTeam(int position, Pomenon newPom) {
     addPomenon(playerTeam.remove(position));
-    playerTeam.add(position, newPom);  
-    return true; 
+    playerTeam.add(position, newPom);
+    return true;
   }
-  
-  
-  
+
+
+
   // ACCESSORS
-  
+
   public String getPlayerName() {
-    return playerName; 
+    return playerName;
   }
   public int getBalance() {
-    return balance; 
+    return balance;
   }
   public ArrayList<Pomenon> getPlayerPomenons() {
-    return playerPomenons; 
+    return playerPomenons;
   }
-  
+
   public ArrayList<Pomenon> getPlayerTeam(){
     return playerTeam;
   }
-  
+
   //MUTATORS
 
 	public void addPomenon( Pomenon pokemon ) {
 	       this.playerPomeonons.add( pokemon );
 	}
-	
-// STRING PRINT PLAYER 
+
+// STRING PRINT PLAYER
 
   public String toString(){
     String s = "";
     s += "Name: "+ this.playerName + "\n";
     s += "Balance: "+ this.balance + "\n";
-    s += "Team:\n"
+    s += "Team:\n";
     for( int i = 1; i < this.playerPomenons.size() || i < 7; i++ ) {
       s += "Member" + i + ": " + this.playerPomenons.get(i).getName() + "\n";
     } //add more stuff later
@@ -102,11 +102,11 @@ public class Player {
 
   // TESTCASE
   public static void main(String[] args){
-    // Player me = new Player("Duke", 0); 
+    // Player me = new Player("Duke", 0);
     // AxoMonPom axo = new AxoMonPom("Axomon", "Water", 25, 1, 0);
     // me.addPomenon(axo);
     // System.out.println(me);
   }
-  
-  
+
+
 }

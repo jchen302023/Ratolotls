@@ -78,6 +78,10 @@ public class Map{
      return retStr;
    }
 
+   public static int placePlayer(int row, int columns) {
+     _maze[row][columns] = "@";
+
+   }
 
    public static void main(String[] args){
      // String mazeInputFile = null;
@@ -99,6 +103,7 @@ public class Map{
      Map mappy = new Map(text);
        System.out.println( "[2J" );
      System.out.println(mappy);
+     placePlayer(5,5);
    }
 
 }
