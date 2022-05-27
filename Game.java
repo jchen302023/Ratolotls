@@ -46,11 +46,11 @@ public class Game {
    return false;
  }
 
-
- public void inputMove(Pomenon pompom){
-      Scanner player = new Scanner(System.in);
-   System.out.println("You would like to: ");
-   System.out.println();
- }
+ // 
+ // public void inputMove(Pomenon pompom){
+ //      Scanner player = new Scanner(System.in);
+ //   System.out.println("You would like to: ");
+ //   System.out.println();
+ // }
 
 }

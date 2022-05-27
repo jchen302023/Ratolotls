@@ -8,7 +8,7 @@ public class Map{
 
   private char[][] _maze;
   public int height, width; // height, width of maze
-
+  private int initRow, initColumn;
 
   //~~~~~~~~~~~~~  L E G E N D  ~~~~~~~~~~~~~
    final private char PLAYER =           '@';
@@ -78,9 +78,27 @@ public class Map{
      return retStr;
    }
 
-   public static int placePlayer(int row, int columns) {
-     _maze[row][columns] = "@";
+   public void placePlayer(int row, int columns) {
+     System.out.println("placing");
+     this._maze[row][columns] = '@';
 
+   }
+
+   public char playerMove(int startRow, int startColumn) {
+    Scanner userIn = new Scanner(System.in);  // Create a Scanner object
+
+    char moveKey = userIn.nextLine().charAt(0);
+
+    System.out.println(moveKey);
+     int compareW = Character.compare(moveKey, 'w');
+    if (compareW == 0) {
+      this.placePlayer(startRow + 1, startColumn);
+
+    } // do four times for each direction key
+
+
+return moveKey;
+  //  if (moveKey =
    }
 
    public static void main(String[] args){
@@ -103,7 +121,13 @@ public class Map{
      Map mappy = new Map(text);
        System.out.println( "[2J" );
      System.out.println(mappy);
-     placePlayer(5,5);
+     mappy.placePlayer(5,5);
+     System.out.println( "[2J" );
+   System.out.println(mappy);
+   mappy.playerMove(5, 5);
+   System.out.println( "[2J" );
+ System.out.println(mappy);
+
    }
 
 }

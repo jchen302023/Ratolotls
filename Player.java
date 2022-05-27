@@ -65,9 +65,7 @@ public class Player {
 
   //MUTATORS
 
-	public void addPomenon( Pomenon pokemon ) {
-	       this.playerPomeonons.add( pokemon );
-	}
+
 
 // STRING PRINT PLAYER
 
@@ -86,8 +84,8 @@ public class Player {
 		if ( this.playerPomenons.isEmpty() )
 			return "Your team is empty.";
 		String list = "TEAM:\n";
-		for ( i = 0; i < this.playerPomenons.size(); i++ ) {
-			if ( i = 6 )
+		for (int  i = 0; i < this.playerPomenons.size(); i++ ) {
+			if ( i == 3 ) //3 or 6?
 				list += "\nINVENTORY:\n";
 			list += this.playerPomenons.get(i).getName();
 		}
