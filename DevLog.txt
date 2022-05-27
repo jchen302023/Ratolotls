@@ -49,12 +49,12 @@ LESSONS LEARNED:
 
 
 
-    * Create class called Moves
-    * Pomenons needs an ArrayList<Moves>
-    * Player needs an ArrayList<Items>
+    * Create class called Moves ☑
+    * Pomenons needs an ArrayList<Moves> ☑
+    * Player needs an ArrayList<Items> ☑
     *  Within Pomenon class:
-      public boolean attack(Pomenon me, Pomenon enemy )
-      public boolean checkDead() - returns true if dead because 0 health
+      public boolean attack(Pomenon me, Pomenon enemy ) ☑
+      public boolean checkDead() - returns true if dead because 0 health ☑
     * A Game class and a Woo file that runs the actual game
     * Set up battle method within
 
@@ -65,7 +65,6 @@ TIME SPENT: 1hr
 * Got basic classes and their instance vars down (Pomenon, Player, etc.)
 * Set up inheritance stuff
 * Established working TODO List
-
 
 
 
@@ -89,7 +88,7 @@ type of the pokemon. So isWeakness uses the type of the move instead of the type
 
 //=============================================================================//
 5/24/2022
-TIME SPENT:
+TIME SPENT: 1hr
 
 * Change the moves to have a type and for isWeakness to take into account the type of the move
 * Start working in the Game file...
@@ -97,3 +96,17 @@ TIME SPENT:
 TODO:
 * Continue working on Battle() and the Pomenon Team in Player.java
 * Possible idea: add stats to our Pomenons like speed, attack, defense
+
+//=============================================================================//
+5/24/2022
+TIME SPENT:
+
+* In class, we updated Map.java so it can scan input files as maps 
+* Working on UML diagrams, debugging Player.java later
+
+TODO:
+* Debug Player.java
+* Work on Map.java
+  * Make player appear on maps
+  * Make player able to move around on the map as it updates in the terminal 
+* Consider possibility of graphics? 

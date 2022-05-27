@@ -88,7 +88,7 @@ public class Player {
 		String list = "TEAM:\n";
 		for ( i = 0; i < this.playerPomenons.size(); i++ ) {
 			if ( i = 6 )
-				list += "\nINVENORY:\n";
+				list += "\nINVENTORY:\n";
 			list += this.playerPomenons.get(i).getName();
 		}
 		return list;
