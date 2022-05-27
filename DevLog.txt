@@ -40,7 +40,7 @@ LESSONS LEARNED:
 
     TODO LIST:
 
-    
+
 
     * Display class which will display the map and control refreshing the display with each character move
     * Perhaps a display map (2D array) and a display battle class for better separation of displays
@@ -101,15 +101,15 @@ TODO:
 5/25/2022
 TIME SPENT: 1 hr
 
-* In class, we updated Map.java so it can scan input files as maps 
+* In class, we updated Map.java so it can scan input files as maps
 * Working on UML diagrams, debugging Player.java later
 
 TODO:
 * Debug Player.java
 * Work on Map.java
   * Make player appear on maps
-  * Make player able to move around on the map as it updates in the terminal 
-* Consider possibility of graphics? 
+  * Make player able to move around on the map as it updates in the terminal
+* Consider possibility of graphics?
 
 //=============================================================================//
 5/26/2022
@@ -123,3 +123,12 @@ TIME SPENT: 1hr
 TODO:
 * user moves go brrr
 * why static nonstatic error >:(
+
+//=============================================================================//
+5/27/2022
+TIME SPENT: 1 hr
+
+* In class, we worked on taking user input to move the player character.
+* We got it to work! But now,
+* we have to solve the issue of how to revert the player's old spot to original map ....
+* grass grass grass bby
