@@ -98,8 +98,8 @@ TODO:
 * Possible idea: add stats to our Pomenons like speed, attack, defense
 
 //=============================================================================//
-5/24/2022
-TIME SPENT:
+5/25/2022
+TIME SPENT: 1 hr
 
 * In class, we updated Map.java so it can scan input files as maps 
 * Working on UML diagrams, debugging Player.java later
@@ -110,3 +110,16 @@ TODO:
   * Make player appear on maps
   * Make player able to move around on the map as it updates in the terminal 
 * Consider possibility of graphics? 
+
+//=============================================================================//
+5/26/2022
+TIME SPENT: 1hr
+
+* In class, we updated Map.java so that it doesn't require input from the terminal to scan a map. Instead,
+ it now scans the same file every time so we can run Map without specifying which map :)
+* Worked on the details of how player moves would work. Input? Static vs nonstatic? Errors abound...
+* At home, worked together on completing UML diagrams
+
+TODO:
+* user moves go brrr
+* why static nonstatic error >:(
