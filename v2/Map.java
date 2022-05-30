@@ -33,8 +33,8 @@ public class Map{
      _maze = new char[1000][1000];
      height = 0;
      width = 0;
-     initRow = 5;
-     initColumn = 5;
+     initRow = 9;
+     initColumn = 13;
      originalTile = 'S';
      //transcribe maze from file into memory
      try {
@@ -193,7 +193,7 @@ return moveKey;
    public static void main(String[] args){
   
 
-     File text = new File("map1.map");
+     File text = new File("map2.map");
 
 
      Map mappy = new Map(text);

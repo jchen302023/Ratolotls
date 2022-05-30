@@ -30,11 +30,11 @@ public class Map{
    {
      // init 2D array to represent maze
      // (80x25 is default terminal window size)
-     _maze = new char[1000][1000];
+     _maze = new char[10000][10000];
      height = 0;
      width = 0;
-     initRow = 5;
-     initColumn = 5;
+     initRow = 15;
+     initColumn = 8;
      originalTile = 'S';
      //transcribe maze from file into memory
      try {
@@ -193,7 +193,7 @@ return moveKey;
    public static void main(String[] args){
   
 
-     File text = new File("map1.map");
+     File text = new File("map2.map");
 
 
      Map mappy = new Map(text);
