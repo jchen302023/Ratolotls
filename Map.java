@@ -9,7 +9,7 @@ public class Map{
   private char[][] _maze;
   public int height, width; // height, width of maze
   private int initRow, initColumn;
-
+  private char originalTile;
   //~~~~~~~~~~~~~  L E G E N D  ~~~~~~~~~~~~~
    final private char PLAYER =           '@';
    final private char GRASS =           '#';
@@ -18,16 +18,24 @@ public class Map{
    final private char WALLVert =           '|';
    final private char WALLHor =         '_';
    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   
+   
+   public static final String ANSI_RESET = "\u001B[0m";
+   public static final String ANSI_YELLOW = "\u001B[33m";
+   public static final String ANSI_GREEN = "\u001B[32m";
+   public static final String ANSI_RED = "\u001B[31m";
 
 
    public Map( File inputFile )
    {
      // init 2D array to represent maze
      // (80x25 is default terminal window size)
-     _maze = new char[200][100];
+     _maze = new char[1000][1000];
      height = 0;
      width = 0;
-
+     initRow = 5;
+     initColumn = 5;
+     originalTile = 'S';
      //transcribe maze from file into memory
      try {
        Scanner sc = new Scanner( inputFile );
@@ -71,63 +79,135 @@ public class Map{
 //System.out.println("Why ");
      int i, j;
      for( i=0; i<height; i++ ) {
-       for( j=0; j<width; j++ )
-         retStr = retStr + _maze[j][i];
+       for( j=0; j<width; j++ ){
+         if(Character.compare(_maze[j][i], '#')==0){
+           retStr = retStr + ANSI_GREEN + _maze[j][i] + ANSI_RESET;
+         }else if(Character.compare(_maze[j][i],'@') == 0){
+           retStr = retStr + ANSI_RED + _maze[j][i] + ANSI_RESET;
+         } else{
+           
+             retStr = retStr + _maze[j][i];
+         }
+            
+       }
+    
        retStr = retStr + "\n";
      }
      return retStr;
    }
 
-   public void placePlayer(int row, int columns) {
+//ret true if successful
+   public boolean placePlayer(int row, int columns) {
+  
+  
      System.out.println("placing");
-     this._maze[row][columns] = '@';
-
+     if(Character.compare(this._maze[row][columns], '|') != 0){
+       if(Character.compare(this._maze[row][columns], '_') != 0){
+         if(Character.compare(this._maze[row][columns], '$') != 0){
+           this._maze[initRow][initColumn]= originalTile; 
+             originalTile = this._maze[row][columns];
+          // this.initRow = row;
+           //this.initColumn = columns;
+            this._maze[row][columns] = '@';
+            return true;
+         }       
+       }              
+   }
+   return false;
+   
+ }
+ 
+ 
+// ACCESSORS
+   public int getInitRow(){
+     return this.initRow;
    }
 
-   public char playerMove(int startRow, int startColumn) {
+   public int getInitCol(){
+     return this.initColumn;
+   }
+
+   public int getPrev(){
+     return this.originalTile;
+   }
+
+
+   public char playerMove() {
+     
+     //char originalTileUp = this._maze[initRow][initColumn - 1]; 
+    // char originalTileLeft = this._maze[initRow - 1][initColumn]; 
+    // char originalTileDown = this._maze[initRow][initColumn + 1]; 
+    // char originalTileRight = this._maze[initRow + 1][initColumn]; 
+    
     Scanner userIn = new Scanner(System.in);  // Create a Scanner object
+    System.out.println(initRow);
+    System.out.println(initColumn);
+   System.out.println(originalTile); 
 
     char moveKey = userIn.nextLine().charAt(0);
 
     System.out.println(moveKey);
+
+    
      int compareW = Character.compare(moveKey, 'w');
     if (compareW == 0) {
-      this.placePlayer(startRow + 1, startColumn);
+    //  this._maze[initRow][initColumn]= originalTile; 
+      if(this.placePlayer(initRow , initColumn - 1 )){
+        //  this._maze[initRow][initColumn]= originalTile; 
+          initColumn -= 1; 
+      } 
+    }  
 
-    } // do four times for each direction key
+    int compareA = Character.compare(moveKey, 'a');
+   if (compareA == 0) {
+//  this._maze[initRow][initColumn]= originalTile; 
+     if(this.placePlayer(initRow - 1, initColumn )){
+        // this._maze[initRow][initColumn]= originalTile; 
+        initRow -= 1;
+     }
+   } 
+   
+   int compareS = Character.compare(moveKey, 's');
+  if (compareS == 0) {
+  //  this._maze[initRow][initColumn]= originalTile;
+    if(this.placePlayer(initRow, initColumn + 1)){
+      //  this._maze[initRow][initColumn]= originalTile; 
+      initColumn += 1; 
+    }
 
-
+  } 
+  
+  int compareD = Character.compare(moveKey, 'd');
+ if (compareD == 0) {
+//this._maze[initRow][initColumn]= originalTile;
+   if(this.placePlayer(initRow + 1, initColumn)){
+       //this._maze[initRow][initColumn]= originalTile; 
+      initRow +=1; 
+   }
+ } 
+ 
 return moveKey;
-  //  if (moveKey =
+  
    }
 
    public static void main(String[] args){
-     // String mazeInputFile = null;
-     // try {
-     //   mazeInputFile = args[0];
-     //   System.out.println("args");
-     // } catch( Exception e ) {
-     //   System.out.println( "Error reading input file." );
-     //   System.out.println( "USAGE:\n $ java Maze path/to/filename" );
-     // }
-     //
-     // if (mazeInputFile == null) { System.out.println("Exit");
-     // System.exit(0); }
-
+  
 
      File text = new File("map1.map");
 
 
      Map mappy = new Map(text);
-       System.out.println( "[2J" );
-     System.out.println(mappy);
-     mappy.placePlayer(5,5);
      System.out.println( "[2J" );
-   System.out.println(mappy);
-   mappy.playerMove(5, 5);
-   System.out.println( "[2J" );
- System.out.println(mappy);
+     System.out.println(mappy);
+    
 
-   }
+   while (true) {
+     //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
+     mappy.playerMove();
+     System.out.println( "[2J" );
+     System.out.println(mappy);
+   } 
+   
+  }
 
 }
