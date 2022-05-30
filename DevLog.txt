@@ -3,7 +3,7 @@ Team BrainForked: Gloria Lee, Jack Chen, Kevin Cheng
 APCS pd08
 FP: Show Us What You Got
 2022-06-??
-time spent: 3h
+time spent: 6 h
 
 
 
@@ -132,3 +132,34 @@ TIME SPENT: 1 hr
 * We got it to work! But now,
 * we have to solve the issue of how to revert the player's old spot to original map ....
 * grass grass grass bby
+
+TODO:
+* reverting old spot once moved on
+* uml diagrams
+
+//=============================================================================//
+5/28/2022
+TIME SPENT: 1hr
+
+* made v2!
+* created baseline code for reverting old tile to what is was before player landed on it
+* code has a few logistics errors, we'll think more about them tmw...
+* worked on map1 to make it bigger/better 
+
+TODO:
+* fixing playerMove buggies 
+* make more maps?
+
+//=============================================================================//
+5/29/2022
+TIME SPENT: 1 hr
+
+* Finally found the reason for the bug after heavy tracing 
+* Player move works successfully now!
+* Expanded on map1 ... added colors!
+
+TODO:
+* make more maps
+* make sure grass works
+* start working on battle system display 
+* start working on catching system?
