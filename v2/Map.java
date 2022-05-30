@@ -35,10 +35,7 @@ public class Map{
      width = 0;
      initRow = 5;
      initColumn = 5;
-<<<<<<< HEAD
      originalTile = 'S';
-=======
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
      //transcribe maze from file into memory
      try {
        Scanner sc = new Scanner( inputFile );
@@ -101,23 +98,16 @@ public class Map{
 
 //ret true if successful
    public boolean placePlayer(int row, int columns) {
-<<<<<<< HEAD
   
   
-=======
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
      System.out.println("placing");
      if(Character.compare(this._maze[row][columns], '|') != 0){
        if(Character.compare(this._maze[row][columns], '_') != 0){
          if(Character.compare(this._maze[row][columns], '$') != 0){
-<<<<<<< HEAD
            this._maze[initRow][initColumn]= originalTile; 
              originalTile = this._maze[row][columns];
           // this.initRow = row;
            //this.initColumn = columns;
-=======
-           
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
             this._maze[row][columns] = '@';
             return true;
          }       
@@ -132,7 +122,6 @@ public class Map{
    public int getInitRow(){
      return this.initRow;
    }
-<<<<<<< HEAD
 
    public int getInitCol(){
      return this.initColumn;
@@ -149,25 +138,6 @@ public class Map{
     // char originalTileLeft = this._maze[initRow - 1][initColumn]; 
     // char originalTileDown = this._maze[initRow][initColumn + 1]; 
     // char originalTileRight = this._maze[initRow + 1][initColumn]; 
-=======
-
-   public int getInitCol(){
-     return this.initColumn;
-   }
-
-   public int getPrev(){
-     return this.originalTile;
-   }
-
-
-   public char playerMove() {
-     
-    originalTile = this._maze[initRow][initColumn]; 
-    char originalTileUp = this._maze[initRow][initColumn - 1]; 
-    char originalTileLeft = this._maze[initRow - 1][initColumn]; 
-    char originalTileDown = this._maze[initRow][initColumn + 1]; 
-    char originalTileRight = this._maze[initRow + 1][initColumn]; 
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
     
     Scanner userIn = new Scanner(System.in);  // Create a Scanner object
     System.out.println(initRow);
@@ -181,42 +151,27 @@ public class Map{
     
      int compareW = Character.compare(moveKey, 'w');
     if (compareW == 0) {
-<<<<<<< HEAD
     //  this._maze[initRow][initColumn]= originalTile; 
       if(this.placePlayer(initRow , initColumn - 1 )){
         //  this._maze[initRow][initColumn]= originalTile; 
-=======
-      this._maze[initRow][initColumn]= originalTileUp; 
-      if(this.placePlayer(initRow , initColumn - 1 )){
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
           initColumn -= 1; 
       } 
     }  
 
     int compareA = Character.compare(moveKey, 'a');
    if (compareA == 0) {
-<<<<<<< HEAD
 //  this._maze[initRow][initColumn]= originalTile; 
      if(this.placePlayer(initRow - 1, initColumn )){
         // this._maze[initRow][initColumn]= originalTile; 
-=======
-    this._maze[initRow][initColumn]= originalTileLeft;
-     if(this.placePlayer(initRow - 1, initColumn )){
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
         initRow -= 1;
      }
    } 
    
    int compareS = Character.compare(moveKey, 's');
   if (compareS == 0) {
-<<<<<<< HEAD
   //  this._maze[initRow][initColumn]= originalTile;
     if(this.placePlayer(initRow, initColumn + 1)){
       //  this._maze[initRow][initColumn]= originalTile; 
-=======
-    this._maze[initRow][initColumn]= originalTileDown;
-    if(this.placePlayer(initRow, initColumn + 1)){
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
       initColumn += 1; 
     }
 
@@ -224,14 +179,9 @@ public class Map{
   
   int compareD = Character.compare(moveKey, 'd');
  if (compareD == 0) {
-<<<<<<< HEAD
 //this._maze[initRow][initColumn]= originalTile;
    if(this.placePlayer(initRow + 1, initColumn)){
        //this._maze[initRow][initColumn]= originalTile; 
-=======
-   this._maze[initRow][initColumn]= originalTileRight;
-   if(this.placePlayer(initRow + 1, initColumn)){
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
       initRow +=1; 
    }
  } 
@@ -252,11 +202,7 @@ return moveKey;
     
 
    while (true) {
-<<<<<<< HEAD
      //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
-=======
-     // mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
->>>>>>> a78c7f8f282da77c393e1ca6d5c6cde912e8cb7d
      mappy.playerMove();
      System.out.println( "[2J" );
      System.out.println(mappy);
