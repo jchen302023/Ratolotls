@@ -97,17 +97,17 @@ public class Player {
 			return null;
 		return this.playerPomenons.remove( pokemon );
 	}
-
-  public void choosePomenon() {
+//FINISHH
+  public int choosePomenon() {
     String s = "";
     s += "Which Pomenon would you like to choose?";
     for (int i = 1; i <= this.getPlayerTeam().size(); i ++) {
-      System.out.println(); 
+      System.out.println();
     }
   }
-  
-  
-  
+
+
+
   // TESTCASE
   public static void main(String[] args){
     // Player me = new Player("Duke", 0);

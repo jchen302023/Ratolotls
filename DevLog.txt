@@ -190,3 +190,17 @@ TODO:
 * Add in attack with each chosen option in choose move! <- yeah!
 * CONTINUE choosePomenon() IN PLAYER!!! DO NOT FORGOR OR FUTURE ME WILL VERY REGRETTI
 * Continue to work on the battle in Game.java
+
+//=============================================================================//
+5/31/2022
+TIME SPENT: 1.5 hr
+
+Gloria and Jack:
+* Fixed up UMLs for relationships.....
+* Successful battle method implementation!
+* Wrote some preliminary code to test our methods.
+
+TODO:
+* add while loop to player input for move to avoid out of bounds errors
+* choosePomenon() method needs work
+* battle display?? 

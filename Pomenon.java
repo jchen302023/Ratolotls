@@ -89,44 +89,61 @@ public class Pomenon {
 
   public int chooseMove(Pomenon me, Pomenon enemy){
     ArrayList<Moves> myMoves = me.getMoves();
-    String s = ""; 
-    int chosen; 
-    
+    String s = "";
+    int chosen;
+
       System.out.println("Please input move: ");
       for(int i = 1; i <= myMoves.size() ; i++){
-        System.out.println(i + " : "+ myMoves.get(i-1) );
+        System.out.println(i + " : "+ myMoves.get(i-1).getMoveName() );
       }
         Scanner userIn = new Scanner(System.in);
     while(true){
       try{
-        
+
         boolean shouldBreak = true;
-       
+
         int moveNum = userIn.nextInt();
         chosen = moveNum;
-        
+
         if(moveNum>4 || moveNum <= 0){
           System.out.println("Try again. Invalid move number. Choose number from 1-4");
           shouldBreak = false;
         }
-        
+
+        if(moveNum == 1){
+          this.attack(myMoves.get(0), enemy);
+        }
+
+        if(moveNum == 2){
+          this.attack(myMoves.get(1), enemy);
+        }
+
+        if(moveNum == 3){
+          this.attack(myMoves.get(2), enemy);
+        }
+        if(moveNum == 4){
+          this.attack(myMoves.get(3), enemy);
+        }
+
+
+
         if(shouldBreak){
           System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
-          
+
           break;
         }
-  
+
       }
       catch(Exception e){
           System.out.println("Invalid move. Re-enter your move.");
-          
-          userIn.nextLine(); 
+
+          userIn.nextLine();
         }
-      
+
     }
 
-    return chosen; 
-    
+    return chosen;
+
   }
 
 
@@ -160,7 +177,20 @@ public class Pomenon {
   }
 
 
-
+public static void main(String[] args){
+  Player meme = new Player("i am a meme", 0);
+  PomType water = new PomType("Water");
+  Pomenon pommy = new Pomenon("pommy", water, 100, 1, 0 );
+  Pomenon enemie = new Pomenon("enemie", water, 100, 1, 0);
+  Moves watergun = new Moves("water gun", 25, water);
+  pommy.addMove(watergun);
+  enemie.addMove(watergun);
+  meme.addTeam(pommy);
+  pommy.chooseMove(pommy, enemie);
+  System.out.println(enemie.getHealth());
+  Game newGame = new Game();
+  newGame.individualBattle(meme, enemie);
+}
 
 
 }
