@@ -62,6 +62,7 @@ LESSONS LEARNED:
 5/22/2022
 TIME SPENT: 1hr
 
+Gloria and Jack:
 * Got basic classes and their instance vars down (Pomenon, Player, etc.)
 * Set up inheritance stuff
 * Established working TODO List
@@ -72,6 +73,7 @@ TIME SPENT: 1hr
 5/23/2022
 TIME SPENT: 1hr
 
+Gloria and Jack:
 * Got PomType and Moves up and running :)
 * Implemented a simple attack (maybe we can extend it more in future)
 * dammit we had homework.
@@ -90,6 +92,7 @@ type of the pokemon. So isWeakness uses the type of the move instead of the type
 5/24/2022
 TIME SPENT: 1hr
 
+Gloria and Jack:
 * Change the moves to have a type and for isWeakness to take into account the type of the move
 * Start working in the Game file...
 
@@ -101,8 +104,10 @@ TODO:
 5/25/2022
 TIME SPENT: 1 hr
 
+Gloria and Jack:
 * In class, we updated Map.java so it can scan input files as maps
 * Working on UML diagrams, debugging Player.java later
+Kevin: Created checks for valid team
 
 TODO:
 * Debug Player.java
@@ -115,10 +120,12 @@ TODO:
 5/26/2022
 TIME SPENT: 1hr
 
+Gloria and Jack:
 * In class, we updated Map.java so that it doesn't require input from the terminal to scan a map. Instead,
  it now scans the same file every time so we can run Map without specifying which map :)
 * Worked on the details of how player moves would work. Input? Static vs nonstatic? Errors abound...
 * At home, worked together on completing UML diagrams
+
 
 TODO:
 * user moves go brrr
@@ -128,6 +135,7 @@ TODO:
 5/27/2022
 TIME SPENT: 1 hr
 
+Gloria and Jack:
 * In class, we worked on taking user input to move the player character.
 * We got it to work! But now,
 * we have to solve the issue of how to revert the player's old spot to original map ....
@@ -141,42 +149,44 @@ TODO:
 5/28/2022
 TIME SPENT: 1hr
 
+Gloria and Jack:
 * made v2!
 * created baseline code for reverting old tile to what is was before player landed on it
 * code has a few logistics errors, we'll think more about them tmw...
-* worked on map1 to make it bigger/better 
+* worked on map1 to make it bigger/better
 
 TODO:
-* fixing playerMove buggies 
+* fixing playerMove buggies
 * make more maps?
 
 //=============================================================================//
 5/29/2022
 TIME SPENT: 1 hr
 
-* Finally found the reason for the bug after heavy tracing 
+Gloria:
+* Finally found the reason for the bug after heavy tracing
 * Player move works successfully now!
 * Expanded on map1 ... added colors!
 
 TODO:
 * make more maps
 * make sure grass works
-* start working on battle system display 
+* start working on battle system display
 * start working on catching system?
 
 //=============================================================================//
 5/30/2022
 TIME SPENT: 1.5 hr
 
+Gloria and Jack:
 * Finalized uml diagrams
 * Finalized map1
 * Worked on Woo.java
-* Created working method in Pomenon to choose move. 
+* Created working method in Pomenon to choose move.
 
 TODO:
 * Fix a buggie that causes a String outofbounds exception error to be thrown when a
   player gives a blank input (oh no but we can always just let them suffer :))
-* Add in attack with each chosen option in choose move! <- yeah! 
-* CONTINUE choosePomenon() IN PLAYER!!! DO NOT FORGOR OR FUTURE ME WILL VERY REGRETTI  
-* Continue to work on the battle in Game.java 
-
+* Add in attack with each chosen option in choose move! <- yeah!
+* CONTINUE choosePomenon() IN PLAYER!!! DO NOT FORGOR OR FUTURE ME WILL VERY REGRETTI
+* Continue to work on the battle in Game.java
