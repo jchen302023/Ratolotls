@@ -3,7 +3,7 @@
 
 Pomenon (Pokemon) simulator!
 
-TNPG illustrated by Kekeflipnote[https://www.youtube.com/watch?v=QWkwZhuTVVQ]
+TNPG illustrated by [Kekeflipnote](https://www.youtube.com/watch?v=QWkwZhuTVVQ)
 
 ```
 Compile *.java
