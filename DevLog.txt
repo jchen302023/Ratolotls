@@ -163,3 +163,20 @@ TODO:
 * make sure grass works
 * start working on battle system display 
 * start working on catching system?
+
+//=============================================================================//
+5/30/2022
+TIME SPENT: 1.5 hr
+
+* Finalized uml diagrams
+* Finalized map1
+* Worked on Woo.java
+* Created working method in Pomenon to choose move. 
+
+TODO:
+* Fix a buggie that causes a String outofbounds exception error to be thrown when a
+  player gives a blank input (oh no but we can always just let them suffer :))
+* Add in attack with each chosen option in choose move! <- yeah! 
+* CONTINUE choosePomenon() IN PLAYER!!! DO NOT FORGOR OR FUTURE ME WILL VERY REGRETTI  
+* Continue to work on the battle in Game.java 
+

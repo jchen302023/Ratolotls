@@ -1,4 +1,7 @@
 import java.util.ArrayList; // import the ArrayList class
+import java.util.*;
+import java.lang.Integer;
+
 
 public class Pomenon {
 
@@ -83,6 +86,50 @@ public class Pomenon {
     this.experience = newXP;
     return ret;
   }
+
+  public int chooseMove(Pomenon me, Pomenon enemy){
+    ArrayList<Moves> myMoves = me.getMoves();
+    String s = ""; 
+    int chosen; 
+    
+      System.out.println("Please input move: ");
+      for(int i = 1; i <= myMoves.size() ; i++){
+        System.out.println(i + " : "+ myMoves.get(i-1) );
+      }
+        Scanner userIn = new Scanner(System.in);
+    while(true){
+      try{
+        
+        boolean shouldBreak = true;
+       
+        int moveNum = userIn.nextInt();
+        chosen = moveNum;
+        
+        if(moveNum>4 || moveNum <= 0){
+          System.out.println("Try again. Invalid move number. Choose number from 1-4");
+          shouldBreak = false;
+        }
+        
+        if(shouldBreak){
+          System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
+          
+          break;
+        }
+  
+      }
+      catch(Exception e){
+          System.out.println("Invalid move. Re-enter your move.");
+          
+          userIn.nextLine(); 
+        }
+      
+    }
+
+    return chosen; 
+    
+  }
+
+
 
 
   public boolean attack(Moves myMove, Pomenon enemy) {

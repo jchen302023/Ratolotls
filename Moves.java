@@ -21,4 +21,8 @@ public PomType getMoveType() {
   return moveType;
 }
 
+public String getMoveName() {
+  return moveName; 
+}
+
 }

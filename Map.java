@@ -17,6 +17,10 @@ public class Map{
    final private char DIRT =           ' ';
    final private char WALLVert =           '|';
    final private char WALLHor =         '_';
+   final private char TREEr =           ')';
+   final private char TREEl =            '(';
+   final private char SLANT1 =           '\\';
+   final private char SLANT2 =           '/';
    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
    
@@ -104,15 +108,29 @@ public class Map{
      if(Character.compare(this._maze[row][columns], '|') != 0){
        if(Character.compare(this._maze[row][columns], '_') != 0){
          if(Character.compare(this._maze[row][columns], '$') != 0){
+           if(Character.compare(this._maze[row][columns], '(') != 0){
+           if(Character.compare(this._maze[row][columns], ')') != 0){
+           if(Character.compare(this._maze[row][columns], '/') != 0){
+             if(Character.compare(this._maze[row][columns], '\\') != 0){
+           
            this._maze[initRow][initColumn]= originalTile; 
              originalTile = this._maze[row][columns];
           // this.initRow = row;
            //this.initColumn = columns;
             this._maze[row][columns] = '@';
             return true;
-         }       
-       }              
+            
+            
+            
+         }   
+       }
+     }
    }
+ }
+}
+    
+       }              
+   
    return false;
    
  }
@@ -127,7 +145,7 @@ public class Map{
      return this.initColumn;
    }
 
-   public int getPrev(){
+   public char getPrev(){
      return this.originalTile;
    }
 
@@ -190,24 +208,24 @@ return moveKey;
   
    }
 
-   public static void main(String[] args){
-  
-
-     File text = new File("map2.map");
-
-
-     Map mappy = new Map(text);
-     System.out.println( "[2J" );
-     System.out.println(mappy);
-    
-
-   while (true) {
-     //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
-     mappy.playerMove();
-     System.out.println( "[2J" );
-     System.out.println(mappy);
-   } 
-   
-  }
+  //  public static void main(String[] args){
+  // 
+  // 
+  //    File text = new File("map2.map");
+  // 
+  // 
+  //    Map mappy = new Map(text);
+  //    System.out.println( "[2J" );
+  //    System.out.println(mappy);
+  // 
+  // 
+  //  while (true) {
+  //    //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
+  //    mappy.playerMove();
+  //    System.out.println( "[2J" );
+  //    System.out.println(mappy);
+  //  } 
+  // 
+  // }
 
 }

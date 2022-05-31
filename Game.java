@@ -2,21 +2,42 @@ import java.util.ArrayList; // import the ArrayList class
 import java.util.*;
 
 public class Game {
+  
+  public void play() {
+    // where we put everything  from intro to battle to etc. 
+  }
 
   public void introduction(){
   //hello what is your name
   // choosing your starter poke? :)
+  
 }
 
   public void walk(){
     //zoom zoom
   }
 
-// Battle
+// Battles
+
+  public void individualBattle(Player me, Pomenon wild) {
+    
+    String s = "";
+    s += "You have encountered a wild " + wild.getName() + "!"; 
+    System.out.println(s); 
+    
+    while (checkUsablePomenon(me)) {
+      
+      
+      
+    }
+    
+  }
 
   public void battle(Player me, Player you) {
+
    /*while I still have usable pokemon AND you have usable pokemon:
    continue with battle loop
+   
 
    if I run out of usable pomenons and you still have usable pomenon, i lose and pay a fee from
    my balance.
