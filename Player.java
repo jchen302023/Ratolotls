@@ -98,7 +98,7 @@ public class Player {
 		return this.playerPomenons.remove( pokemon );
 	}
 //FINISHH
-
+// RETURNS THE POSITION OF THE POMENON IN THE ARRAYLIST
   public int choosePomenon() {
     String s = "";
     int chosen = 0;
@@ -117,7 +117,7 @@ public class Player {
         boolean shouldBreak = true;
 
         int moveNum = userIn.nextInt();
-        chosen = moveNum;
+        chosen = moveNum - 1;
 
         if(moveNum>3 || moveNum <= 0){
           System.out.println("Try again. Invalid Pomenon number. Choose number from 1-3");
@@ -130,7 +130,7 @@ public class Player {
             shouldBreak = false;
           }
           else {
-            chosen = moveNum;
+            chosen = moveNum - 1;
           }
         }
 
@@ -140,7 +140,7 @@ public class Player {
             shouldBreak = false;
           }
           else {
-            chosen = moveNum;
+            chosen = moveNum - 1;
           }
         }
 
@@ -150,7 +150,7 @@ public class Player {
             shouldBreak = false;
           }
           else {
-            chosen = moveNum;
+            chosen = moveNum - 1;
           }
         }
 
