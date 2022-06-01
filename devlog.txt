@@ -1,12 +1,15 @@
 
-Team BrainForked: Gloria Lee, Jack Chen, Kevin Cheng
+Team Ratolotls
+Gloria Lee
+Jack Chen
+Kevin Cheng
 APCS pd08
-FP: Show Us What You Got
-2022-06-??
-time spent: 6 h
+
+Pomenon - a pokemon simulator
 
 
-
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
 OBSTACLES OVERCOME:
 - How to use input file to generate map (haha assuming we figure this out...)
 - Figuring out how to use the type system in an effishient/logical way
@@ -25,7 +28,7 @@ LESSONS LEARNED:
 - Always a good idea to have consistent variable names! For ease of understanding!
 - How to use scanner to create map.
 - Clown nose go brrrr
-
+||||||||||||||||||||||||||||||||||||||||||
 
 
 
@@ -38,26 +41,7 @@ LESSONS LEARNED:
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
     TNPG: Ratolotls
 
-    TODO LIST:
-
-
-
-    * Display class which will display the map and control refreshing the display with each character move
-    * Perhaps a display map (2D array) and a display battle class for better separation of displays
-    * Find a way to generate the map using text input within txt file like with the mazes
-
-
-
-
-    * Create class called Moves ☑
-    * Pomenons needs an ArrayList<Moves> ☑
-    * Player needs an ArrayList<Items> ☑
-    *  Within Pomenon class:
-      public boolean attack(Pomenon me, Pomenon enemy ) ☑
-      public boolean checkDead() - returns true if dead because 0 health ☑
-    * A Game class and a Woo file that runs the actual game
-    * Set up battle method within
-
+   
 //=============================================================================//
 5/22/2022
 TIME SPENT: 1hr
@@ -204,3 +188,28 @@ TODO:
 * add while loop to player input for move to avoid out of bounds errors
 * choosePomenon() method needs work
 * battle display?? 
+
+
+
+
+
+ TODO LIST:
+
+
+    * Display class which will display the map and control refreshing the display with each character move
+    * Perhaps a display map (2D array) and a display battle class for better separation of displays
+    * Find a way to generate the map using text input within txt file like with the mazes
+
+
+
+
+    * Create class called Moves ☑
+    * Pomenons needs an ArrayList<Moves> ☑
+    * Player needs an ArrayList<Items> ☑
+    *  Within Pomenon class:
+      public boolean attack(Pomenon me, Pomenon enemy ) ☑
+      public boolean checkDead() - returns true if dead because 0 health ☑
+    * A Game class and a Woo file that runs the actual game
+    * Set up battle method within
+
+
