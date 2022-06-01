@@ -9,7 +9,7 @@ public class Pomenon {
   private String name;
   private PomType type;
   private int health;
-  private int maxHealth; 
+  private int maxHealth;
   private int level;
   private int experience;
   private ArrayList<Moves> moves;
@@ -22,7 +22,7 @@ public class Pomenon {
     this.name = pname;
     this.type = ptype;
     this.health = phealth;
-    this.maxHealth = pmax; 
+    this.maxHealth = pmax;
     this.level = plevel;
     this.experience = pexperience;
     moves = new ArrayList<Moves>();
@@ -45,9 +45,9 @@ public class Pomenon {
   public int getHealth(){
     return health;
   }
-  
+
   public int getMaxHealth() {
-    return maxHealth; 
+    return maxHealth;
   }
 
   public int getLevel(){
@@ -173,7 +173,7 @@ public class Pomenon {
       }
 
       enemy.setHealth(enemy.getHealth() - damage);
-      System.out.println(me.getName() + " did " + damage + " damage to " + enemy.getName() + "!"); 
+      System.out.println(me.getName() + " did " + damage + " damage to " + enemy.getName() + "!");
       return true;
   }
 

@@ -102,23 +102,23 @@ public class Player {
   public int choosePomenon() {
     String s = "";
     int chosen = 0;
-    
+
     s += "Which Pomenon would you like to choose?";
-    System.out.println(s); 
-    
+    System.out.println(s);
+
     Scanner userIn = new Scanner(System.in);
-    
+
     for (int i = 1; i <= this.getPlayerTeam().size(); i ++) {
       System.out.println(i + " : "+ playerTeam.get(i-1).getName() );
     }
-    
+
     while (true) {
       try{
 
         boolean shouldBreak = true;
 
         int moveNum = userIn.nextInt();
-  
+
         if(moveNum>3 || moveNum <= 0){
           System.out.println("Try again. Invalid Pomenon number. Choose number from 1-3");
           shouldBreak = false;
@@ -167,14 +167,14 @@ public class Player {
       }
       catch(Exception e){
           System.out.println("Invalid Pomenon. Re-enter a number.");
-      
+
           userIn.nextLine();
         }
 }
+
     
-    
-    return chosen; 
-    
+    return chosen;
+
 
 }
 
