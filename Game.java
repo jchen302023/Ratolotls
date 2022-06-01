@@ -21,18 +21,30 @@ public class Game {
   }
 
 // Battles
+  public void battleDisplay(Player me, Pomenon enemy) {
+    System.out.println("________________________________AMAZING BATTLE________________________________");
+    
+  }
+  
+
+
 
   public void individualBattle(Player me, Pomenon wild) {
 
-    String s = "";
-    Pomenon chosen = me.getPlayerTeam().get(0);
+    String s = "";  
     s += "You have encountered a wild " + wild.getName() + "!";
     System.out.println(s);
+    Pomenon chosen = me.getPlayerTeam().get(0);
+  
+
 
     if(checkUsablePomenon(me)){
-      chosen = me.getPlayerTeam().get(0);
-      System.out.println("You chose "+ chosen.getName());
+      chosen = me.getPlayerTeam().get(me.choosePomenon());
     }
+    
+    s = "======================================"; 
+    System.out.println(s); 
+    
     while (checkUsablePomenon(me)) {
       if( wild.checkDead()){
         System.out.println("Battle won!");
@@ -44,11 +56,11 @@ public class Game {
 
       }
 
-
-
       chosen.chooseMove(chosen, wild);
       System.out.println(chosen.getName()+": "+ chosen.getHealth()+ " hp");
       System.out.println(wild.getName()+": "+ wild.getHealth()+ " hp");
+      s = "======================================"; 
+      System.out.println(s); 
       }
 
 

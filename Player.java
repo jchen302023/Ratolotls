@@ -104,6 +104,7 @@ public class Player {
     int chosen = 0;
     
     s += "Which Pomenon would you like to choose?";
+    System.out.println(s); 
     
     Scanner userIn = new Scanner(System.in);
     
@@ -117,8 +118,7 @@ public class Player {
         boolean shouldBreak = true;
 
         int moveNum = userIn.nextInt();
-        chosen = moveNum - 1;
-
+  
         if(moveNum>3 || moveNum <= 0){
           System.out.println("Try again. Invalid Pomenon number. Choose number from 1-3");
           shouldBreak = false;
@@ -131,32 +131,35 @@ public class Player {
           }
           else {
             chosen = moveNum - 1;
+            shouldBreak = true;
           }
         }
 
-        if(moveNum == 2){
+        else if(moveNum == 2){
           if (playerTeam.get(moveNum - 1).checkDead()) {
             System.out.println("You can not use this Pomenon. Choose again.");
             shouldBreak = false;
           }
           else {
             chosen = moveNum - 1;
+            shouldBreak = true;
           }
         }
 
-        if(moveNum == 3){
+        else if(moveNum == 3){
           if (playerTeam.get(moveNum - 1).checkDead()) {
             System.out.println("You can not use this Pomenon. Choose again.");
             shouldBreak = false;
           }
           else {
             chosen = moveNum - 1;
+            shouldBreak = true;
           }
         }
 
 
         if(shouldBreak){
-          System.out.println("You chose "+ playerPomenons.get(moveNum - 1).getName());
+          System.out.println("You chose "+ playerTeam.get(moveNum - 1).getName());
 
           break;
         }
@@ -164,25 +167,25 @@ public class Player {
       }
       catch(Exception e){
           System.out.println("Invalid Pomenon. Re-enter a number.");
-
+      
           userIn.nextLine();
         }
-
-    }
+}
+    
     
     return chosen; 
     
-  }
 
+}
 
 
   // TESTCASE
-  public static void main(String[] args){
-    // Player me = new Player("Duke", 0);
-    // AxoMonPom axo = new AxoMonPom("Axomon", "Water", 25, 1, 0);
-    // me.addPomenon(axo);
-    // System.out.println(me);
-  }
+  // public static void main(String[] args){
+  //   // Player me = new Player("Duke", 0);
+  //   // AxoMonPom axo = new AxoMonPom("Axomon", "Water", 25, 1, 0);
+  //   // me.addPomenon(axo);
+  //   // System.out.println(me);
+  // }
 
 
 }

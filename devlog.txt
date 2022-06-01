@@ -183,10 +183,13 @@ Gloria and Jack:
 * Fixed up UMLs for relationships.....
 * Successful battle method implementation!
 * Wrote some preliminary code to test our methods.
+* Got individualBattle to work as intended
+* Did some minor formatting CHANGES
+* Finished an edited flowchart 
 
 TODO:
-* add while loop to player input for move to avoid out of bounds errors
-* choosePomenon() method needs work
+* add while loop to player input for move to avoid out of bounds errors 
+* choosePomenon() method needs work ☑
 * battle display?? 
 
 

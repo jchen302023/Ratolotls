@@ -9,6 +9,7 @@ public class Pomenon {
   private String name;
   private PomType type;
   private int health;
+  private int maxHealth; 
   private int level;
   private int experience;
   private ArrayList<Moves> moves;
@@ -17,10 +18,11 @@ public class Pomenon {
 
 //overload
 //don't forget to add moves to constructor
-  public Pomenon(String pname, PomType ptype, int phealth, int plevel, int pexperience) {
+  public Pomenon(String pname, PomType ptype, int phealth, int pmax, int plevel, int pexperience) {
     this.name = pname;
     this.type = ptype;
     this.health = phealth;
+    this.maxHealth = pmax; 
     this.level = plevel;
     this.experience = pexperience;
     moves = new ArrayList<Moves>();
@@ -42,6 +44,10 @@ public class Pomenon {
 
   public int getHealth(){
     return health;
+  }
+  
+  public int getMaxHealth() {
+    return maxHealth; 
   }
 
   public int getLevel(){
@@ -111,24 +117,32 @@ public class Pomenon {
         }
 
         if(moveNum == 1){
-          this.attack(myMoves.get(0), enemy);
+          System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
+          this.attack(me, myMoves.get(0), enemy);
+          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
         }
 
         if(moveNum == 2){
-          this.attack(myMoves.get(1), enemy);
+          System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
+          this.attack(me, myMoves.get(1), enemy);
+          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
         }
 
         if(moveNum == 3){
-          this.attack(myMoves.get(2), enemy);
+          System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
+          this.attack(me, myMoves.get(2), enemy);
+          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
         }
         if(moveNum == 4){
-          this.attack(myMoves.get(3), enemy);
+          System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
+          this.attack(me, myMoves.get(3), enemy);
+          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
         }
 
 
 
         if(shouldBreak){
-          System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
+          //System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
 
           break;
         }
@@ -149,7 +163,7 @@ public class Pomenon {
 
 
 
-  public boolean attack(Moves myMove, Pomenon enemy) {
+  public boolean attack(Pomenon me, Moves myMove, Pomenon enemy) {
       PomType myType = this.type;
       PomType enemyType = enemy.getType();
         int damage = myMove.getMoveDamage();
@@ -159,6 +173,7 @@ public class Pomenon {
       }
 
       enemy.setHealth(enemy.getHealth() - damage);
+      System.out.println(me.getName() + " did " + damage + " damage to " + enemy.getName() + "!"); 
       return true;
   }
 
@@ -180,14 +195,16 @@ public class Pomenon {
 public static void main(String[] args){
   Player meme = new Player("i am a meme", 0);
   PomType water = new PomType("Water");
-  Pomenon pommy = new Pomenon("pommy", water, 100, 1, 0 );
-  Pomenon enemie = new Pomenon("enemie", water, 100, 1, 0);
+  Pomenon pommy = new Pomenon("pommy", water, 200, 100, 1, 0 );
+  Pomenon enemie = new Pomenon("enemie", water, 100, 100, 1, 0);
   Moves watergun = new Moves("water gun", 25, water);
   pommy.addMove(watergun);
   enemie.addMove(watergun);
+  enemie.addMove(watergun);
+  enemie.addMove(watergun);
+  enemie.addMove(watergun);
   meme.addTeam(pommy);
-  pommy.chooseMove(pommy, enemie);
-  System.out.println(enemie.getHealth());
+
   Game newGame = new Game();
   newGame.individualBattle(meme, enemie);
 }
