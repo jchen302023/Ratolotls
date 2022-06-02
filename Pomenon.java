@@ -237,21 +237,11 @@ public static void main(String[] args){
 
 class Riverlotl extends Pomenon {
 
-  // private String name;
-  // private PomType type;
-  // private int health;
-  // private int maxHealth;
-  // private int level;
-  // private int experience;
-  // private ArrayList<Moves> moves;
-  // no touchie ):< 
-  
   public Riverlotl() {
-    System.out.println("River constructor used");
+
     PomType WATER = new Water(); 
-  // super("Riverlotl", water, int phealth, int pmax, int plevel, int pexperience); 
+
     this.name = "Riverlotl"; 
-    // this.setName("Riverlotl");
     this.type = WATER;
     this.health = 100;
     this.maxHealth = 100;
