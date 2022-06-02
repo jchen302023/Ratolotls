@@ -3,7 +3,7 @@ Team Ratolotls
 Gloria Lee
 Jack Chen
 Kevin Cheng
-APCS pd08
+pd 8
 
 Pomenon - a pokemon simulator
 
