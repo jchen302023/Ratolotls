@@ -1,0 +1,36 @@
+________________________________________________________________________________________________________________
+|   name         |                                                                                             | 
+|Lvl:5           |                                                                                  ,          |
+|HP:20 <########>|                                                                                 =')         |
+|----------------+                                                                                   (¯¯¯)~    |
+|                                                                                                    //¯\\     |
+|                                                                                                              |
+|                                                                                                              |
+|                                                                                                              |
+|                                                                                                              |
+|                                                                                                              |
+|                                                                                                              |
+|                                                                                                              |
+|                                                                                                              |
+|   +-------+                                                                                 +----------------|
+|   | o   o |                                                                                 |name            |
+|   |  www  |                                                                                 |Lvl:7           |
+|   +-------+                                                                                 |HP:25 <########>|
+|_____________________________________________________________________________________________|________________|
+
+Underneath the battle display:
+Print:
+1. Battle 
+2. Run 
+3. Bag 
+
+Or: You used [insert move]
+1. move1  3. move3
+2. move2  4. move4
+
+
+
+
+
+use a for or a while loop to make sure that the box size stays the same 
+as long as the length of the row isn't [insert number here], keep on adding spaces 
