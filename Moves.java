@@ -46,3 +46,14 @@ class WaterGun extends Moves {
     moveType = WATER; 
   }
 } // watergun
+
+class Smoke extends Moves {
+
+	public Smoke() {
+		Pomtype FIRE = new Fire();
+
+		moveName = "Smoke";
+		moveDamage = 10;
+		moveType = FIRE;
+	}
+} //smoke

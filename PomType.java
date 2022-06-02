@@ -50,12 +50,31 @@ class Water extends PomType{
   // private ArrayList<String> strengths;
   
   public Water() {
+    super();
     typeName = "Water";
-    weaknesses = new ArrayList<String>();
     weaknesses.add("Plant"); 
-    strengths = new ArrayList<String>();
     strengths.add("Fire"); 
   }
   
   
 } // Water
+
+class Fire extends PomType {
+
+	public Fire() {
+		super();
+		typeName = "Fire";
+		weaknesses.add("Water");
+		strengths.add("Plant");
+	}
+} //Fire
+
+class Plant extends PomType {
+
+	public Plant() {
+		super();
+		typeName = "Plant";
+		weaknesses.add("Fire");
+		strengths.add("Water");
+	}
+} //Plant
