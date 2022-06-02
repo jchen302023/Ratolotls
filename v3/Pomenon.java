@@ -6,27 +6,26 @@ import java.lang.Integer;
 public class Pomenon {
 
   // Instance vars
-  protected String name;
-  protected PomType type;
-  protected int health;
-  protected int maxHealth;
-  protected int level;
-  protected int experience;
-  protected ArrayList<Moves> moves;
+  private String name;
+  private PomType type;
+  private int health;
+  private int maxHealth;
+  private int level;
+  private int experience;
+  private ArrayList<Moves> moves;
 
   //wat else
 
 //overload
 //don't forget to add moves to constructor
-//String pname, PomType ptype, int phealth, int pmax, int plevel, int pexperience
-  public Pomenon() {
-    this.name = "John";
-    // this.type = ptype;
-    this.health = 100;
-    this.maxHealth = 100;
-    this.level = 1;
-    this.experience = 0;
-    this.moves = new ArrayList<Moves>();
+  public Pomenon(String pname, PomType ptype, int phealth, int pmax, int plevel, int pexperience) {
+    this.name = pname;
+    this.type = ptype;
+    this.health = phealth;
+    this.maxHealth = pmax;
+    this.level = plevel;
+    this.experience = pexperience;
+    moves = new ArrayList<Moves>();
   }
 
   // accessors
@@ -193,65 +192,22 @@ public class Pomenon {
   }
 
 
-
-
-
-
 public static void main(String[] args){
-  
-  // Pomenon POMMY = new Pomenon();
-  // Pomenon.Riverlotl pommy = POMMY.new Riverlotl(); 
-  // pommy.setName("pommy");
-  // Pomenon ENEMIE = new Pomenon();
-  // Pomenon.Riverlotl enemie = ENEMIE.new Riverlotl(); 
-  // enemie.setName("enemie"); 
-  
   Player meme = new Player("i am a meme", 0);
-  // // PomType water = new PomType.Water();
-  // Pomenon pommy = new Pomenon("pommy", water, 200, 100, 1, 0 );
-  // Pomenon enemie = new Pomenon("enemie", water, 100, 100, 1, 0);
-  // Moves watergun = new Moves("water gun", 25, water);
-  // Moves WATERGUN = new Moves();
-  // Moves.WaterGun watergun = WATERGUN.new WaterGun(); 
-  
-  Riverlotl POMMY = new Riverlotl();
-  Riverlotl ENEMIE = new Riverlotl(); 
-  Moves WATERGUN = new WaterGun(); 
-  
-  POMMY.addMove(WATERGUN);
-  ENEMIE.addMove(WATERGUN);
-  ENEMIE.addMove(WATERGUN);
-  ENEMIE.addMove(WATERGUN);
-  ENEMIE.addMove(WATERGUN);
-  meme.addTeam(POMMY);
-  
-  System.out.println(ENEMIE.getName()); 
+  PomType water = new PomType("Water");
+  Pomenon pommy = new Pomenon("pommy", water, 200, 100, 1, 0 );
+  Pomenon enemie = new Pomenon("enemie", water, 100, 100, 1, 0);
+  Moves watergun = new Moves("water gun", 25, water);
+  pommy.addMove(watergun);
+  enemie.addMove(watergun);
+  enemie.addMove(watergun);
+  enemie.addMove(watergun);
+  enemie.addMove(watergun);
+  meme.addTeam(pommy);
 
   Game newGame = new Game();
-  newGame.individualBattle(meme, ENEMIE);
-} // main
+  newGame.individualBattle(meme, enemie);
+}
 
 
-} //end class
-
-
-class Riverlotl extends Pomenon {
-
-  public Riverlotl() {
-
-    PomType WATER = new Water(); 
-
-    this.name = "Riverlotl"; 
-    this.type = WATER;
-    this.health = 100;
-    this.maxHealth = 100;
-    this.level = 1;
-    this.experience = 0;
-    this.moves = new ArrayList<Moves>();
-  }
-  
-  
-} // Riverlotl
-
-
-
+}

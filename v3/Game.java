@@ -10,32 +10,9 @@ public class Game {
     // where we put everything  from intro to battle to etc.
   }
 
-	public void clearScreen() {
-		//clears the screen
-		System.out.print("\033[H\033[2J");  
-		System.out.flush();
-	}
-
-
   public void introduction(){
-
-	clearScreen();
-
-	//get the protag's name
-	Scanner in = new Scanner( System.in );
-	String name = "owa";
-	String confirm = "no";
-
-	while ( confirm.toLowerCase().trim().equals("no") ) {
-		System.out.println("Hello new adventurer! Please give me your name:\n");
-		name = in.nextLine();
-		System.out.println("Is " + name + " right? Type 'no' if you would like to change it.\n");
-		confirm = in.nextLine();
-
-	}
-	
-	Player protag = new Player( name, 50 );
-
+  //hello what is your name
+  // choosing your starter poke? :)
 
 }
 
