@@ -161,6 +161,7 @@ Gloria and Jack:
 TIME SPENT: 1.5 hr
 
 Gloria and Jack:
+* In class, incorporated while loop within player move to catch exceptions in case enter is wrongly pressed!
 * Tidied up the inheritance tree! 
 * Removed those pesky parameters to constructors in Pomenon, PomType, and Moves 
  to make instantializing objects easier.
