@@ -23,7 +23,7 @@ public class Game {
 
 	//get the protag's name
 	Scanner in = new Scanner( System.in );
-	String name;
+	String name = "owa";
 	String confirm = "no";
 
 	while ( confirm.toLowerCase().trim().equals("no") ) {
