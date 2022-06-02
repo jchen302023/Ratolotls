@@ -184,7 +184,7 @@ the class is not declared to be public
 
 
 //=============================================================================//
- SECRET TODO LIST:
+  SECRET TEMPORARY RUNNING TODO LIST:
 
 
     * Display class which will display the map and control refreshing the display with each character move
