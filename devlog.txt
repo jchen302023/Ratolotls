@@ -167,7 +167,19 @@ the class is not declared to be public
 ==============================================================
 
 
-
+2022-06-02 
+TIME SPENT: 2 hrs
+--------------------------------------------------------------
+Gloria and Jack:
+* Created v4 in class, v5 from at home work
+* In class, discussed the introduction method and how to incorporate starter pomenon in code. 
+* In class, discussed how to effectively incorporate a battle display method. 
+* At home, worked on implementation of choosing starter pomenon in intro method
+* Worked on implementation of a neat looking battle display 
+* Implementation of thread.sleep()
+* New instance var of Player within game 
+Kevin: in class, worked on introduction method: implementation of starter pomenon choice
+==============================================================
 
 
 

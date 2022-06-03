@@ -68,12 +68,12 @@ public class Game {
     System.out.println();
     System.out.print("        .");
     pause2000(); 
-    // System.out.println();
-    // System.out.print("        .");
-    // pause2000(); 
-    // System.out.println();
-    // System.out.print("        .");
-    // pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
     
     clearScreen();
 		pause2000(); 
