@@ -1,16 +1,22 @@
 import java.util.ArrayList; // import the ArrayList class
 import java.util.*;
+import java.io.*;
+
 
 public class Game {
 
-	Player protag;
+	static Player protag;
 
   public Game() {
 		protag = new Player("filler", 50);
   }
+
+  public Player getPlayer(){
+    return protag;
+  }
   public void play() {
     // where we put everything  from intro to battle to etc.
-		introduction(); 
+		introduction();
   }
 
 	public void clearScreen() {
@@ -24,7 +30,7 @@ public class Game {
       Thread.sleep(2000);
     }
     catch (Exception e) {
-      
+
     }
   }
   public void pause1500() {
@@ -32,7 +38,7 @@ public class Game {
       Thread.sleep(1500);
     }
     catch (Exception e) {
-      
+
     }
   }
 	// public static String writeLine // what does this do
@@ -49,34 +55,34 @@ public class Game {
 
 	//loop until they confirm it's their name
 	while ( confirm == null || !confirm.toLowerCase().trim().equals("confirm") ) {
-    
+
 		System.out.println("Hello new adventurer! Please give me your name:\n");
 		name = in.nextLine();
-    System.out.println(); 
+    System.out.println();
 		System.out.println("Is " + name + " right? Type \"confirm\" to confirm.\n");
 		confirm = in.nextLine();
 
 	}
-  
+
 	protag.setName(name);
 	clearScreen();
 
 	//starter pokemon
 	// try {
 		//introducing starter select screen
-    pause2000(); 
-    System.out.println();
-    System.out.print("        .");
-    pause2000(); 
-    System.out.println();
-    System.out.print("        .");
-    pause2000(); 
-    System.out.println();
-    System.out.print("        .");
-    pause2000(); 
-    
+    // pause2000();
+    // System.out.println();
+    // System.out.print("        .");
+    // pause2000();
+    // System.out.println();
+    // System.out.print("        .");
+    // pause2000();
+    // System.out.println();
+    // System.out.print("        .");
+    // pause2000();
+
     clearScreen();
-		pause2000(); 
+		pause2000();
     System.out.println();
 		System.out.println("*You wake up in a frenzy, finally of legal age to own your own Pomenon*");
 		pause2000();
@@ -87,47 +93,47 @@ public class Game {
 		// System.out.print("\033[2K"); //magic escape code to delete the line
 		// System.out.flush();
     clearScreen();
-    
+
 		//starter select
     pause2000();
     System.out.println();
 		System.out.println("Which Pomenon would you like to choose? Type their number in.");
     System.out.println();
 		System.out.println("1. Riverlotl\n2. Dinosinge\n3. Trilantro");
-    
+
     Scanner in2 = new Scanner( System.in );
 		int starterNum = 0;
-    Pomenon starter = new Pomenon(); 
+    Pomenon starter = new Pomenon();
 
 		while ( true ) {
-      
+
 			try {
 				starterNum = in.nextInt();
-			} 
+			}
       catch ( Exception e ) {
 				System.out.println("\033[H\033[2KPlease, a number this time.");
 			}
-      
+
 			if ( starterNum > 0 && starterNum <= 3 ) {
-        
+
 				if ( starterNum == 1 ) {
           starter = new Riverlotl();
         }
-        
+
 				else if ( starterNum == 2 ) {
           starter = new Dinosinge();
         }
-					
+
 				else if ( starterNum == 3 ) {
           starter = new Trilantro();
         }
-					
+
 				protag.addTeam( starter );
 				break;
-			} // if 
-		} // while 
-    
-    // starter hath been chosen 
+			} // if
+		} // while
+
+    // starter hath been chosen
     clearScreen();
     System.out.println();
     System.out.println("Ah, you chose " + starter.getName() + "!");
@@ -135,45 +141,45 @@ public class Game {
     System.out.println();
     System.out.println("A very good choice if I do say so myself.");
     pause2000();
-    
+
     // ask to change starter's NAME
     pause2000();
     System.out.println();
 		System.out.println("Would you like to give your new little buddy a name?");
     System.out.println();
 		System.out.println("1. Yes\n2. No\n");
-    
-    int inputNum = 0; 
+
+    int inputNum = 0;
     String starterName = starter.getName();
 		while ( true ) {
-      
+
 			try {
 				inputNum = in.nextInt();
-			} 
+			}
       catch ( Exception e ) {
 				System.out.println("\033[H\033[2KPlease, a number this time.");
 			}
-      
+
 			if ( inputNum > 0 && inputNum <= 2 ) {
-        
+
 				if ( inputNum == 1 ) {
           clearScreen();
           System.out.println();
           System.out.println("What would you like to name your " + starter.getName() + "?");
           starterName = in2.nextLine();
-          starter.setName(starterName); 
+          starter.setName(starterName);
           System.out.println();
           System.out.println(starter.getName() + " is a wonderful name for your new friend!");
         }
-        
+
 				else if ( inputNum == 2 ) {
-          // do later 
+          // do later
         }
-					
+
 				break;
-			} // if 
-		} // while 
-    
+			} // if
+		} // while
+
 } // end introduction method
 
 
@@ -185,22 +191,22 @@ public class Game {
 	public void battleDisplay(Pomenon me, Pomenon enemy) {
 	  System.out.println( "[2J" );
 	  System.out.println("_________________________________________________________");
-	  //57 characters per line 
+	  //57 characters per line
 	  //NAME LINE
 	      String s = "";
 	      s+= "| " + enemy.getName();
 	      while(s.length()<18){
 	        s += " ";
-	      } 
+	      }
 	      s += "|";
 	       while(s.length()<56){
 	         s+= " ";
-	       }     
+	       }
 	       s+="|";
 	       System.out.println(s);
 	       s= ""; //reset
-	      
-	 
+
+
 	 //HP LINE
 	     s+= "| " + enemy.getHealth()+ "/"+ enemy.getMaxHealth();
 	     while(s.length()<18){
@@ -209,12 +215,12 @@ public class Game {
 	     s += "|";
 	      while(s.length()<45){
 	        s+= " ";
-	      }     
+	      }
 	      s+=",          |";
 	      System.out.println(s);
 	      s= ""; //reset
-	  //HARD CODE 
-	  
+	  //HARD CODE
+
 	  System.out.println("|_________________|                         =')         |");
 	  System.out.println("|                                             (¯¯¯)~    |");
 	  System.out.println("|                                             //¯\\\\     |");
@@ -225,13 +231,13 @@ public class Game {
 	  System.out.println("|                                                       |");
 	  System.out.println("|                                                       |");
 	  System.out.println("|                                                       |");
-	
-	
-	
+
+	  System.out.println("|   ,                                  _________________|");
+
 	}
 
 
-  public void individualBattle(Player me, Pomenon wild) {
+  public static void individualBattle(Player me, Pomenon wild) {
 
     String s = "";
     s += "You have encountered a wild " + wild.getName() + "!";
@@ -309,6 +315,21 @@ this.battleDisplay(chosen, wild);
 public static void main(String[] args){
   Game newGame = new Game();
   newGame.introduction();
+
+     File text = new File("map2.map");
+
+
+     Map mappy = new Map(text);
+     System.out.println( "[2J" );
+     System.out.println(mappy);
+
+
+   while (true) {
+     //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
+     mappy.playerMove();
+     System.out.println( "[2J" );
+     System.out.println(mappy);
+   }
 
 //  newGame.battleDisplay();
   //System.out.println()

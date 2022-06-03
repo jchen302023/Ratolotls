@@ -4,6 +4,9 @@ import java.util.*;
 
 public class Map{
 
+
+//	Player protag;
+
   final private int FRAME_DELAY = 50;
 
   private char[][] _maze;
@@ -32,6 +35,7 @@ public class Map{
 
    public Map( File inputFile )
    {
+  //   protag = new Player("filler", 50);
      // init 2D array to represent maze
      // (80x25 is default terminal window size)
      _maze = new char[10000][10000];
@@ -103,6 +107,19 @@ public class Map{
 //ret true if successful
    public boolean placePlayer(int row, int columns) {
 
+               if(Character.compare(this._maze[row][columns], '#') == 0) {
+                 int randomInt = (int) Math.random() * 5;
+                 System.out.println(randomInt);
+                 // if (randomInt==3) {
+                 //
+                 //   randomInt = (int) Math.random() * 3;
+                 //   if(randomInt==0){
+                   Pomenon wild = new Trilantro();
+                   Game woo = new Game();
+                   woo.individualBattle(Game.protag, wild );
+                 // }
+                 //}
+               }
 
      System.out.println("placing");
      if(Character.compare(this._maze[row][columns], '|') != 0){
@@ -117,6 +134,7 @@ public class Map{
              originalTile = this._maze[row][columns];
           // this.initRow = row;
            //this.initColumn = columns;
+
             this._maze[row][columns] = '@';
             return true;
 
