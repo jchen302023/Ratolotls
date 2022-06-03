@@ -266,3 +266,17 @@ class Dinosinge extends Pomenon {
 
 
 } // Dinosinge (Starter fire)
+
+class Trilantro extends Pomenon {
+
+  public Trilantro() {
+    super();
+
+    this.name = "Trilantro";
+
+    PomType PLANT = new Plant();
+    this.type = PLANT;
+  }
+
+
+} // Ackwron (Starter water)

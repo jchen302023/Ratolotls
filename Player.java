@@ -65,7 +65,9 @@ public class Player {
 
   //MUTATORS
 
-
+public void setName(String name) {
+  this.playerName = name; 
+}
 
 // STRING PRINT PLAYER
 
