@@ -218,8 +218,6 @@ public static void main(String[] args){
   Riverlotl ENEMIE = new Riverlotl();
   Moves WATERGUN = new WaterGun();
 
-//  Dinosinge NICENICEGUY = new Dinosinge();
-
   POMMY.addMove(WATERGUN);
   ENEMIE.addMove(WATERGUN);
   ENEMIE.addMove(WATERGUN);
@@ -240,29 +238,17 @@ public static void main(String[] args){
 class Riverlotl extends Pomenon {
 
   public Riverlotl() {
-    super();
-
-    this.name = "Riverlotl";
 
     PomType WATER = new Water();
+
+    this.name = "Riverlotl";
     this.type = WATER;
+    this.health = 100;
+    this.maxHealth = 100;
+    this.level = 1;
+    this.experience = 0;
+    this.moves = new ArrayList<Moves>();
   }
 
 
-} // Riverlotl (Starter water)
-
-
-class Dinosinge extends Pomenon {
-
-	public Dinosinge() {
-
-		super();
-
-		this.name = "Dinosinge";
-
-		PomType FIRE = new Fire();
-		this.type = FIRE;
-	}
-
-
-} // Dinosinge (Starter fire)
+} // Riverlotl

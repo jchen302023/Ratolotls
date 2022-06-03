@@ -10,7 +10,7 @@ protected PomType moveType;
 public Moves(){
   // moveName = mName;
   // moveDamage = mDamage;
-  // moveType = mType; 
+  // moveType = mType;
 }
 // ACCESSORS
 
@@ -23,7 +23,7 @@ public PomType getMoveType() {
 }
 
 public String getMoveName() {
-  return moveName; 
+  return moveName;
 }
 
 
@@ -33,27 +33,16 @@ public String getMoveName() {
 
 
 class WaterGun extends Moves {
-  
+
   // private String moveName;
   // private int moveDamage;
   // private PomType moveType;
-  
+
   public WaterGun() {
-    PomType WATER = new Water(); 
-     
+    PomType WATER = new Water();
+
     moveName = "Watergun";
     moveDamage = 25;
-    moveType = WATER; 
+    moveType = WATER;
   }
 } // watergun
-
-class Smoke extends Moves {
-
-	public Smoke() {
-		PomType FIRE = new Fire();
-
-		moveName = "Smoke";
-		moveDamage = 10;
-		moveType = FIRE;
-	}
-} //smoke
