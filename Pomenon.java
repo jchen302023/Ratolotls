@@ -242,24 +242,24 @@ class Riverlotl extends Pomenon {
 
   public Riverlotl() {
 
-<<<<<<< HEAD
+
     PomType WATER = new Water();
 
     this.name = "Riverlotl";
-=======
+
     super();
 
     this.name = "Riverlotl";
 
     PomType WATER = new Water();
->>>>>>> 999f2166dc4bd1c99974102a122f8bab118e4bf0
+
     this.type = WATER;
   }
-<<<<<<< HEAD
+
 
 
 } // Riverlotl
-=======
+
 
 
 } // Riverlotl (Starter water)
@@ -279,4 +279,3 @@ class Dinosinge extends Pomenon {
 
 
 } // Dinosinge (Starter fire)
->>>>>>> 999f2166dc4bd1c99974102a122f8bab118e4bf0
