@@ -241,13 +241,13 @@ public static void main(String[] args){
 class Riverlotl extends Pomenon {
 
   public Riverlotl() {
-
-
+    super();
+    
     PomType WATER = new Water();
 
     this.name = "Riverlotl";
 
-    super();
+
 
     this.name = "Riverlotl";
 
@@ -255,11 +255,6 @@ class Riverlotl extends Pomenon {
 
     this.type = WATER;
   }
-
-
-
-} // Riverlotl
-
 
 
 } // Riverlotl (Starter water)
