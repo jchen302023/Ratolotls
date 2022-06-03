@@ -50,7 +50,7 @@ class WaterGun extends Moves {
 class Smoke extends Moves {
 
 	public Smoke() {
-		Pomtype FIRE = new Fire();
+		PomType FIRE = new Fire();
 
 		moveName = "Smoke";
 		moveDamage = 10;

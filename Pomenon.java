@@ -221,7 +221,6 @@ public static void main(String[] args){
 //  Dinosinge NICENICEGUY = new Dinosinge();
 
   POMMY.addMove(WATERGUN);
-  NICENICEGUY.addMove(
   ENEMIE.addMove(WATERGUN);
   ENEMIE.addMove(WATERGUN);
   ENEMIE.addMove(WATERGUN);
@@ -242,17 +241,10 @@ class Riverlotl extends Pomenon {
 
   public Riverlotl() {
     super();
-    
-    PomType WATER = new Water();
-
-    this.name = "Riverlotl";
-
-
 
     this.name = "Riverlotl";
 
     PomType WATER = new Water();
-
     this.type = WATER;
   }
 
@@ -266,7 +258,7 @@ class Dinosinge extends Pomenon {
 
 		super();
 
-		this.name"Dinosinge";
+		this.name = "Dinosinge";
 
 		PomType FIRE = new Fire();
 		this.type = FIRE;
