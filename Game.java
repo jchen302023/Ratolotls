@@ -3,11 +3,14 @@ import java.util.*;
 
 public class Game {
 
-  public Game(){
+	Player protag;
 
+  public Game() {
+		protag = new Player("filler", 50);
   }
   public void play() {
     // where we put everything  from intro to battle to etc.
+		introduction(); 
   }
 
 	public void clearScreen() {
@@ -16,6 +19,8 @@ public class Game {
 		System.out.flush();
 	}
 
+	public static String writeLine
+
 
   public void introduction(){
 
@@ -23,19 +28,54 @@ public class Game {
 
 	//get the protag's name
 	Scanner in = new Scanner( System.in );
-	String name = "owa";
-	String confirm = "no";
+	String name;
+	String confirm;
 
-	while ( confirm.toLowerCase().trim().equals("no") ) {
+	//loop until they confirm it's their name
+	while ( confirm == null || !confirm.toLowerCase().trim().equals("confirm") ) {
 		System.out.println("Hello new adventurer! Please give me your name:\n");
 		name = in.nextLine();
-		System.out.println("Is " + name + " right? Type 'no' if you would like to change it.\n");
+		System.out.println("Is " + name + " right? Type \"confirm\" to confirm.\n");
 		confirm = in.nextLine();
 
 	}
-	
-	Player protag = new Player( name, 50 );
+	protag.setName(name);
+	clearScreen();
 
+	//starter pokemon
+	try {
+		//introducing starter select screen
+		Thread.sleep(2000);
+		System.out.print("*You wake up in a frenzy, finally of legal age to own your own Pomenon*");
+		Thread.sleep(2000);
+		System.out.print("\033[2K"); //magic escape code to delete the line
+		System.out.flush();
+
+		//starter select
+		System.out.println("Which Pomenon would you like to choose? Type their number in.");
+		System.out.println("1. Riverlotl\n2. Dinosinge\n3. Ackwron");
+		int starterNum = 0;
+
+		while ( true ) {
+			try {
+				starterNum = in.nextInt();
+			} catch ( InputMismatchException e ) {
+				System.out.println("\033[H\033[2KPlease, a number this time.");
+			}
+
+			if ( starterNum > 0 && starterNum <= 3 ) {
+				if ( starterNum = 1 ) 
+					Riverlotl starter = new Riverlotl();
+				else if ( starterNum = 2 )
+					Dinosinge starter = new Dinosinge();
+				else if ( starterNum = 3 )
+					Ackwron starter = new Ackwron();
+
+				protag.addTeam( starter );
+				break;
+			}
+		}
+	}
 
 }
 
