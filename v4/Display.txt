@@ -1,5 +1,5 @@
 ________________________________________________________________________________________________________________
-|   name         |                                                                                             | 
+|   name         |                                                                                             |
 |Lvl:5           |                                                                                  ,          |
 |HP:20 <########>|                                                                                 =')         |
 |----------------+                                                                                   (¯¯¯)~    |
@@ -20,9 +20,9 @@ ________________________________________________________________________________
 
 Underneath the battle display:
 Print:
-1. Battle 
-2. Run 
-3. Bag 
+1. Battle
+2. Run
+3. Bag
 
 Or: You used [insert move]
 1. move1  3. move3
@@ -32,5 +32,5 @@ Or: You used [insert move]
 
 
 
-use a for or a while loop to make sure that the box size stays the same 
-as long as the length of the row isn't [insert number here], keep on adding spaces 
+use a for or a while loop to make sure that the box size stays the same
+as long as the length of the row isn't [insert number here], keep on adding spaces
