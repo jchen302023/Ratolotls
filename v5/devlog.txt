@@ -1,0 +1,217 @@
+
+Team Ratolotls
+Gloria Lee
+Jack Chen
+Kevin Cheng
+pd 8
+
+Pomenon - a pokemon simulator
+
+
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME:
+- How to use input file to generate map (haha assuming we figure this out...)
+- Figuring out how to use the type system in an effishient/logical way
+
+UNRESOLVED ISSUES:
+- WHERE MAIN METHOD? WHEN CAN I PLAY? - frustrated player
+
+COOL STUFF LEARNED:
+- clown nose in processing
+- more to come...
+
+MID DEVELOPMENT GAME DESIGN CHANGES:
+- Changed the Type to belong to Moves instead of Pomenons themselves.
+
+LESSONS LEARNED:
+- Always a good idea to have consistent variable names! For ease of understanding!
+- How to use scanner to create map.
+- Clown nose go brrrr
+||||||||||||||||||||||||||||||||||||||||||
+
+
+
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
+    TNPG: Ratolotls
+
+   
+==============================================================
+
+
+
+2022-05-22
+TIME SPENT: 1hr
+--------------------------------------------------------------
+Gloria and Jack:
+* Got basic classes and their instance vars down (Pomenon, Player, etc.)
+* Set up inheritance stuff
+* Established working TODO List
+==============================================================
+
+
+2022-05-23
+TIME SPENT: 1hr
+--------------------------------------------------------------
+Gloria and Jack:
+* Got PomType and Moves up and running :)
+* Implemented a simple attack (maybe we can extend it more in future)
+* dammit we had homework.
+==============================================================
+
+
+2022-05-23
+TIME SPENT: 1hr
+--------------------------------------------------------------
+Gloria and Jack:
+* Change the moves to have a type and for isWeakness to take into account the type of the move
+* Start working in the Game file...
+==============================================================
+
+
+2022-05-25
+TIME SPENT: 1 hr
+--------------------------------------------------------------
+Gloria and Jack:
+* In class, we updated Map.java so it can scan input files as maps
+* Working on UML diagrams, debugging Player.java later
+Kevin: Created checks for valid team
+==============================================================
+
+
+2022-05-26
+TIME SPENT: 1hr
+--------------------------------------------------------------
+Gloria and Jack:
+* In class, we updated Map.java so that it doesn't require input from the terminal to scan a map. Instead,
+ it now scans the same file every time so we can run Map without specifying which map :)
+* Worked on the details of how player moves would work. Input? Static vs nonstatic? Errors abound...
+* At home, worked together on completing UML diagrams
+==============================================================
+
+
+2022-05-27
+TIME SPENT: 1 hr
+--------------------------------------------------------------
+Gloria and Jack:
+* In class, we worked on taking user input to move the player character.
+* We got it to work! But now,
+* we have to solve the issue of how to revert the player's old spot to original map ....
+* grass grass grass bby
+==============================================================
+
+
+2022-05-28
+TIME SPENT: 1hr
+--------------------------------------------------------------
+Gloria and Jack:
+* made v2!
+* created baseline code for reverting old tile to what is was before player landed on it
+* code has a few logistics errors, we'll think more about them tmw...
+* worked on map1 to make it bigger/better
+==============================================================
+
+
+2022-05-29
+TIME SPENT: 1 hr
+--------------------------------------------------------------
+Gloria:
+* Finally found the reason for the bug after heavy tracing
+* Player move works successfully now!
+* Expanded on map1 ... added colors!
+==============================================================
+
+
+2022-05-30
+TIME SPENT: 1.5 hr
+--------------------------------------------------------------
+Gloria and Jack:
+* Finalized uml diagrams
+* Finalized map1
+* Worked on Woo.java
+* Created working method in Pomenon to choose move.
+==============================================================
+
+
+2022-05-31
+TIME SPENT: 1.5 hr
+--------------------------------------------------------------
+Gloria and Jack:
+* Fixed up UMLs for relationships.....
+* Successful battle method implementation!
+* Wrote some preliminary code to test our methods.
+* Got individualBattle to work as intended
+* Did some minor formatting CHANGES
+* Finished an edited flowchart 
+==============================================================
+
+
+2022-06-01 Happy gay month :) BDD
+TIME SPENT: 1.5 hr
+--------------------------------------------------------------
+Gloria and Jack:
+* In class, incorporated while loop within player move to catch exceptions in case enter is wrongly pressed!
+* Tidied up the inheritance tree! 
+* Removed those pesky parameters to constructors in Pomenon, PomType, and Moves 
+ to make instantializing objects easier.
+* Tried to use nested classes but just learned that you can make more classes inside a file as long as 
+the class is not declared to be public 
+* Learned about nested class access limits ...  (boooo) and inheritance access modifiers ...
+* Planning on working on getting battle to print out the display 
+==============================================================
+
+
+2022-06-02 
+TIME SPENT: 2 hrs
+--------------------------------------------------------------
+Gloria and Jack:
+* Created v4 in class, v5 from at home work
+* In class, discussed the introduction method and how to incorporate starter pomenon in code. 
+* In class, discussed how to effectively incorporate a battle display method. 
+* At home, worked on implementation of choosing starter pomenon in intro method
+* Worked on implementation of a neat looking battle display 
+* Implementation of thread.sleep()
+* New instance var of Player within game 
+Kevin: in class, worked on introduction method: implementation of starter pomenon choice
+==============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//=============================================================================//
+  SECRET TEMPORARY RUNNING TODO LIST:
+
+
+    * Display class which will display the map and control refreshing the display with each character move
+    * Perhaps a display map (2D array) and a display battle class for better separation of displays
+    * Find a way to generate the map using text input within txt file like with the mazes
+
+
+
+
+    * Create class called Moves ☑
+    * Pomenons needs an ArrayList<Moves> ☑
+    * Player needs an ArrayList<Items> ☑
+    *  Within Pomenon class:
+      public boolean attack(Pomenon me, Pomenon enemy ) ☑
+      public boolean checkDead() - returns true if dead because 0 health ☑
+    * A Game class and a Woo file that runs the actual game
+    * Set up battle method within
+//=============================================================================//
