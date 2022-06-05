@@ -64,16 +64,16 @@ public class Game {
 	//starter pokemon
 	// try {
 		//introducing starter select screen
-    // pause2000(); 
-    // System.out.println();
-    // System.out.print("        .");
-    // pause2000(); 
-    // System.out.println();
-    // System.out.print("        .");
-    // pause2000(); 
-    // System.out.println();
-    // System.out.print("        .");
-    // pause2000(); 
+    pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
     
     clearScreen();
 		pause2000(); 
@@ -179,13 +179,6 @@ public class Game {
 
   public void walk(){
     //zoom zoom
-		
-		
-		
-		
-		
-		
-		
   }
 
   // Battles
