@@ -1,10 +1,9 @@
 import java.util.ArrayList; // import the ArrayList class
 import java.util.*;
-import java.io.*;
 
 public class Game {
 
-	Player protag;
+	static Player protag;
 
   public Game() {
 		protag = new Player("filler", 50);
@@ -19,13 +18,6 @@ public class Game {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}
-
-	public void clearLine() {
-		//deletes the current line
-		System.out.print("\033[2K\r");
-		System.out.flush();
-	}
-
 
   public void pause2000() {
     try {
@@ -48,6 +40,8 @@ public class Game {
 
   public void introduction(){
 
+	clearScreen();
+
 	//get the protag's name
 	Scanner in = new Scanner( System.in );
 	String name = "";
@@ -55,11 +49,11 @@ public class Game {
 
 	//loop until they confirm it's their name
 	while ( confirm == null || !confirm.toLowerCase().trim().equals("confirm") ) {
-
-	    	clearScreen();	
+    
 		System.out.println("Hello new adventurer! Please give me your name:\n");
 		name = in.nextLine();
-		System.out.println("\nIs " + name + " right? Type \"confirm\" to confirm.\n");
+    System.out.println(); 
+		System.out.println("Is " + name + " right? Type \"confirm\" to confirm.\n");
 		confirm = in.nextLine();
 
 	}
@@ -67,67 +61,71 @@ public class Game {
 	protag.setName(name);
 	clearScreen();
 
-<<<<<<< HEAD
-	// you wake up from a deep sleep
-	try {
-		for ( int i = 1; i <= 3; i++ ) {
-			Thread.sleep(1200);
-			System.out.println("\n\t\t\t.");
-		}
-	} catch ( Exception e ) {
-		clearScreen();
-		System.out.println("Name selection interrupted");
-		System.exit(0);
-	}
-	
-	Pomenon starter = new Pomenon();
-
-	// starter selection
-	try {
-		//transition into starter selection
-		clearScreen();
-		Thread.sleep(1500);
-		System.out.print("\n*You wake up in a frenzy, finally of legal age to own your own Pomenon*");
-		Thread.sleep(1750);
-		clearLine();
-		System.out.print("*You make your way to the nearest Pomenon center in a hurry*");
-		Thread.sleep(1750);
-		clearLine();
-
-		//starter select
-		System.out.print("Which Pomenon would you like to choose? Type their number in.\n");
-		System.out.print("1. Riverlotl\n2. Dinosinge\n3. Trilantro\n");
+	//starter pokemon
+	// try {
+		//introducing starter select screen
+    pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
+    System.out.println();
+    System.out.print("        .");
+    pause2000(); 
     
+    clearScreen();
+		pause2000(); 
+    System.out.println();
+		System.out.println("*You wake up in a frenzy, finally of legal age to own your own Pomenon*");
+		pause2000();
+    System.out.println();
+    System.out.println("*You make your way to the nearest Pomenon center in a hurry*");
+    pause2000();
+    pause1500();
+		// System.out.print("\033[2K"); //magic escape code to delete the line
+		// System.out.flush();
+    clearScreen();
+    
+		//starter select
+    pause2000();
+    System.out.println();
+		System.out.println("Which Pomenon would you like to choose? Type their number in.");
+    System.out.println();
+		System.out.println("1. Riverlotl\n2. Dinosinge\n3. Trilantro");
+    
+    Scanner in2 = new Scanner( System.in );
 		int starterNum = 0;
+    Pomenon starter = new Pomenon(); 
 
 		while ( true ) {
       
 			try {
 				starterNum = in.nextInt();
-			} catch ( Exception e ) {
-				System.out.println("\033[2;0H\033[2KPlease, a number this time.\033[6;0H\033[2K");
+			} 
+      catch ( Exception e ) {
+				System.out.println("\033[H\033[2KPlease, a number this time.");
 			}
       
 			if ( starterNum > 0 && starterNum <= 3 ) {
         
-				if ( starterNum == 1 )
-					starter = new Riverlotl();
+				if ( starterNum == 1 ) {
+          starter = new Riverlotl();
+        }
         
-				else if ( starterNum == 2 )
-					starter = new Dinosinge();
+				else if ( starterNum == 2 ) {
+          starter = new Dinosinge();
+        }
 					
-				else if ( starterNum == 3 )
-					starter = new Trilantro();
+				else if ( starterNum == 3 ) {
+          starter = new Trilantro();
+        }
 					
 				protag.addTeam( starter );
 				break;
 			} // if 
 		} // while 
-	} catch ( Exception e ) {
-		clearScreen();
-		System.out.println("Starter selection interrupted");
-		System.exit(0);
-	}
     
     // starter hath been chosen 
     clearScreen();
@@ -153,8 +151,7 @@ public class Game {
 				inputNum = in.nextInt();
 			} 
       catch ( Exception e ) {
-		System.out.println("\033[2;0H\033[2KPlease, a number this time.\033[6;0H\033[2K");
-
+				System.out.println("\033[H\033[2KPlease, a number this time.");
 			}
       
 			if ( inputNum > 0 && inputNum <= 2 ) {
@@ -163,7 +160,7 @@ public class Game {
           clearScreen();
           System.out.println();
           System.out.println("What would you like to name your " + starter.getName() + "?");
-          starterName = in.nextLine();
+          starterName = in2.nextLine();
           starter.setName(starterName); 
           System.out.println();
           System.out.println(starter.getName() + " is a wonderful name for your new friend!");
@@ -172,7 +169,7 @@ public class Game {
 				else if ( inputNum == 2 ) {
           // do later 
         }
-					System.out.println(starter.getMoves().get(0));
+					
 				break;
 			} // if 
 		} // while 
@@ -312,59 +309,5 @@ this.battleDisplay(chosen, wild);
 public static void main(String[] args){
   Game newGame = new Game();
   newGame.introduction();
-
-	   File text = new File("map2.map");
-  
-  
-     Map mappy = new Map(text);
-     System.out.println( "[2J" );
-     System.out.println(mappy);
-  
-  
-   while (true) {
-     //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
-     mappy.playerMove();
-		 if(Character.compare(mappy.getPrev(), '#') == 0) {
-<<<<<<< HEAD
-			 int randomInt = (int) Math.random() * 5;
-			 System.out.println(randomInt);
-			 if (randomInt==3) {
-			 
-			   randomInt = (int) Math.random() * 3;
-			   if(randomInt==0){
-				 Pomenon wild = new Trilantro();
-				 
-				 newGame.individualBattle(newGame.protag, wild );
-			  }
-=======
-			 int randomInt = (int) (Math.random() * 5);
-			 System.out.println(randomInt);
-			 if (randomInt==3) {
-			 
-			   // randomInt = (int) Math.random() * 3;
-			   // if(randomInt==0){
-				 Pomenon wild = new Trilantro();
-				 
-				 newGame.individualBattle(newGame.protag, wild );
-			  
->>>>>>> 162d7997cfafbcd881f134e9ba11c1eccf96847e
-			 }
-		 }
-
-     System.out.println( "[2J" );
-     System.out.println(mappy);
-   }
-
-
-
-
-//  newGame.battleDisplay();
-  //System.out.println()
-}
-
-
-
-
-
 
 }
