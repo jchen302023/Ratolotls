@@ -113,6 +113,7 @@ public class Game {
         
 				if ( starterNum == 1 ) {
           starter = new Riverlotl();
+					
         }
         
 				else if ( starterNum == 2 ) {
@@ -170,7 +171,7 @@ public class Game {
 				else if ( inputNum == 2 ) {
           // do later 
         }
-					
+					System.out.println(starter.getMoves().get(0));
 				break;
 			} // if 
 		} // while 
@@ -323,6 +324,7 @@ public static void main(String[] args){
      //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
      mappy.playerMove();
 		 if(Character.compare(mappy.getPrev(), '#') == 0) {
+<<<<<<< HEAD
 			 int randomInt = (int) Math.random() * 5;
 			 System.out.println(randomInt);
 			 if (randomInt==3) {
@@ -333,6 +335,18 @@ public static void main(String[] args){
 				 
 				 newGame.individualBattle(newGame.protag, wild );
 			  }
+=======
+			 int randomInt = (int) (Math.random() * 5);
+			 System.out.println(randomInt);
+			 if (randomInt==3) {
+			 
+			   // randomInt = (int) Math.random() * 3;
+			   // if(randomInt==0){
+				 Pomenon wild = new Trilantro();
+				 
+				 newGame.individualBattle(newGame.protag, wild );
+			  
+>>>>>>> 162d7997cfafbcd881f134e9ba11c1eccf96847e
 			 }
 		 }
 
