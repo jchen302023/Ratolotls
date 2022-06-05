@@ -250,9 +250,9 @@ class Riverlotl extends Pomenon {
     this.type = WATER;
     
     Moves WATERGUN = new WaterGun();
-<<<<<<< HEAD
+
     this.addMove(WATERGUN); 
-=======
+
     moves.add(WATERGUN); 
       moves.add(WATERGUN); 
         moves.add(WATERGUN); 
@@ -262,7 +262,7 @@ class Riverlotl extends Pomenon {
     // this.addMove(WATERGUN); 
     // this.addMove(WATERGUN); 
     // this.addMove(WATERGUN); 
->>>>>>> 162d7997cfafbcd881f134e9ba11c1eccf96847e
+
 
   }
 
