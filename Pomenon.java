@@ -246,6 +246,10 @@ class Riverlotl extends Pomenon {
 
     PomType WATER = new Water();
     this.type = WATER;
+    
+    Moves WATERGUN = new WaterGun();
+    this.addMove(WATERGUN); 
+
   }
 
 
@@ -276,6 +280,9 @@ class Trilantro extends Pomenon {
 
     PomType PLANT = new Plant();
     this.type = PLANT;
+    
+    Moves LEAFTHROW = new LeafThrow();
+    this.addMove(LEAFTHROW); 
   }
 
 

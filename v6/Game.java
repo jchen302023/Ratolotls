@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Game {
 
-	Player protag;
+	static Player protag;
 
   public Game() {
 		protag = new Player("filler", 50);
@@ -309,46 +309,5 @@ this.battleDisplay(chosen, wild);
 public static void main(String[] args){
   Game newGame = new Game();
   newGame.introduction();
-
-	   File text = new File("map2.map");
-  
-  
-     Map mappy = new Map(text);
-     System.out.println( "[2J" );
-     System.out.println(mappy);
-  
-  
-   while (true) {
-     //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
-     mappy.playerMove();
-		 if(Character.compare(mappy._maze[mappy.getInitRow][mappy.getInitCol], '#') == 0) {
-			 int randomInt = (int) Math.random() * 5;
-			 System.out.println(randomInt);
-			 // if (randomInt==3) {
-			 //
-			 //   randomInt = (int) Math.random() * 3;
-			 //   if(randomInt==0){
-				 Pomenon wild = new Trilantro();
-				 
-				 newGame.individualBattle(newGame.protag, wild );
-			 // }
-			 //}
-		 }
-
-     System.out.println( "[2J" );
-     System.out.println(mappy);
-   }
-
-
-
-
-//  newGame.battleDisplay();
-  //System.out.println()
-}
-
-
-
-
-
 
 }

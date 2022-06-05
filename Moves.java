@@ -57,3 +57,14 @@ class Smoke extends Moves {
 		moveType = FIRE;
 	}
 } //smoke
+
+class LeafThrow extends Moves {
+
+	public LeafThrow() {
+		PomType PLANT = new Plant();
+
+		moveName = "Leafthrow";
+		moveDamage = 15;
+		moveType = PLANT;
+	}
+} //smoke

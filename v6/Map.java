@@ -107,19 +107,18 @@ public class Map{
 //ret true if successful
    public boolean placePlayer(int row, int columns) {
 
-               // if(Character.compare(this._maze[row][columns], '#') == 0) {
-               //   int randomInt = (int) Math.random() * 5;
-               //   System.out.println(randomInt);
-               //   // if (randomInt==3) {
-               //   //
-               //   //   randomInt = (int) Math.random() * 3;
-               //   //   if(randomInt==0){
-               //     Pomenon wild = new Trilantro();
-               //     Game woo = new Game();
-               //     woo.individualBattle(woo.protag, wild );
-               //   // }
-               //   //}
-               // }
+               if(Character.compare(this._maze[row][columns], '#') == 0) {
+                 int randomInt = (int) Math.random() * 5;
+                 System.out.println(randomInt);
+                 // if (randomInt==3) {
+                 //
+                 //   randomInt = (int) Math.random() * 3;
+                 //   if(randomInt==0){
+                   Pomenon wild = new Trilantro();
+                   Game.individualBattle(Game.protag, wild );
+                 // }
+                 //}
+               }
 
      System.out.println("placing");
      if(Character.compare(this._maze[row][columns], '|') != 0){

@@ -1,5 +1,6 @@
 import java.util.ArrayList; // import the ArrayList class
 import java.util.*;
+import java.io.*;
 
 public class Game {
 
@@ -64,16 +65,16 @@ public class Game {
 	//starter pokemon
 	// try {
 		//introducing starter select screen
-    pause2000(); 
-    System.out.println();
-    System.out.print("        .");
-    pause2000(); 
-    System.out.println();
-    System.out.print("        .");
-    pause2000(); 
-    System.out.println();
-    System.out.print("        .");
-    pause2000(); 
+    // pause2000(); 
+    // System.out.println();
+    // System.out.print("        .");
+    // pause2000(); 
+    // System.out.println();
+    // System.out.print("        .");
+    // pause2000(); 
+    // System.out.println();
+    // System.out.print("        .");
+    // pause2000(); 
     
     clearScreen();
 		pause2000(); 
@@ -321,18 +322,18 @@ public static void main(String[] args){
    while (true) {
      //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
      mappy.playerMove();
-		 if(Character.compare(mappy._maze[mappy.getInitRow][mappy.getInitCol], '#') == 0) {
+		 if(Character.compare(mappy.getPrev(), '#') == 0) {
 			 int randomInt = (int) Math.random() * 5;
 			 System.out.println(randomInt);
-			 // if (randomInt==3) {
-			 //
-			 //   randomInt = (int) Math.random() * 3;
-			 //   if(randomInt==0){
+			 if (randomInt==3) {
+			 
+			   randomInt = (int) Math.random() * 3;
+			   if(randomInt==0){
 				 Pomenon wild = new Trilantro();
 				 
 				 newGame.individualBattle(newGame.protag, wild );
-			 // }
-			 //}
+			  }
+			 }
 		 }
 
      System.out.println( "[2J" );
