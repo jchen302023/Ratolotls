@@ -239,6 +239,8 @@ public static void main(String[] args){
 
 class Riverlotl extends Pomenon {
 
+  //private ArrayList<Moves> moves = new ArrayList<Moves>();
+  
   public Riverlotl() {
     super();
 
@@ -246,6 +248,18 @@ class Riverlotl extends Pomenon {
 
     PomType WATER = new Water();
     this.type = WATER;
+    
+    Moves WATERGUN = new WaterGun();
+    moves.add(WATERGUN); 
+      moves.add(WATERGUN); 
+        moves.add(WATERGUN); 
+          moves.add(WATERGUN); 
+          
+      
+    // this.addMove(WATERGUN); 
+    // this.addMove(WATERGUN); 
+    // this.addMove(WATERGUN); 
+
   }
 
 
@@ -262,6 +276,12 @@ class Dinosinge extends Pomenon {
 
 		PomType FIRE = new Fire();
 		this.type = FIRE;
+    
+    Moves SMOKE = new Smoke();
+    moves.add(SMOKE);
+      moves.add(SMOKE);
+        moves.add(SMOKE);
+          moves.add(SMOKE);
 	}
 
 
@@ -276,6 +296,12 @@ class Trilantro extends Pomenon {
 
     PomType PLANT = new Plant();
     this.type = PLANT;
+    
+    Moves LEAFTHROW = new LeafThrow();
+    moves.add(LEAFTHROW); 
+    moves.add(LEAFTHROW);
+    moves.add(LEAFTHROW);
+    moves.add(LEAFTHROW);
   }
 
 
