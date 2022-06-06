@@ -67,7 +67,6 @@ public class Game {
 	protag.setName(name);
 	clearScreen();
 
-<<<<<<< HEAD
 	// you wake up from a deep sleep
 	try {
 		for ( int i = 1; i <= 3; i++ ) {
@@ -147,6 +146,7 @@ public class Game {
     
     int inputNum = 0; 
     String starterName = starter.getName();
+		Scanner in2 = new Scanner( System.in );
 		while ( true ) {
       
 			try {
@@ -163,21 +163,76 @@ public class Game {
           clearScreen();
           System.out.println();
           System.out.println("What would you like to name your " + starter.getName() + "?");
-          starterName = in.nextLine();
+          starterName = in2.nextLine();
           starter.setName(starterName); 
           System.out.println();
           System.out.println(starter.getName() + " is a wonderful name for your new friend!");
+					pause1500(); 
         }
         
 				else if ( inputNum == 2 ) {
-          // do later 
+          System.out.println("Your starter is still special even though they have no name!");
+					pause1500(); 
         }
-					System.out.println(starter.getMoves().get(0));
+					// System.out.println(starter.getMoves().get(0));
 				break;
 			} // if 
 		} // while 
     
 } // end introduction method
+
+// POMECENTER THAT DOUBLES AS A HEALING STATION AND SUSSY SHOP
+
+public void pomecenter() {
+	System.out.println( "[2J" );
+	
+	
+	System.out.println("Hello traveller, welcome to the Pomecenter!"); 
+	System.out.println(); 
+	System.out.println("Here, you can heal your Pomenons or check out our Pomeshop! What would you like to do?"); 
+	System.out.print("1. Heal Pomenons\n2. Check out Pomeshop\n3. Exit\n");
+	Scanner in = new Scanner(System.in); 
+	int inputNum = in.nextInt(); 
+	
+	if (inputNum == 1) {
+		heal();
+	}
+	if (inputNum == 2) {
+		shoppy();
+	}
+	if (inputNum == 3) {
+		return; 
+	}
+
+}
+
+public void shoppy() {
+	System.out.println("This is the Pomeshop! What would you like to do?");
+	System.out.println(); 
+	System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy candies to buff your team! Candies can only be consumed once \n3. Exit");
+	int input = 0;
+	while(input != 3){
+	Scanner in = new Scanner(System.in);
+	 input = in.nextInt();
+	if(input == 1){
+		//adopt your new lovely friend here
+	}
+	if(input == 2){
+		//tasty organic gmo free candies 
+	}
+}
+}
+
+public void heal() {
+	for(Pomenon pompom : protag.getPlayerTeam()) {
+		
+		pompom.setHealth(pompom.getMaxHealth());
+	}
+	System.out.println("All healed! ^.^");
+}
+
+
+
 
 
   public void walk(){
@@ -241,7 +296,10 @@ public class Game {
     System.out.println(s);
     Pomenon chosen = me.getPlayerTeam().get(0);
 
-
+		if(!checkUsablePomenon(me)){
+			System.out.println("Your Pokemon are in no condition to fight!"); 
+			return;
+		}
 
     if(checkUsablePomenon(me)){
       chosen = me.getPlayerTeam().get(me.choosePomenon());
@@ -253,6 +311,7 @@ public class Game {
     while (checkUsablePomenon(me)) {
       if( wild.checkDead()){
         System.out.println("Battle won!");
+				pause1500();
         for(Pomenon p : me.getPlayerTeam()){
             System.out.println(p.getName() + ": "+ p.getHealth() + " hp");
 
@@ -260,9 +319,25 @@ public class Game {
         break;
 
       }
+			
+			if(chosen.checkDead()) {
+				System.out.println(chosen.getName() + " fainted!"); 
+				if (checkUsablePomenon(me)) {
+					chosen = me.getPlayerTeam().get(me.choosePomenon());
+				}
+				else {
+					System.out.println("You don't have anymore usable Pomenon!"); 
+					System.out.println("We advise you to get to the nearest Pomecenter"); 
+					pause1500(); 
+					break; 
+				}
+
+				
+			}
 //  this.battleDisplay(chosen, wild);
+
       chosen.chooseMove(chosen, wild);
-this.battleDisplay(chosen, wild);
+			this.battleDisplay(chosen, wild);
       System.out.println(chosen.getName()+": "+ chosen.getHealth()+ " hp");
       System.out.println(wild.getName()+": "+ wild.getHealth()+ " hp");
       s = "======================================";
@@ -321,50 +396,69 @@ public static void main(String[] args){
      System.out.println(mappy);
   
   
-   while (true) {
+   while (Character.compare(mappy.getPrev(),'$')!= 0) {
      //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
      mappy.playerMove();
 		 if(Character.compare(mappy.getPrev(), '#') == 0) {
-<<<<<<< HEAD
-			 int randomInt = (int) Math.random() * 5;
+
+			 int randomInt = (int) (Math.random() * 5);
 			 System.out.println(randomInt);
 			 if (randomInt==3) {
 			 
-			   randomInt = (int) Math.random() * 3;
+			   randomInt = (int) (Math.random() * 3);
 			   if(randomInt==0){
 				 Pomenon wild = new Trilantro();
 				 
 				 newGame.individualBattle(newGame.protag, wild );
 			  }
-=======
-			 int randomInt = (int) (Math.random() * 5);
-			 System.out.println(randomInt);
-			 if (randomInt==3) {
-			 
-			   // randomInt = (int) Math.random() * 3;
-			   // if(randomInt==0){
-				 Pomenon wild = new Trilantro();
-				 
-				 newGame.individualBattle(newGame.protag, wild );
-			  
->>>>>>> 162d7997cfafbcd881f134e9ba11c1eccf96847e
-			 }
+
+		
 		 }
 
-     System.out.println( "[2J" );
-     System.out.println(mappy);
+     
    }
-
-
+	 System.out.println( "[2J" );
+	 System.out.println(mappy);
+		if(!newGame.checkUsablePomenon(newGame.protag)){
+			System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
+		}
 
 
 //  newGame.battleDisplay();
   //System.out.println()
 }
+	 		Map mapotofu= new Map(text);
+			
+			while (Character.compare(mapotofu.getPrev(),'$')!= 0) {
+				//mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
+				mapotofu.playerMove();
+				if(Character.compare(mapotofu.getPrev(), '#') == 0) {
+			
+					int randomInt = (int) Math.random() * 5;
+					System.out.println(randomInt);
+					if (randomInt==3) {
+			
+						randomInt = (int) Math.random() * 3;
+						if(randomInt==0){
+						Pomenon wild = new Trilantro();
+			
+						newGame.individualBattle(newGame.protag, wild );
+					 }
+			
+			
+				}
+			
+			}
+			
+				System.out.println( "[2J" );
+				System.out.println(mapotofu);
+				if(!newGame.checkUsablePomenon(newGame.protag)){
+					System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
+				}
+}
 
 
 
 
-
-
+}
 }

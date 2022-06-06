@@ -182,9 +182,27 @@ Kevin: in class, worked on introduction method: implementation of starter pomeno
 ==============================================================
 
 
+2022-06-04 
+TIME SPENT: 2 hrs 
+--------------------------------------------------------------
+Gloria and Jack:
+* Tried to fix merge issues...
+* Worked on battle method. Fixed bugs on wild pomenon / starter pomenon not having moves .
+* Fixing Map so that the player shown on the screen is connected to the player object. That way,
+you can have battles on the map 
+==============================================================
 
-
-
+2022-06-05 
+TIME SPENT: 1.5 hrs
+--------------------------------------------------------------
+Gloria and Jack:
+* Creation of the Pomecenter, which has a healing component and a shopping component
+* In this game, you would adopt Pomenons from the shop instead of catching them because it is 
+more cool and environmentally freindly. Work on implementing player balance and inventory next time
+* Worked on the creation of a explorable map upon reaching the exit point 
+* Discussed implementation of a new map for the Pomecenter and how entering/exiting these maps would work 
+* Adjusted battle method for bugs bzz bzz
+==============================================================
 
 
 
@@ -198,20 +216,11 @@ Kevin: in class, worked on introduction method: implementation of starter pomeno
 //=============================================================================//
   SECRET TEMPORARY RUNNING TODO LIST:
 
+  * Players can't adopt for free >:(( 
+  * Enter exit pomecenter how?? 
+  * implement balance ++ within battle 
+  * fill up the moves with moar moves
 
-    * Display class which will display the map and control refreshing the display with each character move
-    * Perhaps a display map (2D array) and a display battle class for better separation of displays
-    * Find a way to generate the map using text input within txt file like with the mazes
-
-
-
-
-    * Create class called Moves ☑
-    * Pomenons needs an ArrayList<Moves> ☑
-    * Player needs an ArrayList<Items> ☑
-    *  Within Pomenon class:
-      public boolean attack(Pomenon me, Pomenon enemy ) ☑
-      public boolean checkDead() - returns true if dead because 0 health ☑
     * A Game class and a Woo file that runs the actual game
     * Set up battle method within
 //=============================================================================//

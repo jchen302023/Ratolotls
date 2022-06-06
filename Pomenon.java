@@ -300,6 +300,12 @@ class Trilantro extends Pomenon {
 
     PomType PLANT = new Plant();
     this.type = PLANT;
+    
+    Moves LEAFTHROW = new LeafThrow();
+    moves.add(LEAFTHROW);
+    moves.add(LEAFTHROW);
+    moves.add(LEAFTHROW);
+    moves.add(LEAFTHROW);
   }
 
 

@@ -124,7 +124,7 @@ public class Map{
      System.out.println("placing");
      if(Character.compare(this._maze[row][columns], '|') != 0){
        if(Character.compare(this._maze[row][columns], '_') != 0){
-         if(Character.compare(this._maze[row][columns], '$') != 0){
+         //if(Character.compare(this._maze[row][columns], '$') != 0){
            if(Character.compare(this._maze[row][columns], '(') != 0){
            if(Character.compare(this._maze[row][columns], ')') != 0){
            if(Character.compare(this._maze[row][columns], '/') != 0){
@@ -141,7 +141,7 @@ public class Map{
 
 
          }
-       }
+      // }
      }
    }
  }
