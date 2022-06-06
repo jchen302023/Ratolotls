@@ -190,9 +190,7 @@ public class Pomenon {
 
   public boolean checkDead() {
     return health <= 0;
-  }
-
-
+  }  
 
 
 

@@ -187,8 +187,7 @@ public void pomecenter() {
 	System.out.println( "[2J" );
 	
 	
-	System.out.println("Hello traveller, welcome to the Pomecenter!"); 
-	System.out.println(); 
+	System.out.println("Hello traveller, welcome to the Pomecenter!\n"); 
 	System.out.println("Here, you can heal your Pomenons or check out our Pomeshop! What would you like to do?"); 
 	System.out.print("1. Heal Pomenons\n2. Check out Pomeshop\n3. Exit\n");
 	Scanner in = new Scanner(System.in); 
@@ -209,7 +208,7 @@ public void pomecenter() {
 public void shoppy() {
 	System.out.println("This is the Pomeshop! What would you like to do?");
 	System.out.println(); 
-	System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy candies to buff your team! Candies can only be consumed once \n3. Exit");
+	System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Exit");
 	int input = 0;
 	while(input != 3){
 	Scanner in = new Scanner(System.in);

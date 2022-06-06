@@ -67,4 +67,4 @@ class LeafThrow extends Moves {
 		moveDamage = 15;
 		moveType = PLANT;
 	}
-} //smoke
+} //leafthrow
