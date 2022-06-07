@@ -416,6 +416,11 @@ public static void main(String[] args){
 
      
    }
+	 
+	 if(Character.compare(mappy.getPrev(), 'C') == 0) {
+		 pomecenter(); 
+		 
+	 }
 	 System.out.println( "[2J" );
 	 System.out.println(mappy);
 		if(!newGame.checkUsablePomenon(newGame.protag)){
