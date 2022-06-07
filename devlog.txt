@@ -221,8 +221,9 @@ Gloria and Jack:
 * Wrote basics of heal() and shop() method for POMECENTER
 * Discussed implementation of Pomcenter map. Walking to N = heal. Walking to S = shop. 
 * Wrote code to test successful exiting from maps and entering another map
+* Will try to tidy up the code in our main method, it is looking kinda messy atm ): 
 Kevin: 
-* Working on the Items and Beans and Inventory for Player (please remember to push... please...)
+* Working on the Items and Beans and Inventory for Player 
 ==============================================================
 
 
@@ -235,7 +236,8 @@ Kevin:
 
 //=============================================================================//
   SECRET TEMPORARY RUNNING TODO LIST:
-
+  * Compile and check for errors and bugs bzz bzz
+  * Kevin ... push plz
   * Players can't adopt for free >:(( 
   * Enter exit pomecenter how?? 
   * implement balance ++ within battle 
