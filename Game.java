@@ -185,12 +185,41 @@ public class Game {
 
 public void pomecenter() {
 	System.out.println( "[2J" );
+<<<<<<< HEAD
+=======
+	
+	
+	System.out.println("Hello traveller, welcome to the Pomecenter!\n"); 
+	System.out.println("Here, you can heal your Pomenons or check out our Pomeshop! What would you like to do?"); 
+	System.out.print("1. Heal Pomenons\n2. Check out Pomeshop\n3. Exit\n");
+	Scanner in = new Scanner(System.in); 
+	int inputNum = in.nextInt(); 
+	
+	if (inputNum == 1) {
+		heal();
+	}
+	if (inputNum == 2) {
+		shoppy();
+	}
+	if (inputNum == 3) {
+		return; 
+	}
+>>>>>>> 7d100b047e25416e56daa4d8dfc4f30ebd158d81
 
 
+<<<<<<< HEAD
 	System.out.println("Hello traveller, welcome to the Pomecenter!");
 	System.out.println();
 	System.out.println("Here, you can heal your Pomenons or check out our Pomeshop! What would you like to do?");
 	System.out.print("1. Heal Pomenons\n2. Check out Pomeshop\n3. Exit\n");
+=======
+public void shoppy() {
+	System.out.println("This is the Pomeshop! What would you like to do?");
+	System.out.println(); 
+	System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Exit");
+	int input = 0;
+	while(input != 3){
+>>>>>>> 7d100b047e25416e56daa4d8dfc4f30ebd158d81
 	Scanner in = new Scanner(System.in);
 int inputNum = 0;
   while(inputNum != 3){
