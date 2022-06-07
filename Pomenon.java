@@ -10,6 +10,7 @@ public class Pomenon {
   protected PomType type;
   protected int health;
   protected int maxHealth;
+  protected int atkdmg;
   protected int level;
   protected int experience;
   protected ArrayList<Moves> moves;
@@ -63,6 +64,9 @@ public class Pomenon {
     return moves;
   }
 
+  public int getAtkdmg(){
+    return atkdmg;
+  }
   public String setName(String newName){
     String ret = this.name;
     this.name = newName;
@@ -94,6 +98,11 @@ public class Pomenon {
     return ret;
   }
 
+  public int setAtkdmg(int newAtkdmg){
+    int ret = this.atkdmg;
+    this.atkdmg = newAtkdmg;
+    return ret;
+  }
   public int chooseMove(Pomenon me, Pomenon enemy){
     ArrayList<Moves> myMoves = me.getMoves();
     String s = "";
@@ -173,6 +182,8 @@ public class Pomenon {
         damage = (int) (damage * 1.5);
       }
 
+      damage = damage + me.getAtkdmg();
+
       enemy.setHealth(enemy.getHealth() - damage);
       System.out.println(me.getName() + " did " + damage + " damage to " + enemy.getName() + "!");
       return true;
@@ -240,7 +251,7 @@ public static void main(String[] args){
 class Riverlotl extends Pomenon {
 
   //private ArrayList<Moves> moves = new ArrayList<Moves>();
-  
+
   public Riverlotl() {
     super();
 
@@ -248,20 +259,20 @@ class Riverlotl extends Pomenon {
 
     PomType WATER = new Water();
     this.type = WATER;
-    
+
     Moves WATERGUN = new WaterGun();
 
-    this.addMove(WATERGUN); 
+    this.addMove(WATERGUN);
 
-    moves.add(WATERGUN); 
-      moves.add(WATERGUN); 
-        moves.add(WATERGUN); 
-          moves.add(WATERGUN); 
-          
-      
-    // this.addMove(WATERGUN); 
-    // this.addMove(WATERGUN); 
-    // this.addMove(WATERGUN); 
+    moves.add(WATERGUN);
+      moves.add(WATERGUN);
+        moves.add(WATERGUN);
+          moves.add(WATERGUN);
+
+
+    // this.addMove(WATERGUN);
+    // this.addMove(WATERGUN);
+    // this.addMove(WATERGUN);
 
 
   }
@@ -280,7 +291,7 @@ class Dinosinge extends Pomenon {
 
 		PomType FIRE = new Fire();
 		this.type = FIRE;
-    
+
     Moves SMOKE = new Smoke();
     moves.add(SMOKE);
       moves.add(SMOKE);
@@ -300,7 +311,7 @@ class Trilantro extends Pomenon {
 
     PomType PLANT = new Plant();
     this.type = PLANT;
-    
+
     Moves LEAFTHROW = new LeafThrow();
     moves.add(LEAFTHROW);
     moves.add(LEAFTHROW);
