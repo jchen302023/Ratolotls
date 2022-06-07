@@ -167,7 +167,7 @@ public class Map{
      return this.originalTile;
    }
 
-   
+
 
    public char playerMove() {
 
@@ -270,16 +270,16 @@ public class Map{
   //    File text = new File("map2.map");
   //
   //
-  //    Map mappy = new Map(text);
+  //    Map _maze = new Map(text);
   //    System.out.println( "[2J" );
-  //    System.out.println(mappy);
+  //    System.out.println(_maze);
   //
   //
   //  while (true) {
-  //    //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
-  //    mappy.playerMove();
+  //    //_maze.originalTile = _maze._maze[_maze.initRow][_maze.initColumn];
+  //    _maze.playerMove();
   //    System.out.println( "[2J" );
-  //    System.out.println(mappy);
+  //    System.out.println(_maze);
   //  }
   //
   // }
