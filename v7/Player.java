@@ -8,7 +8,7 @@ public class Player {
   private String playerName;
   private ArrayList<Pomenon> playerPomenons; // all the pomenons that you have caught
   private ArrayList<Pomenon> playerTeam; // the pomenons you selected to put on your team
-  // private ArrayList<Item> bag;
+  private ArrayList<Item> bag;
   private int balance; //moneymoney chaching
 
   // CONSTRUCTORS
@@ -71,12 +71,11 @@ public void setName(String name) {
 
 public int changeBal( int num ) {
 	balance += num;
-  return balance; 
 }
-// 
-// public Item addToBag( Item item ) {
-//        bag.add(item);
-// }
+
+public Item addToBag( Item item ) {
+       bag.add(item)
+}
 
 
 // STRING PRINT PLAYER

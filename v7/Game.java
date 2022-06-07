@@ -399,9 +399,6 @@ public static void main(String[] args){
    while (Character.compare(mappy.getPrev(),'$')!= 0) {
      //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
      mappy.playerMove();
-		 if (Character.compare(mappy.getPrev(), 'C') == 0) {
-			 newGame.pomecenter(); 
-		 } 
 		 if(Character.compare(mappy.getPrev(), '#') == 0) {
 
 			 int randomInt = (int) (Math.random() * 5);
@@ -418,13 +415,10 @@ public static void main(String[] args){
 		
 		 }
 
-
      
    }
-	
 	 System.out.println( "[2J" );
 	 System.out.println(mappy);
-	 System.out.println(mappy.getPrev());
 		if(!newGame.checkUsablePomenon(newGame.protag)){
 			System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
 		}
@@ -433,7 +427,6 @@ public static void main(String[] args){
 //  newGame.battleDisplay();
   //System.out.println()
 }
-text = new File("map1.map");
 	 		Map mapotofu= new Map(text);
 			
 			while (Character.compare(mapotofu.getPrev(),'$')!= 0) {
@@ -441,11 +434,11 @@ text = new File("map1.map");
 				mapotofu.playerMove();
 				if(Character.compare(mapotofu.getPrev(), '#') == 0) {
 			
-					int randomInt = (int)( Math.random() * 5);
+					int randomInt = (int) Math.random() * 5;
 					System.out.println(randomInt);
 					if (randomInt==3) {
 			
-						randomInt = (int)( Math.random() * 3);
+						randomInt = (int) Math.random() * 3;
 						if(randomInt==0){
 						Pomenon wild = new Trilantro();
 			
@@ -457,49 +450,12 @@ text = new File("map1.map");
 			
 			}
 			
-			
-			
 				System.out.println( "[2J" );
 				System.out.println(mapotofu);
 				if(!newGame.checkUsablePomenon(newGame.protag)){
 					System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
 				}
-			} //end while
-
-			text = new File("map2.map");
-				 		Map mapkun= new Map(text);
-
-						while (Character.compare(mapkun.getPrev(),'$')!= 0) {
-							//mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
-							mapkun.playerMove();
-							if(Character.compare(mapkun.getPrev(), '#') == 0) {
-						
-								int randomInt = (int)( Math.random() * 5);
-								System.out.println(randomInt);
-								if (randomInt==3) {
-						
-									randomInt = (int) (Math.random() * 3);
-									if(randomInt==0){
-									Pomenon wild = new Trilantro();
-						
-									newGame.individualBattle(newGame.protag, wild );
-								 }
-						
-						
-							}
-						
-						}
-						
-						
-						
-							System.out.println( "[2J" );
-							System.out.println(mapkun);
-							if(!newGame.checkUsablePomenon(newGame.protag)){
-								System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
-							}
-						} //end while
-
-
+}
 
 
 
