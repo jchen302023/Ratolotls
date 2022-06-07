@@ -303,7 +303,7 @@ public void heal() {
 		if(!checkUsablePomenon(me)){
 			System.out.println("Your Pokemon are in no condition to fight!");
 			return;
-		}
+		}it pu
 
     if(checkUsablePomenon(me)){
       chosen = me.getPlayerTeam().get(me.choosePomenon());
