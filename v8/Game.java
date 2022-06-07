@@ -212,6 +212,7 @@ public void pomecenter() {
 } // end pomecenter
 
 public void shoppy() {
+
 	System.out.println("This is the Pomeshop! What would you like to do?");
 	System.out.println();
 	System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n 4. Exit");
@@ -235,6 +236,7 @@ public void shoppy() {
 } // end shoppy
 
 public void heal() {
+
 	for(Pomenon pompom : protag.getPlayerTeam()) {
 
 		pompom.setHealth(pompom.getMaxHealth());
