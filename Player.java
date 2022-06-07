@@ -73,10 +73,10 @@ public int changeBal( int num ) {
 	balance += num;
   return balance; 
 }
-// 
-// public Item addToBag( Item item ) {
-//        bag.add(item);
-// }
+ 
+public Item addToBag( Item item ) {
+        bag.add(item);
+}
 
 
 // STRING PRINT PLAYER
