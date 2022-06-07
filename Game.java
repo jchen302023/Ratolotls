@@ -396,11 +396,20 @@ public static void main(String[] args){
      System.out.println(mappy);
   
   
-   while (Character.compare(mappy.getPrev(),'$')!= 0) {
+   while (Character.compare(mappy.getPrev(),'E')!= 0) {
      //mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
      mappy.playerMove();
 		 if (Character.compare(mappy.getPrev(), 'C') == 0) {
-			 newGame.pomecenter(); 
+			 text = new File("pomecenter.map");
+			 Map center = new Map(text);
+			 center.playerMove();
+			 if(Character.compare(center.getPrev(),'N')==0){
+				 newGame.heal();
+			 }
+			 if(Character.compare(center.getPrev(), 'S') == 0) {
+				 newGame.shop();
+			 }
+			 
 		 } 
 		 if(Character.compare(mappy.getPrev(), '#') == 0) {
 
@@ -436,7 +445,7 @@ public static void main(String[] args){
 text = new File("map1.map");
 	 		Map mapotofu= new Map(text);
 			
-			while (Character.compare(mapotofu.getPrev(),'$')!= 0) {
+			while (Character.compare(mapotofu.getPrev(),'E')!= 0) {
 				//mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
 				mapotofu.playerMove();
 				if(Character.compare(mapotofu.getPrev(), '#') == 0) {
@@ -469,7 +478,7 @@ text = new File("map1.map");
 			text = new File("map2.map");
 				 		Map mapkun= new Map(text);
 
-						while (Character.compare(mapkun.getPrev(),'$')!= 0) {
+						while (Character.compare(mapkun.getPrev(),'E')!= 0) {
 							//mappy.originalTile = mappy._maze[mappy.initRow][mappy.initColumn];
 							mapkun.playerMove();
 							if(Character.compare(mapkun.getPrev(), '#') == 0) {

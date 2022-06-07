@@ -213,6 +213,17 @@ more cool and environmentally freindly. Work on implementing player balance and 
 * Adjusted battle method for bugs bzz bzz
 ==============================================================
 
+2022-06-06 
+TIME SPENT: 1.5 hrs
+--------------------------------------------------------------
+Gloria and Jack:
+* Created the Pomecenter in map form
+* Wrote basics of heal() and shop() method for POMECENTER
+* Discussed implementation of Pomcenter map. Walking to N = heal. Walking to S = shop. 
+* Wrote code to test successful exiting from maps and entering another map
+Kevin: 
+* Working on the Items and Beans and Inventory for Player (please remember to push... please...)
+==============================================================
 
 
 
