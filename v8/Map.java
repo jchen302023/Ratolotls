@@ -129,7 +129,7 @@ public class Map{
            if(Character.compare(this._maze[row][columns], ')') != 0){
            if(Character.compare(this._maze[row][columns], '/') != 0){
              if(Character.compare(this._maze[row][columns], '\\') != 0){
-
+               System.out.println(originalTile);
            this._maze[initRow][initColumn]= originalTile;
              originalTile = this._maze[row][columns];
           // this.initRow = row;

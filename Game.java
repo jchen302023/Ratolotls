@@ -6,20 +6,14 @@ public class Game {
 
 	Player protag;
 	File text;
-	Map map1;
-	Map map2;
-	Map map3;
-	Map pomecenter;
-	
-
+	Map mappy;
+	Map mapotofu;
   public Game() {
 		protag = new Player("filler", 50);
-		File text = new File("map2.map");
-		map1 = new Map(text);
+		text = new File("map2.map");
+		mappy = new Map(text);
 		text = new File("map1.map");
-		map2 = new Map(text);
-		// text = new File("pomecenter.map");
-		// pomecenter = new Map(text);
+		mapotofu = new Map(text);
   }
   public void play() {
     // where we put everything  from intro to battle to etc.
@@ -195,28 +189,29 @@ public class Game {
 
 // POMECENTER THAT DOUBLES AS A HEALING STATION AND SUSSY SHOP
 
-// public void pomecenter() {
-// 
-// 	System.out.println("Hello traveller, welcome to the Pomecenter!\n");
-// 	System.out.println("Here, you can heal your Pomenons or check out our Pomeshop! What would you like to do?");
-// 	System.out.print("1. Heal Pomenons\n2. Check out Pomeshop\n3. Exit\n");
-// 	Scanner in = new Scanner(System.in);
-// 	int inputNum = 0;
-// 	while(inputNum != 3){
-// 	inputNum = in.nextInt();
-// 
-// 	if (inputNum == 1) {
-// 		heal();
-// 
-// 	}
-// 	if (inputNum == 2) {
-// 		shoppy();
-// 	}
-// 	// if (inputNum == 3) {
-// 	// 	return;
-// } // while loop
-// 
-// } // end pomecenter
+public void pomecenter() {
+	System.out.println( "[2J" );
+
+
+	System.out.println("Hello traveller, welcome to the Pomecenter!\n");
+	System.out.println("Here, you can heal your Pomenons or check out our Pomeshop! What would you like to do?");
+	System.out.print("1. Heal Pomenons\n2. Check out Pomeshop\n3. Exit\n");
+	Scanner in = new Scanner(System.in);
+	int inputNum = 0;
+	while(inputNum != 3){
+	inputNum = in.nextInt();
+
+	if (inputNum == 1) {
+		heal();
+	}
+	if (inputNum == 2) {
+		shoppy();
+	}
+	// if (inputNum == 3) {
+	// 	return;
+} // while loop
+
+} // end pomecenter
 
 public void shoppy() {
 
@@ -249,7 +244,6 @@ public void heal() {
 		pompom.setHealth(pompom.getMaxHealth());
 	}
 	System.out.println("All healed! ^.^");
-	
 }
 
 
@@ -388,44 +382,52 @@ public void heal() {
 
  }
 
- // map1 ONE EXPERIMENT
+ // MAPPY ONE EXPERIMENT
 
  public void map1() {
+	 boolean newMap = true;
+	 // text = new File("map2.map");
+	 // mappy = new Map(text);
+	 	System.out.println( "[2J" );
+ System.out.println(mappy);
+ mappy.playerMove();
+ newMap = false;
+ System.out.println( "[2J" );
+ System.out.println(mappy);
+ if(!checkUsablePomenon(protag)){
+	 System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
+ }
 
- System.out.println(map1);
- while (Character.compare(map1.getPrev(),'E')!= 0) {
-   //.originalTile = map1.map1[map1.initRow][map1.initColumn];
-   map1.playerMove();
-   if (Character.compare(map1.getPrev(), 'C') == 0) {
+ while (Character.compare(mappy.getPrev(),'E')!= 0 && !newMap ) {
+   //.originalTile = mappy.mappy[mappy.initRow][mappy.initColumn];
+   mappy.playerMove();
+	 newMap = false;
+	 if (Character.compare(mappy.getPrev(), 'C') == 0) {
 
 
-     text = new File("pomecenter.map");
-     Map center = new Map(text);
-		 System.out.println( "[2J" );
-		 System.out.println("Hello traveller, welcome to the Pomecenter!\n");
-		 System.out.println(center);
-		 
-		 
-		 while (Character.compare(center.getPrev(), 'E') != 0) {
-			 center.playerMove();
-			 
-			 System.out.println( "[2J" );
-			 System.out.println(center);
-			 if(Character.compare(center.getPrev(),'N')==0){
-	       heal();
-	     }
-	     if(Character.compare(center.getPrev(), '$') == 0) {
-	       shoppy();
-	     }
-		 }
-     
-   } // center
-	 
-   if(Character.compare(map1.getPrev(), '#') == 0) {
-		 if(! checkUsablePomenon(this.protag)){
-			 System.out.println("All your pomenons have fainted. You cannot battle without a pomenon. Go to the nearest Pomecenter");
-		 }
-		 
+		text = new File("pomecenter.map");
+		Map center = new Map(text);
+		System.out.println( "[2J" );
+		System.out.println("Hello traveller, welcome to the Pomecenter!\n");
+		System.out.println(center);
+
+
+		while (Character.compare(center.getPrev(), 'E') != 0) {
+			center.playerMove();
+
+			System.out.println( "[2J" );
+			System.out.println(center);
+			if(Character.compare(center.getPrev(),'N')==0){
+				heal();
+			}
+			if(Character.compare(center.getPrev(), '$') == 0) {
+				shoppy();
+			}
+		}
+
+	} // center
+   if(Character.compare(mappy.getPrev(), '#') == 0) {
+
      int randomInt = (int) (Math.random() * 5);
      System.out.println(randomInt);
      if (randomInt==3) {
@@ -436,27 +438,25 @@ public void heal() {
 
        individualBattle(protag, wild );
       }
-			if(randomInt==1){
-			Pomenon wild = new Dinosinge();
+			if(randomInt == 1){
+				Pomenon wild = new Riverlotl();
+				individualBattle(protag, wild);
 
-			individualBattle(protag, wild );
-		 }
-		 if(randomInt==2){
-		 Pomenon wild = new Riverlotl();
-
-		 individualBattle(protag, wild );
-		}
+			}
+			else{
+				Pomenon wild = new Dinosinge();
+				individualBattle(protag, wild);
 
 
    }
 
 
-
+}
  }
 
  System.out.println( "[2J" );
- System.out.println(map1);
- System.out.println(map1.getPrev());
+ System.out.println(mappy);
+ System.out.println(mappy.getPrev());
   if(!checkUsablePomenon(protag)){
     System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
   }
@@ -467,6 +467,89 @@ public void heal() {
  } // while loop
  } // map 1
 
+
+public void map2(){
+	// text = new File("map1.map");
+	// mappy = new Map(text);
+
+		System.out.println( "[2J" );
+	System.out.println(mapotofu);
+	mapotofu.playerMove();
+
+	System.out.println( "[2J" );
+	System.out.println(mapotofu);
+
+	if(!checkUsablePomenon(protag)){
+		System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
+	}
+	while (Character.compare(mapotofu.getPrev(),'E')!= 0  ) {
+		//.originalTile = mappy.mappy[mappy.initRow][mappy.initColumn];
+		mapotofu.playerMove();
+		if(Character.compare(mapotofu.getPrev(), 'S')== 0  ){
+			this.map1();
+		}
+		if (Character.compare(mapotofu.getPrev(), 'C') == 0) {
+
+
+		text = new File("pomecenter.map");
+		Map center = new Map(text);
+		System.out.println( "[2J" );
+		System.out.println("Hello traveller, welcome to the Pomecenter!\n");
+		System.out.println(center);
+
+
+		while (Character.compare(center.getPrev(), 'E') != 0) {
+			center.playerMove();
+
+			System.out.println( "[2J" );
+			System.out.println(center);
+			if(Character.compare(center.getPrev(),'N')==0){
+				heal();
+			}
+			if(Character.compare(center.getPrev(), '$') == 0) {
+				shoppy();
+			}
+		}
+
+	} // center
+		if(Character.compare(mapotofu.getPrev(), '#') == 0) {
+
+			int randomInt = (int) (Math.random() * 5);
+			System.out.println(randomInt);
+			if (randomInt==3) {
+
+				randomInt = (int) (Math.random() * 3);
+				if(randomInt==0){
+				Pomenon wild = new Trilantro();
+
+				individualBattle(protag, wild );
+			 }
+			 if(randomInt == 1){
+				 Pomenon wild = new Riverlotl();
+				 individualBattle(protag, wild);
+
+			 }
+			 else{
+				 Pomenon wild = new Dinosinge();
+				 individualBattle(protag, wild);
+			 }
+
+
+		}
+
+
+
+	}
+
+	System.out.println( "[2J" );
+	System.out.println(mapotofu);
+	System.out.println(mapotofu.getPrev());
+	 if(!checkUsablePomenon(protag)){
+		 System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
+	 }
+} //end while
+
+}//end map2
 
 
  //returns true if there is still one pom with >0 health. returns false if all are <=0 health
@@ -479,11 +562,5 @@ public void heal() {
    return false;
  }
 
-public static void main(String[] args){
-  Game newGame = new Game();
-  newGame.introduction();
-	newGame.map1();
-	// newGame.map2();
 
-} // end main
 }
