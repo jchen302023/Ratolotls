@@ -141,10 +141,9 @@ public class Game {
     pause1500();
     System.out.println();
     System.out.println("A very good choice if I do say so myself.");
-    pause2000();
 
     // ask to change starter's NAME
-    pause2000();
+    pause1500();
     System.out.println();
 		System.out.println("Would you like to give your new little buddy a name?");
     System.out.println();
@@ -217,11 +216,12 @@ public void shoppy() {
 
 	System.out.println("This is the Pomeshop! What would you like to do?");
 	System.out.println();
-	System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n 4. Exit");
+	System.out.println("1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once \n\n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n\n4. Exit");
 	Scanner in = new Scanner(System.in);
 	int input = 0;
 
 	while(input != 4){
+		try{
 
 		 input = in.nextInt();
 		if(input == 1){
@@ -234,6 +234,15 @@ public void shoppy() {
 		if(input == 3){
 			//kapow new move
 		}
+		if(input == 4){
+			System.out.println("You exited the shop!");
+			return;
+		}
+	} catch(Exception e){
+		System.out.println("Invalid input. ");
+		System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n 4. Exit");
+		in.nextLine();
+	}
 	} // while loop
 } // end shoppy
 
@@ -299,10 +308,13 @@ public void heal() {
 
   public void individualBattle(Player me, Pomenon wild) {
 
+	Pomenon chosen = me.getPlayerTeam().get(0);
+	System.out.println("======================================");
+	this.battleDisplay(chosen, wild);
     String s = "";
     s += "You have encountered a wild " + wild.getName() + "!";
     System.out.println(s);
-    Pomenon chosen = me.getPlayerTeam().get(0);
+
 
 		if(!checkUsablePomenon(me)){
 			System.out.println("Your Pokemon are in no condition to fight!");
@@ -394,6 +406,7 @@ public void heal() {
  newMap = false;
  System.out.println( "[2J" );
  System.out.println(mappy);
+ 		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
  if(!checkUsablePomenon(protag)){
 	 System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
  }
@@ -410,13 +423,14 @@ public void heal() {
 		System.out.println( "[2J" );
 		System.out.println("Hello traveller, welcome to the Pomecenter!\n");
 		System.out.println(center);
-
+		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
 
 		while (Character.compare(center.getPrev(), 'E') != 0) {
 			center.playerMove();
 
 			System.out.println( "[2J" );
 			System.out.println(center);
+					System.out.println("Key:  E = Exit ; N = Nurse ; $ = Shop");
 			if(Character.compare(center.getPrev(),'N')==0){
 				heal();
 			}
@@ -456,7 +470,8 @@ public void heal() {
 
  System.out.println( "[2J" );
  System.out.println(mappy);
- System.out.println(mappy.getPrev());
+ 		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
+ //System.out.println(mappy.getPrev());
   if(!checkUsablePomenon(protag)){
     System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
   }
@@ -478,7 +493,7 @@ public void map2(){
 
 	System.out.println( "[2J" );
 	System.out.println(mapotofu);
-
+		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
 	if(!checkUsablePomenon(protag)){
 		System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
 	}
@@ -496,14 +511,14 @@ public void map2(){
 		System.out.println( "[2J" );
 		System.out.println("Hello traveller, welcome to the Pomecenter!\n");
 		System.out.println(center);
-
-
+			System.out.println("Key:  E = Exit ; N = Nurse ; $ = Shop");
 		while (Character.compare(center.getPrev(), 'E') != 0) {
 			center.playerMove();
 
 			System.out.println( "[2J" );
 			System.out.println(center);
-			if(Character.compare(center.getPrev(),'N')==0){
+				System.out.println("Key:  E = Exit ; N = Nurse ; $ = Shop");
+						if(Character.compare(center.getPrev(),'N')==0){
 				heal();
 			}
 			if(Character.compare(center.getPrev(), '$') == 0) {
@@ -543,7 +558,8 @@ public void map2(){
 
 	System.out.println( "[2J" );
 	System.out.println(mapotofu);
-	System.out.println(mapotofu.getPrev());
+		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
+	//System.out.println(mapotofu.getPrev());
 	 if(!checkUsablePomenon(protag)){
 		 System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
 	 }

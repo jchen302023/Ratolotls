@@ -201,7 +201,7 @@ public class Pomenon {
 
   public boolean checkDead() {
     return health <= 0;
-  }  
+  }
 
 
 
@@ -260,7 +260,7 @@ class Riverlotl extends Pomenon {
 
     Moves WATERGUN = new WaterGun();
 
-    this.addMove(WATERGUN);
+  
 
     moves.add(WATERGUN);
       moves.add(WATERGUN);
