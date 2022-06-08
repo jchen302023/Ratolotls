@@ -227,7 +227,15 @@ Kevin:
 ==============================================================
 
 
-
+2022-06-07 
+TIME SPENT: 1.5 hrs
+--------------------------------------------------------------
+Gloria and Jack:
+* Created methods for unique maps so the main method is not as messy!
+* Successful implementation of pomecenter map! You can walk in and out now
+* Worked on items and beans for buffing pomenon 
+* Modified maps for easier navigation
+==============================================================
 
 
 
