@@ -86,6 +86,12 @@ public class Pomenon {
     return ret;
   }
 
+  public int setMaxHealth( int newHealth ) {
+	  int ret = this.health;
+	  this.health = newHealth;
+	  return ret;
+  }
+
   public int setLevel(int newLevel){
     int ret = this.level;
     this.level = newLevel;
