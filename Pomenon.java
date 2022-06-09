@@ -135,24 +135,56 @@ public class Pomenon {
         if(moveNum == 1){
           System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
           this.attack(me, myMoves.get(0), enemy);
-          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
+          int rando = (int)(Math.random()*4);
+          this.attack(enemy, enemy.getMoves().get(rando), me);
+          System.out.println("The enemy "+ enemy.getName()+" used "+enemy.getMoves().get(rando).getMoveName());
+          try {
+            Thread.sleep(1500);
+          }
+          catch (Exception e) {
+      
+          }
         }
 
         if(moveNum == 2){
           System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
           this.attack(me, myMoves.get(1), enemy);
-          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
+          int rando = (int)(Math.random()*4);
+          this.attack(enemy, enemy.getMoves().get(rando), me);
+          System.out.println("The enemy "+ enemy.getName()+" used "+enemy.getMoves().get(rando).getMoveName());
+          try {
+            Thread.sleep(1500);
+          }
+          catch (Exception e) {
+      
+          }
         }
 
         if(moveNum == 3){
           System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
           this.attack(me, myMoves.get(2), enemy);
-          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
+          int rando = (int)(Math.random()*4);
+          this.attack(enemy, enemy.getMoves().get(rando), me);
+          System.out.println("The enemy "+ enemy.getName()+" used "+enemy.getMoves().get(rando).getMoveName());
+          try {
+            Thread.sleep(1500);
+          }
+          catch (Exception e) {
+      
+          }
         }
         if(moveNum == 4){
           System.out.println("You chose "+ myMoves.get(moveNum - 1).getMoveName());
           this.attack(me, myMoves.get(3), enemy);
-          this.attack(enemy, enemy.getMoves().get((int)Math.random()*4), me);
+          int rando = (int)(Math.random()*4);
+          this.attack(enemy, enemy.getMoves().get(rando), me);
+          System.out.println("The enemy "+ enemy.getName()+" used "+enemy.getMoves().get(rando).getMoveName());
+          try {
+            Thread.sleep(1500);
+          }
+          catch (Exception e) {
+      
+          }
         }
 
 

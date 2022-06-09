@@ -62,6 +62,10 @@ public class Player {
   public ArrayList<Pomenon> getPlayerTeam(){
     return playerTeam;
   }
+  
+  public ArrayList<Item> getPlayerBag() {
+    return bag; 
+  }
 
   //MUTATORS
 

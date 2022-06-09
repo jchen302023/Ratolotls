@@ -8,6 +8,7 @@ public class Game {
 	File text;
 	Map mappy;
 	Map mapotofu;
+	
   public Game() {
 		protag = new Player("filler", 50);
 		text = new File("map2.map");
@@ -186,6 +187,21 @@ public class Game {
 
 } // end introduction method
 
+// INVENTORY METHOD
+
+public void inventory() {
+	if (protag.getPlayerBag().size() == 0) {
+		
+	} // 
+}
+
+
+
+
+
+
+
+
 // POMECENTER THAT DOUBLES AS A HEALING STATION AND SUSSY SHOP
 
 public void pomecenter() {
@@ -194,7 +210,7 @@ public void pomecenter() {
 
 	System.out.println("Hello traveller, welcome to the Pomecenter!\n");
 	System.out.println("Here, you can heal your Pomenons or check out our Pomeshop! What would you like to do?");
-	System.out.print("1. Heal Pomenons\n2. Check out Pomeshop\n3. Exit\n");
+	System.out.print("1. Heal Pomenons\n\n2. Check out Pomeshop\n\n3. Exit\n");
 	Scanner in = new Scanner(System.in);
 	int inputNum = 0;
 	while(inputNum != 3){
@@ -216,7 +232,7 @@ public void shoppy() {
 
 	System.out.println("This is the Pomeshop! What would you like to do?");
 	System.out.println();
-	System.out.println("1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once \n\n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n\n4. Exit");
+	System.out.println("\n1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once \n\n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n\n4. Exit");
 	Scanner in = new Scanner(System.in);
 	int input = 0;
 
@@ -228,8 +244,45 @@ public void shoppy() {
 			//adopt your new lovely friend here
 		}
 		if(input == 2){
-			//tasty organic gmo free candies
-		}
+			//tasty organic gmo free beans
+			Scanner in2 = new Scanner(System.in);
+			int input2 = 0;
+			
+			System.out.println("Welcome to the Bean Shop! Here we have a wonderful selection of Beans!");
+			System.out.print("\n1. Protein Powder Bean\n2. Heart Bean\n3. Exit\n");
+			
+			while (input2 != 3) {
+				try {
+					input2 = in.nextInt();
+					
+					if (input2 == 1) {
+						Bean stronk = new atkBean();
+						System.out.println("This is the " + stronk.getName());
+						System.out.println("\nMade only from the finest beta-alanine");
+						System.out.println("\nIncreases your Pomenon's attack stat by 5");
+						stronk.buy(protag); 
+					}
+					
+					if (input2 == 2) {
+						Bean tanky = new hpBean();
+						System.out.println("This is the " + tanky.getName());
+						System.out.println("\nMade with love from grandma");
+						System.out.println("\nIncreases your Pomenon's health stat by 5");
+						tanky.buy(protag); 
+					}
+					if (input2 == 3) {
+						System.out.println("You exited the Bean Shop!");
+						return;
+					}
+					
+				} // try
+				catch(Exception e) {
+					System.out.println("Invalid input. Please try again. ");
+					in.nextLine(); 
+				}
+			} // while loop
+			
+		} // beans 
 
 		if(input == 3){
 			//kapow new move
@@ -239,7 +292,7 @@ public void shoppy() {
 			return;
 		}
 	} catch(Exception e){
-		System.out.println("Invalid input. ");
+		System.out.println("Invalid input. Please try again ");
 		System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n 4. Exit");
 		in.nextLine();
 	}
@@ -257,7 +310,7 @@ public void heal() {
 
 
   // Battles
-	public void battleDisplay(Pomenon me, Pomenon enemy) {
+	public void initbattleDisplay(Pomenon me, Pomenon enemy) {
 	  System.out.println( "[2J" );
 	  System.out.println("_________________________________________________________");
 	  //57 characters per line
@@ -299,18 +352,219 @@ public void heal() {
 	  System.out.println("|                                                       |");
 	  System.out.println("|                                                       |");
 	  System.out.println("|                                                       |");
-	  System.out.println("|                                                       |");
-
-
+	  System.out.println("|                                      _________________|");
+		System.out.println("|                                      |                |");
+		System.out.println("|   (╯°□°)╯︵◓                         |                |");
+		System.out.println("|                                      |________________|");
 
 	}
+	
+	public void RiverlotlbattleDisplay(Pomenon me, Pomenon enemy) {
+		System.out.println( "[2J" );
+		System.out.println("_________________________________________________________");
+		//57 characters per line
+		//NAME LINE
+				String s = "";
+				s+= "| " + enemy.getName();
+				while(s.length()<18){
+					s += " ";
+				}
+				s += "|";
+				 while(s.length()<56){
+					 s+= " ";
+				 }
+				 s+="|";
+				 System.out.println(s);
+				 s= ""; //reset
+
+
+	 //HP LINE
+			 s+= "| " + enemy.getHealth()+ "/"+ enemy.getMaxHealth();
+			 while(s.length()<18){
+				 s += " ";
+			 }
+			 s += "|";
+				while(s.length()<45){
+					s+= " ";
+				}
+				s+="           |";
+				System.out.println(s);
+				s= ""; //reset
+		//HARD CODE
+
+		System.out.println("|_________________|                         >>(.___.)<< |");
+		System.out.println("|                                              (   )__  |");
+		System.out.println("|                                               W  W    |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                      _________________|");
+		s="";
+										s+="|     ^~^  ,                           | ";
+		s+=me.getName();
+		while(s.length()<56){
+			s+=" ";
+		}
+		s+="|";
+		System.out.println(s);
+		
+		s="";
+										s+="|   ('Y') )                            | ";
+		s+=me.getHealth()+"/"+me.getMaxHealth();
+		while(s.length()<56){
+			s+=" ";
+		}
+		s+="|";
+		System.out.println(s);
+		System.out.println("|   /   \\/                             |________________|");
+		System.out.println("|  (\\|||/)                                              |");
+	
+
+	} // RIVERLOLTLBATTLEDISPLAY
+	
+	public void TrilantrobattleDisplay(Pomenon me, Pomenon enemy) {
+		System.out.println( "[2J" );
+		System.out.println("_________________________________________________________");
+		//57 characters per line
+		//NAME LINE
+				String s = "";
+				s+= "| " + enemy.getName();
+				while(s.length()<18){
+					s += " ";
+				}
+				s += "|";
+				 while(s.length()<56){
+					 s+= " ";
+				 }
+				 s+="|";
+				 System.out.println(s);
+				 s= ""; //reset
+
+
+	 //HP LINE
+			 s+= "| " + enemy.getHealth()+ "/"+ enemy.getMaxHealth();
+			 while(s.length()<18){
+				 s += " ";
+			 }
+			 s += "|";
+				while(s.length()<45){
+					s+= " ";
+				}
+				s+="           |";
+				System.out.println(s);
+				s= ""; //reset
+		//HARD CODE
+
+		System.out.println("|_________________|                          :(o v o)   |");
+		System.out.println("|                                              (v v)_/  |");
+		System.out.println("|                                              //¯\\\\    |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                      _________________|");
+		s="";
+										s+="|     ^~^  ,                           | ";
+		s+=me.getName();
+		while(s.length()<56){
+			s+=" ";
+		}
+		s+="|";
+		System.out.println(s);
+		
+		s="";
+										s+="|   ('Y') )                            | ";
+		s+=me.getHealth()+"/"+me.getMaxHealth();
+		while(s.length()<56){
+			s+=" ";
+		}
+		s+="|";
+		System.out.println(s);
+		System.out.println("|   /   \\/                             |________________|");
+		System.out.println("|  (\\|||/)                                              |");
+	
+
+	}
+	
+	public void DinosingebattleDisplay(Pomenon me, Pomenon enemy) {
+		System.out.println( "[2J" );
+		System.out.println("_________________________________________________________");
+		//57 characters per line
+		//NAME LINE
+				String s = "";
+				s+= "| " + enemy.getName();
+				while(s.length()<18){
+					s += " ";
+				}
+				s += "|";
+				 while(s.length()<56){
+					 s+= " ";
+				 }
+				 s+="|";
+				 System.out.println(s);
+				 s= ""; //reset
+
+
+	 //HP LINE
+			 s+= "| " + enemy.getHealth()+ "/"+ enemy.getMaxHealth();
+			 while(s.length()<18){
+				 s += " ";
+			 }
+			 s += "|";
+				while(s.length()<45){
+					s+= " ";
+				}
+				s+="           |";
+				System.out.println(s);
+				s= ""; //reset
+		//HARD CODE
+
+		System.out.println("|_________________|                           (` M ')   |");
+		System.out.println("|                                             =(( ) )=  |");
+		System.out.println("|                                              //¯\\\\    |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                                       |");
+		System.out.println("|                                      _________________|");
+		s="";
+		                s+="|     ^~^  ,                           | ";
+		s+=me.getName();
+		while(s.length()<56){
+			s+=" ";
+		}
+		s+="|";
+		System.out.println(s);
+		
+		s="";
+										s+="|   ('Y') )                            | ";
+		s+=me.getHealth()+"/"+me.getMaxHealth();
+		while(s.length()<56){
+			s+=" ";
+		}
+		s+="|";
+		System.out.println(s);
+		System.out.println("|   /   \\/                             |________________|");
+		System.out.println("|  (\\|||/)                                              |");
+	}
+	
+	
+	
+	
 
 
   public void individualBattle(Player me, Pomenon wild) {
 
 	Pomenon chosen = me.getPlayerTeam().get(0);
 	System.out.println("======================================");
-	this.battleDisplay(chosen, wild);
+	this.initbattleDisplay(chosen, wild);
     String s = "";
     s += "You have encountered a wild " + wild.getName() + "!";
     System.out.println(s);
@@ -327,10 +581,23 @@ public void heal() {
 
     s = "======================================";
     System.out.println(s);
-  this.battleDisplay(chosen, wild);
+		if(wild.getName().equals("Riverlotl")){
+			RiverlotlbattleDisplay(chosen, wild);
+		}
+		if(wild.getName().equals("Trilantro")){
+			TrilantrobattleDisplay(chosen, wild);
+		}
+		if(wild.getName().equals("Dinosinge")){
+			DinosingebattleDisplay(chosen, wild);
+		}
+		
+		
+  //this.battleDisplay(chosen, wild);
     while (checkUsablePomenon(me)) {
       if( wild.checkDead()){
         System.out.println("Battle won!");
+				System.out.println("20 added to your balance");
+				me.changeBal(20);
 				pause1500();
         for(Pomenon p : me.getPlayerTeam()){
             System.out.println(p.getName() + ": "+ p.getHealth() + " hp");
@@ -357,9 +624,22 @@ public void heal() {
 //  this.battleDisplay(chosen, wild);
 
       chosen.chooseMove(chosen, wild);
-			this.battleDisplay(chosen, wild);
-      System.out.println(chosen.getName()+": "+ chosen.getHealth()+ " hp");
-      System.out.println(wild.getName()+": "+ wild.getHealth()+ " hp");
+			
+			if(wild.getName().equals("Riverlotl")){
+				RiverlotlbattleDisplay(chosen, wild);
+			}
+			if(wild.getName().equals("Trilantro")){
+				TrilantrobattleDisplay(chosen, wild);
+			}
+			if(wild.getName().equals("Dinosinge")){
+				DinosingebattleDisplay(chosen, wild);
+			}
+			
+			
+			
+		//	this.battleDisplay(chosen, wild);
+      //System.out.println(chosen.getName()+": "+ chosen.getHealth()+ " hp");
+      //System.out.println(wild.getName()+": "+ wild.getHealth()+ " hp");
       s = "======================================";
       System.out.println(s);
       }
