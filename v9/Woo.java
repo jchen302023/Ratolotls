@@ -9,7 +9,7 @@ public class Woo {
     Game newGame = new Game();
     newGame.introduction();
   	newGame.map1();
-    //newGame.inventory();
+    newGame.inventory();
     newGame.map2();
   //  newGame.map3();
 
