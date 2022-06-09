@@ -190,10 +190,34 @@ public class Game {
 // INVENTORY METHOD
 
 public void inventory() {
+	Scanner in = new Scanner(System.in);
+	int input = 0;
 	if (protag.getPlayerBag().size() == 0) {
+		System.out.println("You have nothing in your bag right now!"); 
+	}
+	if (protag.getPlayerBag().size() != 0) {
+		System.out.println( "__" + protag.getPlayerName() + "'s Inventory__");
+		System.out.println("_________________________");
+			String s = "";
+		for (Item a : protag.getPlayerBag()) {
 		
+			s += "| " + a.getName();
+			while (s.length() < 25) {
+				s += " ";
+			}
+			s += "|"; 
+		}
+		System.out.println(s); 
+		String n = "";
+		n += "| Balance: " + protag.getBalance();
+		while (n.length() < 25) {
+			n += " ";
+		}
+		n += "|";
+		System.out.println(n);
+		System.out.println("_________________________");
 	} // 
-}
+} // inventory 
 
 
 
@@ -248,7 +272,7 @@ public void shoppy() {
 			Scanner in2 = new Scanner(System.in);
 			int input2 = 0;
 			
-			System.out.println("Welcome to the Bean Shop! Here we have a wonderful selection of Beans!");
+			System.out.println("\nWelcome to the Bean Shop! Here we have a wonderful selection of Beans!");
 			System.out.print("\n1. Protein Powder Bean\n2. Heart Bean\n3. Exit\n");
 			
 			while (input2 != 3) {
@@ -257,47 +281,60 @@ public void shoppy() {
 					
 					if (input2 == 1) {
 						Bean stronk = new atkBean();
-						System.out.println("This is the " + stronk.getName());
-						System.out.println("\nMade only from the finest beta-alanine");
+						System.out.println("\nThis is the " + stronk.getName());
+						System.out.println("It costs "+ stronk.getPrice()+" coins");
+						//System.out.println("\nMade only from the finest beta-alanine");
 						System.out.println("\nIncreases your Pomenon's attack stat by 5");
-						stronk.buy(protag); 
+						stronk.buy(protag, stronk); 
 					}
 					
 					if (input2 == 2) {
 						Bean tanky = new hpBean();
-						System.out.println("This is the " + tanky.getName());
-						System.out.println("\nMade with love from grandma");
-						System.out.println("\nIncreases your Pomenon's health stat by 5");
-						tanky.buy(protag); 
-					}
+						System.out.println("\nThis is the " + tanky.getName());
+						System.out.println("It costs "+ tanky.getPrice()+" coins");
+						//System.out.println("\nMade with love from grandma");
+						System.out.println("\nIncreases your Pomenon's max health stat by 5");
+						tanky.buy(protag, tanky); 
+					} // input 2 
 					if (input2 == 3) {
-						System.out.println("You exited the Bean Shop!");
-						return;
-					}
-					
-				} // try
-				catch(Exception e) {
-					System.out.println("Invalid input. Please try again. ");
-					in.nextLine(); 
-				}
+						System.out.println("\nYou exited the Bean Shop!");
+						// pause1500();
+					// clearScreen();
+					// System.out.println(center); 
+					 System.out.println("\nThis is the Pomeshop! What would you like to do?");
+				 	// System.out.println();
+				 	System.out.println("\n1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once \n\n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n\n4. Exit");
+				} // input 3
+			} // inside try  
+				 catch(Exception e) {
+				 	System.out.println("Invalid input. Please try again. ");
+				 	in.nextLine(); 
+				} // inside catch 
 			} // while loop
 			
 		} // beans 
 
 		if(input == 3){
 			//kapow new move
-		}
-		if(input == 4){
-			System.out.println("You exited the shop!");
+		} // new move 
+		
+		if(input == 4){ 
+			System.out.println("You exited the shop!"); 
+			System.out.println("Press w to continue on your merry way"); 
 			return;
-		}
-	} catch(Exception e){
+		} // exit
+	} //end try
+
+catch(Exception e){
 		System.out.println("Invalid input. Please try again ");
 		System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n 4. Exit");
 		in.nextLine();
-	}
+	} // catch 
 	} // while loop
 } // end shoppy
+
+
+
 
 public void heal() {
 
@@ -686,7 +723,7 @@ public void heal() {
  newMap = false;
  System.out.println( "[2J" );
  System.out.println(mappy);
- 		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
+ 		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter ; Enter I to access inventory");
  if(!checkUsablePomenon(protag)){
 	 System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
  }
@@ -701,7 +738,7 @@ public void heal() {
 		text = new File("pomecenter.map");
 		Map center = new Map(text);
 		System.out.println( "[2J" );
-		System.out.println("Hello traveller, welcome to the Pomecenter!\n");
+		System.out.println("\nHello traveller, welcome to the Pomecenter!\n");
 		System.out.println(center);
 		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
 

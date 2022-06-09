@@ -18,6 +18,7 @@ public class Player {
     this.balance = pbalance;
     playerPomenons = new ArrayList<Pomenon>();
     playerTeam = new ArrayList<Pomenon>(); //max 3 poms
+    bag = new ArrayList<Item>();
   }
 
   //TEAM SHENNANIGANS

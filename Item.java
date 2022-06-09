@@ -31,30 +31,42 @@ public class Item {
 
 	//return -1 if you can't afford the item or decide not to buy it
 	//return your new balance otherwise
-	 public int buy( Player customer ) {
+	 public int buy( Player customer, Item buying ) {
 	
 	 	Scanner in = new Scanner( System.in );
-	 	String confirm;
+	 	int confirm;
 	 	if ( customer.getBalance() < price ) {
 			System.out.println("\nSorry, but you can not afford this item!"); 
 			 			return -1;
 		}
 	 	//double check the player actually wants to buy the item
-	 	System.out.println("Are you sure you want to buy " + name + " ?\nYes\t\t\tNo");
-	 	try {
- 			confirm = in.nextLine().toLowerCase().trim();
-			if ( confirm.equals("yes") ) {
-	 			customer.addToBag(this);
+	 	System.out.println("\nAre you sure you want to buy " + name + " ?\n1. Yes\t\t\t2. No");
+	 //	try {
+ 			// confirm = in.nextLine().toLowerCase().trim();
+			confirm = in.nextInt();
+		
+			
+			if ( confirm == 1) {
+		
+	 			customer.addToBag(buying);
+		
 	 			customer.changeBal( -1 * price );
+			
+				System.out.println("You have bought the "+name);
+				System.out.println("Your balance is now "+customer.getBalance());
+						System.out.print("\n1. Protein Powder Bean\n2. Heart Bean\n3. Exit\n");
 	 			return customer.getBalance();
 	 		}
-			else {
+			if (confirm == 2) {
 				System.out.println("Purchase cancelled");
+						System.out.print("\n1. Protein Powder Bean\n2. Heart Bean\n3. Exit\n");
 			}
+
 		
-	 	} catch ( Exception e ) {
-	 		System.out.println("Faulty input, cancelling buy...");
-	 	} // catch exception
+	 	//} 
+		// catch ( Exception e ) {
+	 	// 	System.out.println("Faulty input, cancelling buy...");
+	 	// } // catch exception
 	 	return -1;
 	 }
 } // ITEM class
