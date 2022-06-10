@@ -18,3 +18,5 @@ java Woo
 ```
 
 TeamFlag illustrated by [Kekeflipnote](https://www.youtube.com/watch?v=QWkwZhuTVVQ)
+
+Huge credit to [ASCI Art Archive](https://www.asciiart.eu/) for providing the basis of all our asci art
