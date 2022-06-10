@@ -11,23 +11,43 @@ Pomenon - a pokemon simulator
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME:
-- How to use input file to generate map (haha assuming we figure this out...)
-- Figuring out how to use the type system in an effishient/logical way
+- Keeping track of shop code loop 
+- Navigation between maps was tricky. Had to revamp several times before successful and simple implementation 
+- inventory display was surprisingly hard to write because of protag access
+- Silly one line code mistakes that took too much time to find (in our 1.5k lines of code) ... 
+- Also because we needed to access multiple methods across multiple classes 
+- 1500 line code file ....
+
+
+Bloopers:
+- This is a loop
+- Dear god...
+- There's more...
+- No... 
+https://www.youtube.com/watch?v=JmSqorj-EC0
+
 
 UNRESOLVED ISSUES:
-- WHERE MAIN METHOD? WHEN CAN I PLAY? - frustrated player
+- We don't have a satisfying ending (no boss battle)...
+- Hot garbage visuals... (Gloria: I think they are beautiful... asci art supreme >:0 ) (no i like pixel art with colors >:() 
+- Room to grow: MORE MAPS! (BETTER VISUALS!)
 
 COOL STUFF LEARNED:
-- clown nose in processing
-- more to come...
+- How to catch errors! 
+- How to keep track of loops within loops within loops ...... loop hell 
+- How to consistently label things and variables so that you don't get confused even from your UML diagrams 
 
 MID DEVELOPMENT GAME DESIGN CHANGES:
-- Changed the Type to belong to Moves instead of Pomenons themselves.
+- Moved Map within Game for access to protag more easily 
+- Implementation of a back feature to go to previous map. Why? Because funny 
+- Added Bean and Inventory to be another measure of player progress!
 
 LESSONS LEARNED:
-- Always a good idea to have consistent variable names! For ease of understanding!
-- How to use scanner to create map.
-- Clown nose go brrrr
+- keep VERY careful track of loops (where they end, how they end)
+- Prioritization is key. Always have a running to do list, and address the most pressing issues first.
+- Don't panic when bug arises! Breathe and trace it out!
+- Print statements for diagnosing are your best friend. 
+
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -237,20 +257,32 @@ Gloria and Jack:
 * Modified maps for easier navigation
 ==============================================================
 
+2022-06-08 
+TIME SPENT: 1.5 hrs
+--------------------------------------------------------------
+Gloria and Jack:
+* Successful implementation of a "back" feature. Walk to S to go to previous map
+* Worked on display
+* Brainstormed Bean implementation
+* Day off to regroup brain cells for tomorrow's hackathon simulation 
+==============================================================
+
+2022-06-09 
+TIME SPENT: 15 hrs
+--------------------------------------------------------------
+Gloria and Jack:
+* Successful creation of map3! Hudson river ~
+* Implemented Item shop in Pomecenter 
+* Implementation of Pomenon adoption
+* Implementation of balance
+* Implemented inventory + inventory display 
+* Unique battle displays for different wild pomenons
+* Created new moves for our starter Pomes 
+* New Map constructor for more customization :) 
+* Transferred Map over to Game to become a nested class for access to protag
+* died from hackathon simulation
+==============================================================
 
 
 
 
-
-//=============================================================================//
-  SECRET TEMPORARY RUNNING TODO LIST:
-  * Compile and check for errors and bugs bzz bzz
-  * Kevin ... push plz
-  * Players can't adopt for free >:(( 
-  * Enter exit pomecenter how?? 
-  * implement balance ++ within battle 
-  * fill up the moves with moar moves
-
-    * A Game class and a Woo file that runs the actual game
-    * Set up battle method within
-//=============================================================================//
