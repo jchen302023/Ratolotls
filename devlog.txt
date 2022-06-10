@@ -14,18 +14,9 @@ OBSTACLES OVERCOME:
 - Keeping track of shop code loop 
 - Navigation between maps was tricky. Had to revamp several times before successful and simple implementation 
 - inventory display was surprisingly hard to write because of protag access
-- Silly one line code mistakes that took too much time to find (in our 1.5k lines of code) ... 
+- Silly one line code mistakes that took too much time to find (in our 1.5k lines of code in one file not including the others) ... 
 - Also because we needed to access multiple methods across multiple classes 
 - 1500 line code file ....
-
-
-Bloopers:
-- This is a loop
-- Dear god...
-- There's more...
-- No... 
-https://www.youtube.com/watch?v=JmSqorj-EC0
-
 
 UNRESOLVED ISSUES:
 - We don't have a satisfying ending (no boss battle)...
@@ -47,6 +38,14 @@ LESSONS LEARNED:
 - Prioritization is key. Always have a running to do list, and address the most pressing issues first.
 - Don't panic when bug arises! Breathe and trace it out!
 - Print statements for diagnosing are your best friend. 
+
+
+Bloopers:
+- This is a loop
+- Dear god...
+- There's more...
+- No... 
+https://www.youtube.com/watch?v=JmSqorj-EC0
 
 ||||||||||||||||||||||||||||||||||||||||||
 

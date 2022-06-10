@@ -14,7 +14,7 @@ public class Game {
   public Game() {
 		protag = new Player("filler", 50);
 		text = new File("map2.map");
-		mappy = new Map(text, 15, 8);
+		mappy = new Map(text, 15, 9);
 		text = new File("map1.map");
 		mapotofu = new Map(text, 15, 8);
 		text = new File("map3.map");
