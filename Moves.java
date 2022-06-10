@@ -30,7 +30,27 @@ public String getMoveName() {
 
 }
 
+class Tackle extends Moves {
 
+	public Tackle() {
+		PomType NORMAL = new Normal();
+
+		moveName = "Tackle";
+		moveDamage = 20;
+		moveType = NORMAL;
+	}
+} //tackle
+
+class HeadButt extends Moves {
+
+	public HeadButt() {
+		PomType NORMAL = new Normal();
+
+		moveName = "Headbutt";
+		moveDamage = 25;
+		moveType = NORMAL;
+	}
+} //tackle
 
 class WaterGun extends Moves {
   
@@ -47,6 +67,17 @@ class WaterGun extends Moves {
   }
 } // watergun
 
+class BubbleBeam extends Moves {
+
+	public BubbleBeam() {
+		PomType WATER = new Water();
+
+		moveName = "Bubblebeam";
+		moveDamage = 20;
+		moveType = WATER;
+	}
+} //bubblebeam
+
 class Smoke extends Moves {
 
 	public Smoke() {
@@ -58,6 +89,17 @@ class Smoke extends Moves {
 	}
 } //smoke
 
+class FireDance extends Moves {
+
+	public FireDance() {
+		PomType FIRE = new Fire();
+
+		moveName = "Firedance";
+		moveDamage = 30;
+		moveType = FIRE;
+	}
+} //FireDance
+
 class LeafThrow extends Moves {
 
 	public LeafThrow() {
@@ -68,3 +110,16 @@ class LeafThrow extends Moves {
 		moveType = PLANT;
 	}
 } //leafthrow
+
+class SunBeam extends Moves {
+
+	public SunBeam() {
+		PomType FIRE = new Fire();
+
+		moveName = "Sunbeam";
+		moveDamage = 25;
+		moveType = FIRE;
+	}
+} //leafthrow
+
+

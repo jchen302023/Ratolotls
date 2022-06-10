@@ -4,10 +4,14 @@ public class Item {
 
 	protected int price;
 	protected String name;
+	protected int statChange;
+	protected String statName;
 
 	public Item() {
 		name = "filler";
 		price = 0;
+		statName = "hp";
+		statChange = 5; 
 	}
 
 	// public Item( int setPrice, String setName ) {
@@ -17,6 +21,9 @@ public class Item {
 	
 	public String getName() {
 		return name;
+	}
+	public int getStatChange() {
+		return statChange;
 	}
 	
 	public int getPrice() {
@@ -29,6 +36,10 @@ public class Item {
 		return current;
 	}
 
+	
+	public String getStatName() {
+		return statName; 
+	}
 	//return -1 if you can't afford the item or decide not to buy it
 	//return your new balance otherwise
 	 public int buy( Player customer, Item buying ) {
@@ -73,8 +84,9 @@ public class Item {
 
 class Bean extends Item {
 	protected PomType beanType;
-	protected String statName; 
+	// protected String statName; 
   protected int statChange;
+
 	
 	public Bean(){
 		super();
@@ -83,7 +95,7 @@ class Bean extends Item {
 		this.statName = "atk"; 
 		this.statChange = 5; 
  	}
-	
+
 	
 } // bean class
 

@@ -78,3 +78,13 @@ class Plant extends PomType {
 		strengths.add("Water");
 	}
 } //Plant
+
+class Normal extends PomType {
+
+	public Normal() {
+		super();
+		typeName = "Normal";
+		weaknesses.add("");
+		strengths.add("");
+	}
+} //Plant

@@ -8,13 +8,18 @@ public class Game {
 	File text;
 	Map mappy;
 	Map mapotofu;
+	Map nap; 
+	Boolean waiverUsed; 
 	
   public Game() {
 		protag = new Player("filler", 50);
 		text = new File("map2.map");
-		mappy = new Map(text);
+		mappy = new Map(text, 15, 8);
 		text = new File("map1.map");
-		mapotofu = new Map(text);
+		mapotofu = new Map(text, 15, 8);
+		text = new File("map3.map");
+		nap = new Map(text , 14, 14); 
+		waiverUsed = false; 
   }
   public void play() {
     // where we put everything  from intro to battle to etc.
@@ -126,6 +131,7 @@ public class Game {
 					starter = new Trilantro();
 
 				protag.addTeam( starter );
+				protag.addPomenon( starter);
 				break;
 			} // if
 		} // while
@@ -184,7 +190,8 @@ public class Game {
 				break;
 			} // if
 		} // while
-
+		System.out.println("\nWe wish you good luck on your journey!");
+		pause1500(); 
 } // end introduction method
 
 // INVENTORY METHOD
@@ -208,9 +215,11 @@ public void inventory() {
 			}
 			s += "|"; 
 			counter += 1; 
-			s = "" ;
+			System.out.println(s);  
+			s = "" ; 
+			
 		}
-		System.out.println(s); 
+
 		String n = "";
 		n += "| Balance: " + protag.getBalance();
 		while (n.length() < 30) {
@@ -221,10 +230,113 @@ public void inventory() {
 		System.out.println(n);
 		System.out.println("|_____________________________|");
 	} // 
+	
+	// PROMT USER INPUT TO USE THE ITEMS
+	while (protag.getPlayerBag().size() != 0) {
+		
+	
+	// Scanner in = new Scanner(System.in);
+	int inputNum = 0;
+	
+	while (inputNum != 2) {
+		
+		try {
+			System.out.println("\nWould you like to use an item? \n1. Yes \t\t 2. No");
+			inputNum = in.nextInt();
+			if (inputNum == 1) {
+				System.out.println("\nPlease input the number of the item you would like to use");
+			//	System.out.println(s);
+				// System.out.println(s);
+				boolean shouldBreak = false;
+				while (!shouldBreak) {
+					try{
+						inputNum = in.nextInt();
+						
+						if (inputNum > protag.getPlayerBag().size()) {
+							System.out.println("\nPlease input a valid item number");
+						//	System.out.println(s);
+							in.nextLine();
+						}
+						else {
+							int pomcounter = 1; 
+							System.out.println("\nYou selected the " + protag.getPlayerBag().get(inputNum - 1).getName() ); 
+							System.out.println("\nWhich Pomenon would you like to use it on?");
+							
+							for (Pomenon p : protag.getPlayerTeam()) {
+								System.out.println(pomcounter + ". " + p.getName()); 
+								pomcounter += 1; 
+							} // list out yoyur pomes 
+							boolean shouldBreak2 = false;
+							int inputNum2 = 0; 
+							while (!shouldBreak2) {
+								try {
+									inputNum2 = in.nextInt();
+									if (inputNum2 > protag.getPlayerTeam().size()) {
+										System.out.println("\nPlease input a valid item number");
+										in.nextLine();
+									}
+									else {
+										useItem(protag.getPlayerTeam().get(inputNum2 - 1), protag.getPlayerBag().get(inputNum - 1));
+										protag.getPlayerBag().remove(inputNum - 1);
+										if(protag.getPlayerBag().size() == 0){
+											inputNum = 2;
+										}
+										break;
+									}
+									
+								} // try
+								catch (Exception e) {
+									System.out.println("\nPlease input a valid item number");
+									in.nextLine();
+								} // catch 
+								
+														
+							} // while loop....
+						
+
+							shouldBreak = true; 
+						} // else statement
+						
+					} // inner try
+					catch(Exception e){
+						System.out.println("Invalid input. Please try again. ");
+						System.out.println("\nPlease input the number of the item you would like to use");
+								// System.out.println(s);
+						in.nextLine(); 
+					} // inner catch 
+					// if(shouldBreak){
+					// 		System.out.println("\nWould you like to use an item? \n1. Yes \t\t 2. No");
+					// }
+				} // while 
+					
+			
+			} // if statement 
+		} // outer try
+		catch (Exception e) {
+			
+			System.out.println("Invalid input. Please try again. ");
+			System.out.println("\nWould you like to use an item? \n1. Yes \t\t 2. No");
+
+			in.nextLine(); 
+		}
+		// outer catch 
+	} 
+	}
+	System.out.println("Press a valid move key ( w a s d ) to go on your merry way!"); // while loop
+	
+	
 } // inventory 
 
 
-
+public void useItem(Pomenon pome, Item item) {
+	if(item.getStatName().equals("atk")) {
+		 pome.setAtkdmg(pome.getAtkdmg() + item.getStatChange()); 
+	}
+	if (item.getStatName().equals("hp")) {
+		pome.setMaxHealth(pome.getMaxHealth() + item.getStatChange()); 
+	}
+	System.out.println("\n" + item.getName() + " successfully used on " + pome.getName() + "!"); 
+}
 
 
 
@@ -260,17 +372,199 @@ public void shoppy() {
 
 	System.out.println("This is the Pomeshop! What would you like to do?");
 	System.out.println();
-	System.out.println("\n1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once \n\n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n\n4. Exit");
+	System.out.println("\n1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once. \n\n3. Exit");
 	Scanner in = new Scanner(System.in);
 	int input = 0;
 
-	while(input != 4){
+	while(input != 3){
 		try{
 
 		 input = in.nextInt();
 		if(input == 1){
 			//adopt your new lovely friend here
-		}
+			System.out.println("\nWelcome to the Pomenon adoption center! Would you like to adopt one of our little guys for a small fee?");
+			if (!waiverUsed ) {
+					System.out.println("\n Since you are adopting a Pomenon for the first time, you can adopt for free with your free adoption waiver! ");
+			} // waiverUsed
+			if(!(! waiverUsed || protag.getBalance()>250)){
+				System.out.println("You do not have enough balance to adopt");
+			
+			}
+			
+			
+			while (input != 4 && (! waiverUsed || protag.getBalance()>250)) {
+				System.out.print("\n1. Riverlotl\n2. Dinosinge\n3. Trilantro\n4. Exit");
+				try {
+					Scanner in4 = new Scanner(System.in);
+					int input4 = in4.nextInt();
+					
+					if (input4 == 1) {
+						Pomenon RIVERLOTL = new Riverlotl();
+						System.out.println("\nYou chose to adopt a Riverlotl!");
+					
+						System.out.println("Would you like to give your new little buddy a name?");
+						System.out.println();
+						System.out.println("1. Yes\n2. No\n"); 
+												int inputNum = 0;
+												String starterName = ""; 
+												Scanner in2 = new Scanner( System.in );
+												while ( true ) {
+										
+													try {
+														inputNum = in2.nextInt();
+													}
+													catch ( Exception e ) {
+												System.out.println("\033[2;0H\033[2KPlease, a number this time.\033[6;0H\033[2K");
+										
+													}
+										
+													if ( inputNum > 0 && inputNum <= 2 ) {
+										
+														if ( inputNum == 1 ) {
+															Scanner in3 = new Scanner( System.in );
+															// clearScreen();
+															System.out.println();
+															System.out.println("What would you like to name your Riverlotl?");
+															starterName = in3.nextLine();
+															RIVERLOTL.setName(starterName);
+															System.out.println();
+															System.out.println(RIVERLOTL.getName() + " is a wonderful name for your new friend!");
+															// pause1500();
+														}
+										
+														else if ( inputNum == 2 ) {
+															System.out.println("Your new friend is still special even though they have no name!");
+															// pause1500();
+														}
+															// System.out.println(starter.getMoves().get(0));
+													
+															
+														break;
+													} // if
+												} // while
+												if(waiverUsed){
+													protag.changeBal(protag.getBalance()- 250);
+												}
+												waiverUsed = true;
+								protag.addPomenon(RIVERLOTL);
+								protag.addTeam(RIVERLOTL); 
+						break;
+					}
+					if (input4 == 2) {
+						Pomenon DINOSINGE = new Dinosinge();
+						System.out.println("\nYou chose to adopt a Dinosinge!");
+						System.out.println("Would you like to give your new little buddy a name?");
+						System.out.println();
+						System.out.println("1. Yes\n2. No\n");
+												int inputNum = 0;
+												String starterName = ""; 
+												Scanner in2 = new Scanner( System.in );
+												while ( true ) {
+										
+													try {
+														inputNum = in2.nextInt();
+													}
+													catch ( Exception e ) {
+												System.out.println("\033[2;0H\033[2KPlease, a number this time.\033[6;0H\033[2K");
+										
+													}
+										
+													if ( inputNum > 0 && inputNum <= 2 ) {
+										
+														if ( inputNum == 1 ) {
+															Scanner in3 = new Scanner( System.in );
+															// clearScreen();
+															System.out.println();
+															System.out.println("What would you like to name your Dinosinge?");
+															starterName = in3.nextLine();
+															DINOSINGE.setName(starterName);
+															System.out.println();
+															System.out.println(DINOSINGE.getName() + " is a wonderful name for your new friend!");
+															// pause1500();
+														}
+										
+														else if ( inputNum == 2 ) {
+															System.out.println("Your new friend is still special even though they have no name!");
+															// pause1500();
+														}
+															// System.out.println(starter.getMoves().get(0));
+														
+														break;
+													} // if
+												} // while
+								protag.addPomenon(DINOSINGE);
+								protag.addTeam(DINOSINGE); 
+				
+								if(waiverUsed){
+									protag.changeBal(protag.getBalance()- 250);
+								}
+								waiverUsed = true;
+						break;
+					}
+					if (input4 == 3) {
+						Pomenon TRILANTRO = new Trilantro(); 
+						System.out.println("\nYou chose to adopt a Trilantro!");
+						System.out.println("Would you like to give your new little buddy a name?");
+						System.out.println();
+						System.out.println("1. Yes\n2. No\n");
+						
+												int inputNum = 0;
+												String starterName = ""; 
+												Scanner in2 = new Scanner( System.in );
+												while ( true ) {
+										
+													try {
+														inputNum = in2.nextInt();
+													}
+													catch ( Exception e ) {
+												System.out.println("\033[2;0H\033[2KPlease, a number this time.\033[6;0H\033[2K");
+										
+													}
+										
+													if ( inputNum > 0 && inputNum <= 2 ) {
+										
+														if ( inputNum == 1 ) {
+															Scanner in3 = new Scanner( System.in );
+															// clearScreen();
+															System.out.println();
+															System.out.println("What would you like to name your Trilantro?");
+															starterName = in3.nextLine();
+															TRILANTRO.setName(starterName);
+															System.out.println();
+															System.out.println(TRILANTRO.getName() + " is a wonderful name for your new friend!");
+															// pause1500();
+														}
+										
+														else if ( inputNum == 2 ) {
+															System.out.println("Your new friend is still special even though they have no name!");
+															// pause1500();
+														}
+															// System.out.println(starter.getMoves().get(0));
+														break;
+													} // if
+												} // while
+								protag.addPomenon(TRILANTRO);
+								protag.addTeam(TRILANTRO); 
+								if(waiverUsed){
+									protag.changeBal(protag.getBalance()- 250);
+								}
+								waiverUsed = true;
+
+						break;
+					}
+				}
+				catch (Exception e) {
+					System.out.println("Invalid input. Please type input again");
+					System.out.print("\n1. Riverlotl\n2. Dinosinge\n3. Trilantro\n4. Exit");
+				}
+				
+				
+			} // while loop
+			
+			System.out.println("\n1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once. \n\n3. Exit");
+
+		} // input 1
+		
 		if(input == 2){
 			//tasty organic gmo free beans
 			Scanner in2 = new Scanner(System.in);
@@ -302,12 +596,11 @@ public void shoppy() {
 					} // input 2 
 					if (input2 == 3) {
 						System.out.println("\nYou exited the Bean Shop!");
-						// pause1500();
-					// clearScreen();
+	
 					// System.out.println(center); 
 					 System.out.println("\nThis is the Pomeshop! What would you like to do?");
 				 	// System.out.println();
-				 	System.out.println("\n1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once \n\n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n\n4. Exit");
+				 	System.out.println("\n1. Adopt a Pomenon to add to your team! \n\n2. Buy beans to buff your team! Beans can only be consumed once \n\n3. Exit");
 				} // input 3
 			} // inside try  
 				 catch(Exception e) {
@@ -318,11 +611,11 @@ public void shoppy() {
 			
 		} // beans 
 
-		if(input == 3){
-			//kapow new move
-		} // new move 
+		// if(input == 3){
+		// 	//kapow new move
+		// } // new move 
 		
-		if(input == 4){ 
+		if(input == 3){ 
 			System.out.println("You exited the shop!"); 
 			System.out.println("Press w to continue on your merry way"); 
 			return;
@@ -331,7 +624,7 @@ public void shoppy() {
 
 catch(Exception e){
 		System.out.println("Invalid input. Please try again ");
-		System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Buy PMs to teach your pomenons new moves. Make sure to buy the correct move type, or you'll waste money. \n 4. Exit");
+		System.out.println("1. Adopt a Pomenon to add to your team! \n 2. Buy beans to buff your team! Beans can only be consumed once \n3. Exit");
 		in.nextLine();
 	} // catch 
 	} // while loop
@@ -727,7 +1020,7 @@ public void heal() {
  newMap = false;
  System.out.println( "[2J" );
  System.out.println(mappy);
- 		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter ; Enter I to access inventory");
+ 		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter ; Enter b for bag");
  if(!checkUsablePomenon(protag)){
 	 System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
  }
@@ -740,7 +1033,7 @@ public void heal() {
 
 
 		text = new File("pomecenter.map");
-		Map center = new Map(text);
+		Map center = new Map(text, 15, 8);
 		System.out.println( "[2J" );
 		System.out.println("\nHello traveller, welcome to the Pomecenter!\n");
 		System.out.println(center);
@@ -833,7 +1126,7 @@ public void map2(){
 
 
 		text = new File("pomecenter.map");
-		Map center = new Map(text);
+		Map center = new Map(text, 15, 8);
 		System.out.println( "[2J" );
 		System.out.println("Hello traveller, welcome to the Pomecenter!\n");
 		System.out.println(center);
@@ -894,6 +1187,93 @@ public void map2(){
 }//end map2
 
 
+public void map3(){
+	// text = new File("map1.map");
+	// mappy = new Map(text);
+
+		System.out.println( "[2J" );
+	System.out.println(nap);
+	nap.playerMove();
+
+	System.out.println( "[2J" );
+	System.out.println(nap);
+		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
+	if(!checkUsablePomenon(protag)){
+		System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
+	}
+	while (Character.compare(nap.getPrev(),'E')!= 0  ) {
+		//.originalTile = mappy.mappy[mappy.initRow][mappy.initColumn];
+		nap.playerMove();
+		if(Character.compare(nap.getPrev(), 'S')== 0  ){
+			this.map2();
+		}
+		if (Character.compare(nap.getPrev(), 'C') == 0) {
+
+
+		text = new File("pomecenter.map");
+		Map center = new Map(text, 15, 8);
+		System.out.println( "[2J" );
+		System.out.println("Hello traveller, welcome to the Pomecenter!\n");
+		System.out.println(center);
+			System.out.println("Key:  E = Exit ; N = Nurse ; $ = Shop");
+		while (Character.compare(center.getPrev(), 'E') != 0) {
+			center.playerMove();
+
+			System.out.println( "[2J" );
+			System.out.println(center);
+				System.out.println("Key:  E = Exit ; N = Nurse ; $ = Shop");
+						if(Character.compare(center.getPrev(),'N')==0){
+				heal();
+			}
+			if(Character.compare(center.getPrev(), '$') == 0) {
+				shoppy();
+			}
+		}
+
+	} // center
+		if(Character.compare(nap.getPrev(), '#') == 0) {
+
+			int randomInt = (int) (Math.random() * 5);
+			System.out.println(randomInt);
+			if (randomInt==3) {
+
+				randomInt = (int) (Math.random() * 5);
+				if(randomInt==0){
+				Pomenon wild = new Trilantro();
+
+				individualBattle(protag, wild );
+			 }
+			 if (randomInt == 1 || randomInt == 2 || randomInt == 3){
+				 Pomenon wild = new Riverlotl();
+				 individualBattle(protag, wild);
+
+			 }
+			 else{
+				 Pomenon wild = new Dinosinge();
+				 individualBattle(protag, wild);
+			 }
+
+
+		}
+
+
+
+	}
+
+	System.out.println( "[2J" );
+	System.out.println(nap);
+		System.out.println("Key: S = Go Back ; E = Exit ; C = Pomecenter");
+	//System.out.println(mapotofu.getPrev());
+	 if(!checkUsablePomenon(protag)){
+		 System.out.println("Your pomenons have all fainted! Go to the nearest PomCenter");
+	 }
+} //end while
+
+}//end map3
+
+
+
+
  //returns true if there is still one pom with >0 health. returns false if all are <=0 health
  public boolean checkUsablePomenon(Player gamer){
    for(Pomenon pom: gamer.getPlayerTeam()){
@@ -937,7 +1317,7 @@ public void map2(){
    public static final String ANSI_RED = "\u001B[31m";
 
 
-   public Map( File inputFile )
+   public Map( File inputFile , int startCorRow, int startCorCol)
    {
   //   protag = new Player("filler", 50);
      // init 2D array to represent maze
@@ -945,8 +1325,8 @@ public void map2(){
      _maze = new char[10000][10000];
      height = 0;
      width = 0;
-     initRow = 15;
-     initColumn = 8;
+     initRow = startCorRow;
+     initColumn = startCorCol;
      originalTile = 'S';
      //transcribe maze from file into memory
      try {

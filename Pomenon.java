@@ -88,7 +88,7 @@ public class Pomenon {
 
   public int setMaxHealth( int newHealth ) {
 	  int ret = this.health;
-	  this.health = newHealth;
+	  this.maxHealth = newHealth;
 	  return ret;
   }
 
@@ -295,21 +295,18 @@ class Riverlotl extends Pomenon {
 
     PomType WATER = new Water();
     this.type = WATER;
-
+    this.atkdmg = 10;
+    this.health = 110;
+    this.maxHealth = 110;
     Moves WATERGUN = new WaterGun();
+    Moves BUBBLEBEAM = new BubbleBeam();
+    Moves TACKLE = new Tackle(); 
+    Moves HEADBUTT = new HeadButt(); 
 
-  
-
+    moves.add(TACKLE);
+    moves.add(HEADBUTT);
+    moves.add(BUBBLEBEAM);
     moves.add(WATERGUN);
-      moves.add(WATERGUN);
-        moves.add(WATERGUN);
-          moves.add(WATERGUN);
-
-
-    // this.addMove(WATERGUN);
-    // this.addMove(WATERGUN);
-    // this.addMove(WATERGUN);
-
 
   }
 
@@ -327,12 +324,19 @@ class Dinosinge extends Pomenon {
 
 		PomType FIRE = new Fire();
 		this.type = FIRE;
-
+    this.atkdmg = 20;
+    this.health = 80;
+    this.maxHealth = 80;
+    Moves TACKLE = new Tackle(); 
     Moves SMOKE = new Smoke();
+    Moves FIREDANCE = new FireDance();
+    Moves SUNBEAM = new SunBeam();
+    
+    moves.add(TACKLE); 
     moves.add(SMOKE);
-      moves.add(SMOKE);
-        moves.add(SMOKE);
-          moves.add(SMOKE);
+    moves.add(FIREDANCE);
+    moves.add(SUNBEAM);
+    
 	}
 
 
@@ -347,13 +351,19 @@ class Trilantro extends Pomenon {
 
     PomType PLANT = new Plant();
     this.type = PLANT;
-
+    this.atkdmg = 5;
+    this.health = 135;
+    this.maxHealth = 135;
     Moves LEAFTHROW = new LeafThrow();
-    moves.add(LEAFTHROW);
-    moves.add(LEAFTHROW);
-    moves.add(LEAFTHROW);
+    Moves SUNBEAM = new SunBeam();
+    Moves TACKLE = new Tackle(); 
+    Moves HEADBUTT = new HeadButt();
+  
+    moves.add(TACKLE);
+    moves.add(HEADBUTT);
+    moves.add(SUNBEAM);
     moves.add(LEAFTHROW);
   }
 
 
-} // Ackwron (Starter water)
+} //Trilantro (Starter Plant)
