@@ -11,6 +11,7 @@ You can go back and forth between maps simply by referring to the key.
 
 
 How to run:
+Make sure to maximize terminal size first!
 ```
 git clone https://github.com/jchen302023/Ratolotls.git
 javac *.java
